@@ -1,0 +1,362 @@
+[
+    {
+        "id":  121,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mit nevezünk kódexnek, és melyik a leghíresebb magyar történeti kódexünk?",
+        "options":  [
+                        "Kézzel írott középkori könyv; Képes krónika",
+                        "Agyagtáblára írt levél; Ninivei könyvtár",
+                        "Kőbe vésett törvényoszlop; Hammurapi oszlopa",
+                        "Nyomtatott napilap; Pesti Hírlap"
+                    ],
+        "correct":  0,
+        "explanation":  "A kódex kézzel írott, pergamenre készített és miniatúrákkal díszített középkori könyv, mint a Képes krónika."
+    },
+    {
+        "id":  122,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Milyen időrendi sorrendben követik egymást a történelmi korszakok?",
+        "options":  [
+                        "Ókor → Középkor → Őskor → Jelenkor → Újkor",
+                        "Őskor → Ókor → Középkor → Újkor → Jelenkor",
+                        "Ókor → Őskor → Középkor → Újkor → Jelenkor",
+                        "Őskor → Középkor → Ókor → Újkor → Jelenkor"
+                    ],
+        "correct":  1,
+        "explanation":  "A történelmi korszakok helyes sorrendje: Őskor → Ókor (476-ig) → Középkor (1492-ig) → Újkor → Jelenkor."
+    },
+    {
+        "id":  123,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyik folyó mentén alakult ki Egyiptom, és hogyan nevezték a képírásukat?",
+        "options":  [
+                        "Tigris és Eufrátesz; ékírás",
+                        "Duna; rovásírás",
+                        "Nílus; hieroglifa",
+                        "Tiberis; latin betűs írás"
+                    ],
+        "correct":  2,
+        "explanation":  "Az ókori Egyiptom a Nílus mentén jött létre, írásuk pedig a papiruszra vagy kőbe rótt hieroglifa volt."
+    },
+    {
+        "id":  124,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mi szolgált az egyiptomi fáraók sírhelyéül?",
+        "options":  [
+                        "Az amfiteátrumok Athénban",
+                        "A diadalívek Rómában",
+                        "A kolostorok Babilonban",
+                        "A piramisok és a Királyok Völgye sziklasírjai"
+                    ],
+        "correct":  3,
+        "explanation":  "Az Óbirodalom idején kőpiramisokat (pl. Kheopsz-piramis) építettek, később a Királyok Völgye sziklasírjaiba temették a fáraókat."
+    },
+    {
+        "id":  125,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor rendezték az első ókori olümpiai játékokat, és melyik isten tiszteletére?",
+        "options":  [
+                        "Kr. e. 776-ban; Zeusz főisten tiszteletére",
+                        "Kr. u. 476-ban; Poszeidón tiszteletére",
+                        "Kr. e. 490-ben; Apollón tiszteletére",
+                        "Kr. e. 753-ban; Pallasz Athéné tiszteletére"
+                    ],
+        "correct":  0,
+        "explanation":  "Az első feljegyzett olümpiai játékokat Kr. e. 776-ban tartották Olümpiában Zeusz tiszteletére."
+    },
+    {
+        "id":  126,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Milyen zárt harci alakzatban küzdöttek a görög hopliták Marathónnál (Kr. e. 490)?",
+        "options":  [
+                        "Harci elefántokkal",
+                        "Falanxban (pajzsfalas, lándzsás alakzatban)",
+                        "Harci szekerekkel",
+                        "Könnyűlovas alakzatban"
+                    ],
+        "correct":  1,
+        "explanation":  "A görög nehézfegyverzetű gyalogosok (hopliták) zárt falanxban győzték le a perzsákat Marathónnál."
+    },
+    {
+        "id":  127,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor alapították Rómát a monda szerint, és kik voltak az alapító ikrek?",
+        "options":  [
+                        "Kr. u. 476-ban; Caesar és Augustus",
+                        "Kr. e. 490-ben; Dávid és Salamon",
+                        "Kr. e. 753-ban; Romulus és Remus",
+                        "Kr. e. 776-ban; Hunor és Magor"
+                    ],
+        "correct":  2,
+        "explanation":  "A monda szerint az anyafarkas által táplált Romulus és Remus Kr. e. 753-ban alapította Rómát."
+    },
+    {
+        "id":  128,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Ki volt Róma első császára, és ki volt a punok elefántokkal támadó hadvezére?",
+        "options":  [
+                        "Periklész; Nagy Sándor",
+                        "Kheopsz; Dareiosz",
+                        "Romulus; Spartacus",
+                        "Augustus császár; Hannibál"
+                    ],
+        "correct":  3,
+        "explanation":  "Hannibál a punok hadvezéreként kelt át az Alpokon; Julius Caesar fogadott fia, Augustus pedig Róma első császára lett."
+    },
+    {
+        "id":  129,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Hogyan nevezték a rómaiak a dunántúli provinciát, és hol állt Aquincum?",
+        "options":  [
+                        "Pannónia; a mai Budapest (Óbuda) területén",
+                        "Dacia; Debrecen helyén",
+                        "Hispania; Eger helyén",
+                        "Gallia; Szeged helyén"
+                    ],
+        "correct":  0,
+        "explanation":  "A Dunántúl római neve Pannónia volt, székhelye pedig Aquincum a mai Óbuda területén."
+    },
+    {
+        "id":  130,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Ki volt a hunok leghíresebb uralkodója, és mikor bukott meg a Nyugatrómai Birodalom?",
+        "options":  [
+                        "Árpád fejedelem; Kr. u. 895-ben",
+                        "Attila nagykirály; Kr. u. 476-ban",
+                        "Nagy Sándor; Kr. e. 323-ban",
+                        "Kheopsz; Kr. e. 753-ban"
+                    ],
+        "correct":  1,
+        "explanation":  "A Hun Birodalom élén Attila állt; a Nyugatrómai Birodalom Kr. u. 476-os bukása pedig az ókor végét jelenti."
+    },
+    {
+        "id":  131,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyik két fő részből áll a Biblia, és hol született Jézus?",
+        "options":  [
+                        "Korán és Védák; Mekkában",
+                        "Iliász és Odüsszeia; Athénban",
+                        "Ószövetség és Újszövetség; Betlehemben",
+                        "Képes krónika és Aranybulla; Rómában"
+                    ],
+        "correct":  2,
+        "explanation":  "A kereszténység szent könyve, a Biblia az Ószövetségből és az Újszövetségből áll; Jézus Betlehemben született."
+    },
+    {
+        "id":  132,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mit jelentett a középkori uradalomban a „robot”?",
+        "options":  [
+                        "A kolostori kódexmásolást",
+                        "A királyi palota őrzését",
+                        "A céhek szabályzatát",
+                        "A földesúr földjén végzett ingyenes munkát"
+                    ],
+        "correct":  3,
+        "explanation":  "A jobbágyok a telek használatáért terményadóval és a földesúr földjén végzett ingyenes munkával (robottal) tartoztak."
+    },
+    {
+        "id":  133,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Hol épült fel 996-ban hazánk első bencés apátsága, és melyik a magyar alapítású szerzetesrend?",
+        "options":  [
+                        "Pannonhalmán; pálos rend",
+                        "Budán; ferences rend",
+                        "Debrecenben; jezsuita rend",
+                        "Visegrádon; ciszterci rend"
+                    ],
+        "correct":  0,
+        "explanation":  "996-ban Pannonhalmán alapították az első bencés kolostort; az egyetlen magyar alapítású szerzetesrend pedig a pálos rend."
+    },
+    {
+        "id":  134,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mi jellemzi a román, illetve a gótikus templomépítészetet?",
+        "options":  [
+                        "Nincs köztük különbség",
+                        "Román: félkörív, vastag fal; Gótikus: csúcsív",
+                        "Román: csúcsív; Gótikus: piramis alak",
+                        "Román: üvegfal; Gótikus: faépület"
+                    ],
+        "correct":  1,
+        "explanation":  "A román stílusra a vastag falak és félköríves ablakok (pl. Ják), a gótikára a csúcsívek és rózsaablakok jellemzők."
+    },
+    {
+        "id":  135,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mi volt a középkori céh, és ki találta fel a könyvnyomtatást?",
+        "options":  [
+                        "Királyi pénzverde; Mohamed",
+                        "Falusi gyűlés; Szent Benedek",
+                        "Kézművesek szervezete; Gutenberg",
+                        "Lovagi sereg; Kolumbusz Kristóf"
+                    ],
+        "correct":  2,
+        "explanation":  "Az azonos mesterséget űző városi iparosok céhekbe tömörültek; a könyvnyomtatást pedig Gutenberg találta fel."
+    },
+    {
+        "id":  136,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mely mondáink szólnak a magyarok eredetéről és az Árpád-ház származásáról?",
+        "options":  [
+                        "Mátyás király és a kolozsvári bíró",
+                        "Romulus és Remus mondája",
+                        "Szent László és Kőmíves Kelemen",
+                        "A csodaszarvas mondája és Emese álma"
+                    ],
+        "correct":  3,
+        "explanation":  "A csodaszarvas mondája (Hunor és Magor) a nép eredetét, Emese álma (a turulmadárral) az Árpád-ház származását beszéli el."
+    },
+    {
+        "id":  137,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor zajlott a honfoglalás, honnan indultak a magyarok és melyik hágón keltek át?",
+        "options":  [
+                        "895-ben; Etelközből a Vereckei-hágón át",
+                        "955-ben; Mezopotámiából a Balkánon át",
+                        "1241-ben; Levédiából a Duna mentén",
+                        "1000-ben; Pannóniából az Alpokon át"
+                    ],
+        "correct":  0,
+        "explanation":  "895-ben Árpád vezetésével Etelközből a Vereckei-hágón és az erdélyi hágókon át foglalták el a Kárpát-medencét."
+    },
+    {
+        "id":  138,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyik győztes csatával védték meg a magyarok a hazát 907-ben?",
+        "options":  [
+                        "A muhi csatával",
+                        "A pozsonyi csatával",
+                        "Az augsburgi csatával",
+                        "A marathóni csatával"
+                    ],
+        "correct":  1,
+        "explanation":  "907-ben a pozsonyi csatában a magyarok legyőzték a támadó keleti frank–bajor sereget."
+    },
+    {
+        "id":  139,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Kit győzött le Szent István, és mit alapított meg?",
+        "options":  [
+                        "Batu kánt; a kővárakat",
+                        "II. Andrást; az Aranybullát",
+                        "Koppányt; a vármegyéket és egyházmegyéket",
+                        "Szvatoplukot; a vérszerződést"
+                    ],
+        "correct":  2,
+        "explanation":  "Szent István legyőzte Koppányt, majd megalapította a vármegyéket, az esztergomi érsekséget és elrendelte a templomépítést."
+    },
+    {
+        "id":  140,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyek a koronázási jelvényeink, és melyik volt a koronázóvárosunk?",
+        "options":  [
+                        "Pannonhalmi alapítólevél; Pécs",
+                        "Turulmadaras pajzs és kopja; Debrecen",
+                        "Aranybulla és Lehel kürtje; Visegrád",
+                        "Korona, palást, jogar, országalma, kard; Székesfehérvár"
+                    ],
+        "correct":  3,
+        "explanation":  "A koronázási ékszerekkel Székesfehérvárott az esztergomi érsek koronázta meg a magyar királyokat."
+    },
+    {
+        "id":  141,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Ki volt a „lovagkirály” és ki volt a „művelt király” az Árpád-korban?",
+        "options":  [
+                        "I. (Szent) László és Könyves Kálmán",
+                        "Géza fejedelem és III. Béla",
+                        "II. András és IV. Béla",
+                        "Álmos és Árpád"
+                    ],
+        "correct":  0,
+        "explanation":  "Szent László (a lovagkirály) szigorú törvényeket hozott és meghódította Horvátországot; Könyves Kálmán pedig enyhítette a törvényeket."
+    },
+    {
+        "id":  142,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor adta ki II. András az Aranybullát, és miről kapta a nevét?",
+        "options":  [
+                        "1241-ben; az aranyforintról",
+                        "1222-ben; a ráfüggesztett aranypecsétről",
+                        "1301-ben; arany keretéről",
+                        "1000-ben; aranybetűiről"
+                    ],
+        "correct":  1,
+        "explanation":  "II. András 1222-ben adta ki a nemesek jogait biztosító Aranybullát, amelyet aranypecséttel hitelesítettek."
+    },
+    {
+        "id":  143,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor volt a tatárjárás, és ki volt a „második honalapító” királyunk?",
+        "options":  [
+                        "1301-ben; III. András",
+                        "1000-ben; Szent István",
+                        "1241–1242-ben; a kővárakat építtető IV. Béla",
+                        "907-ben; Árpád fejedelem"
+                    ],
+        "correct":  2,
+        "explanation":  "Az 1241–1242-es tatárjárás után IV. Béla kővárakat építtetett, telepeseket hívott be és újjáépítette az országot."
+    },
+    {
+        "id":  144,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyik évben és kinek a halálával halt ki az Árpád-ház férfiága?",
+        "options":  [
+                        "1490-ben; Mátyás király halálával",
+                        "1242-ben; IV. Béla halálával",
+                        "1222-ben; II. András halálával",
+                        "1301-ben; III. András halálával"
+                    ],
+        "correct":  3,
+        "explanation":  "Az Árpád-ház férfiága 1301-ben, III. András király halálával halt ki."
+    }
+]

@@ -1,0 +1,902 @@
+[
+    {
+        "id":  61,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyek a kommunikációs folyamat alapvető tényezői?",
+        "options":  [
+                        "Adó, vevő, üzenet, kód, csatorna",
+                        "Hang, betű, szótag, mondat",
+                        "Szótő, képző, jel, rag",
+                        "Bevezetés, tárgyalás, befejezés"
+                    ],
+        "correct":  0,
+        "explanation":  "A kommunikáció tényezői: az adó (feladó), a vevő (címzett), az üzenet, a kód, a csatorna és a beszédhelyzet."
+    },
+    {
+        "id":  62,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mi a beszédhang írásbeli, látható jele az ábécében?",
+        "options":  [
+                        "A hanglejtés",
+                        "A betű",
+                        "A szótag",
+                        "A hangsúly"
+                    ],
+        "correct":  1,
+        "explanation":  "A hangot kiejtjük és halljuk, a betű pedig a beszédhang írásbeli jele."
+    },
+    {
+        "id":  63,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hol helyezkednek el a hangszalagok az emberi testben?",
+        "options":  [
+                        "A tüdő alján",
+                        "Az orrüregben",
+                        "A gégefőben",
+                        "A szájpadláson"
+                    ],
+        "correct":  2,
+        "explanation":  "A levegő a tüdőből a légcsövön át a gégefőbe jut, ahol a két hangszalag található."
+    },
+    {
+        "id":  64,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik beszélőszervünk működik szelepként a száj- és az orrüreg között?",
+        "options":  [
+                        "A kemény szájpadlás",
+                        "A metszőfogak",
+                        "Az alsó ajak",
+                        "Az ínycsap (ínyvitorla)"
+                    ],
+        "correct":  3,
+        "explanation":  "Az ínycsap leereszkedve utat nyit az orrüregbe, így keletkeznek az m, n, ny orrhangok."
+    },
+    {
+        "id":  65,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyek a szájüreg aktív (mozgó) beszélőszervei?",
+        "options":  [
+                        "A nyelv és az ajkak",
+                        "A fogak és a szájpadlás",
+                        "Az orrüreg és a garat",
+                        "A felső fogsor"
+                    ],
+        "correct":  0,
+        "explanation":  "A szájüregben a nyelv és az ajkak aktívan mozognak, míg a fogak és a szájpadlás passzív beszélőszervek."
+    },
+    {
+        "id":  66,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik emlékeztető szó tartalmazza a magas magánhangzók típusait?",
+        "options":  [
+                        "vitorláshajó",
+                        "teniszütő",
+                        "autó, háború",
+                        "koszorú"
+                    ],
+        "correct":  1,
+        "explanation":  "Mély magánhangzók (autó, háború): a, á, o, ó, u, ú; magas magánhangzók (teniszütő): e, é, i, í, ö, ő, ü, ű."
+    },
+    {
+        "id":  67,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mely magánhangzók tartoznak az ajakréses magánhangzók csoportjába?",
+        "options":  [
+                        "a, á, o, ó, ö, ő",
+                        "a, o, ó, u, ú",
+                        "á, e, é, i, í",
+                        "ö, ő, ü, ű"
+                    ],
+        "correct":  2,
+        "explanation":  "Az ajakréses magánhangzók: á, e, é, i, í (a többi 9 magánhangzó ajakkerekítéses)."
+    },
+    {
+        "id":  68,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mi dönti el a toldalék hangrendjét az összetett szavaknál (pl. Budapesten)?",
+        "options":  [
+                        "A szótagok száma",
+                        "Az első összetételi tag (előtag)",
+                        "A kezdőbetű",
+                        "Az utolsó összetételi tag (utótag)"
+                    ],
+        "correct":  3,
+        "explanation":  "Összetett szavak toldalékolásakor mindig az utótag hangrendje dönt: Budapest-en, golyóstoll-al."
+    },
+    {
+        "id":  69,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hány betűből áll a teljes magyar ábécé?",
+        "options":  [
+                        "44 betűből",
+                        "36 betűből",
+                        "26 betűből",
+                        "40 betűből"
+                    ],
+        "correct":  0,
+        "explanation":  "A kiterjesztett teljes magyar ábécé 44 betűből áll (ebből 40 magyar és 4 idegen betű: q, w, x, y)."
+    },
+    {
+        "id":  70,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik a helyes betűrendi sorrend?",
+        "options":  [
+                        "kóró, korom, korona",
+                        "korom, kóró, korona",
+                        "korona, korom, kóró",
+                        "korom, korona, kóró"
+                    ],
+        "correct":  1,
+        "explanation":  "Az o és ó egyenértékű, így a 4. betű után az 5. dönt: korom → kóró → korona."
+    },
+    {
+        "id":  71,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik áll előbb betűrendben: szeder / Szeder, illetve kor / kór?",
+        "options":  [
+                        "Szeder és kor",
+                        "szeder és kór",
+                        "szeder és kor",
+                        "Szeder és kór"
+                    ],
+        "correct":  2,
+        "explanation":  "Azonos betűalak esetén a kisbetűs megelőzi a nagybetűst (szeder → Szeder), a rövid pedig a hosszút (kor → kór)."
+    },
+    {
+        "id":  72,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik emlékeztető mondat tartalmazza a 10 zöngétlen mássalhangzót?",
+        "options":  [
+                        "„Bátor vitéz győz a harcban!”",
+                        "„Sárga rózsa nyílik a kertben!”",
+                        "„Minden madár magasan száll!”",
+                        "„Tyűha, pici, úszó kacsa, futás!”"
+                    ],
+        "correct":  3,
+        "explanation":  "A „Tyűha, pici, úszó kacsa, futás!” mondat mássalhangzói a zöngétlenek: ty, h, p, c, sz, k, cs, f, t, s."
+    },
+    {
+        "id":  73,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen mássalhangzótörvény érvényesül a „népdal” [nébdal] és a „hozta” [hoszta] szavakban?",
+        "options":  [
+                        "Zöngésség szerinti részleges hasonulás",
+                        "Mássalhangzó-kiesés",
+                        "Összeolvadás",
+                        "Képzés helye szerinti hasonulás"
+                    ],
+        "correct":  0,
+        "explanation":  "A népdalban zöngésülés [nébdal], a hozta szóban zöngétlenedés [hoszta] történik."
+    },
+    {
+        "id":  74,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen mássalhangzótörvény lép fel az „azonban” [azomban] és a „színpad” [szímpad] szavakban?",
+        "options":  [
+                        "Zöngésség szerinti részleges hasonulás",
+                        "Képzés helye szerinti részleges hasonulás",
+                        "Írásban jelölt teljes hasonulás",
+                        "Mássalhangzó-rövidülés"
+                    ],
+        "correct":  1,
+        "explanation":  "A kétajkú b és p előtt az n hang képzési helye megváltozik, és m hangot ejtünk."
+    },
+    {
+        "id":  75,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szócsoportban figyelhető meg az összeolvadás a kiejtésben?",
+        "options":  [
+                        "mindnyájan, azt hitte",
+                        "lábbal, késsel, tollal",
+                        "látja, tanítsa, fonja",
+                        "otthon, hallgat, jobbra"
+                    ],
+        "correct":  2,
+        "explanation":  "Összeolvadáskor két különböző mássalhangzó egy harmadik, hosszú mássalhangzóvá olvad össze: [láttya], [taníccsa], [fonnya]."
+    },
+    {
+        "id":  76,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen mássalhangzótörvény érvényesül a „mindnyájan” [minnyájan] kiejtésekor?",
+        "options":  [
+                        "Mássalhangzó-rövidülés",
+                        "Írásban jelölt teljes hasonulás",
+                        "Részleges hasonulás",
+                        "Mássalhangzó-kiesés"
+                    ],
+        "correct":  3,
+        "explanation":  "Három egymás melletti mássalhangzó közül a középső kiesik a kiejtésben."
+    },
+    {
+        "id":  77,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan választjuk el helyesen a „poggyász”, „mennyi”, „össze” szavakat?",
+        "options":  [
+                        "pogy-gyász, meny-nyi, ösz-sze",
+                        "pog-gyász, men-nyi, ös-sze",
+                        "po-ggyász, me-nnyi, ö-ssze",
+                        "pogyg-yász, menyn-yi, öszs-ze"
+                    ],
+        "correct":  0,
+        "explanation":  "Elválasztáskor mindkét sorban kiírjuk a teljes kétjegyű betűt: pogy-gyász, meny-nyi, ösz-sze."
+    },
+    {
+        "id":  78,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan választjuk el helyesen a „templom”, „ostrom”, „Veszprém” szavakat?",
+        "options":  [
+                        "te-mplom, o-strom, Ve-szprém",
+                        "temp-lom, ost-rom, Veszp-rém",
+                        "tem-plom, os-trom, Vesz-prém",
+                        "Nem választhatók el"
+                    ],
+        "correct":  1,
+        "explanation":  "Több mássalhangzó találkozásakor csak a legutolsó mássalhangzó kerül át az új sorba."
+    },
+    {
+        "id":  79,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan választjuk el helyesen az „orchidea” és a „hexameter” szavakat?",
+        "options":  [
+                        "orch-idea, hexa-meter",
+                        "o-rchidea, h-exameter",
+                        "or-chidea, he-xameter",
+                        "orc-hidea, hex-ameter"
+                    ],
+        "correct":  2,
+        "explanation":  "A ch és az x egyetlen rövid mássalhangzónak számít, ezért átkerül a következő sorba."
+    },
+    {
+        "id":  80,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik mozaikszót (betűszót) TILOS elválasztani a sor végén?",
+        "options":  [
+                        "Ma-lév",
+                        "ELTE-re",
+                        "NA-TO",
+                        "MLSZ, BVSC, ORFK"
+                    ],
+        "correct":  3,
+        "explanation":  "A mássalhangzós vagy egyetlen magánhangzós alapalakú betűszók (MLSZ, BVSC, ORFK) nem választhatók el."
+    },
+    {
+        "id":  81,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan választjuk el helyesen a „legerősebb” és a „legalább” szavakat?",
+        "options":  [
+                        "leg-erősebb, leg-alább",
+                        "Tilos elválasztani őket",
+                        "lege-rősebb, lega-lább",
+                        "le-gerősebb, le-galább"
+                    ],
+        "correct":  0,
+        "explanation":  "A „leg-” felsőfokjel összetételi tagként viselkedik, ezért a határán választjuk el."
+    },
+    {
+        "id":  82,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Miért tér el a „me-gint” (= újra) és a „meg-int” (= figyelmeztet) elválasztása?",
+        "options":  [
+                        "Mindkét elválasztás hibás",
+                        "Az első egyszerű szó, a második igekötős",
+                        "Idegen eredetű szavak",
+                        "Csak versben választhatók így el"
+                    ],
+        "correct":  1,
+        "explanation":  "Az egyszerű szó szótagolás szerint (me-gint), az igekötős szó az összetételi határon (meg-int) válik el."
+    },
+    {
+        "id":  83,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan nevezzük azokat a szavakat, amelyek hangalakja azonos, de jelentéseik között nincs kapcsolat (pl. vár, ár)?",
+        "options":  [
+                        "Többjelentésű szavak",
+                        "Hasonló alakú szavak",
+                        "Azonos alakú szavak (homonimák)",
+                        "Rokon értelmű szavak"
+                    ],
+        "correct":  2,
+        "explanation":  "A többjelentésű szavak jelentései összefüggenek (pl. levél, toll), az azonos alakúakéi (homonimák: vár, fog) nem."
+    },
+    {
+        "id":  84,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szó jelent települést (falut, várost), és melyik szobát, termet?",
+        "options":  [
+                        "helység = szoba, helyiség = település",
+                        "helység = hegység, helyiség = síkság",
+                        "Mindkettő tantermet jelent",
+                        "helység = település, helyiség = szoba"
+                    ],
+        "correct":  3,
+        "explanation":  "A helység = település (falu, város), míg a helyiség = szoba, terem, épületrész."
+    },
+    {
+        "id":  85,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szó jelenti azt, hogy „most még, jelenleg”?",
+        "options":  [
+                        "egyelőre",
+                        "egyenlően",
+                        "egyenlőre",
+                        "egyformára"
+                    ],
+        "correct":  0,
+        "explanation":  "Az egyelőre jelentése: most még, jelenleg; az egyenlőre jelentése: egyforma nagyságúra."
+    },
+    {
+        "id":  86,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szó jelenti a történetből levonható erkölcsi leckét?",
+        "options":  [
+                        "tanúság",
+                        "tanulság",
+                        "fáradtság",
+                        "fáradság"
+                    ],
+        "correct":  1,
+        "explanation":  "A tanulság a levonható bölcsesség, a tanúság pedig bizonyíték, igazolás."
+    },
+    {
+        "id":  87,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szó jelenti szavazáskor azt, hogy „teljes egyetértésben”?",
+        "options":  [
+                        "íztelenül",
+                        "ízetlenül",
+                        "egyhangúlag",
+                        "egyhangúan"
+                    ],
+        "correct":  2,
+        "explanation":  "Egyhangúlag = szavazáskor teljes egyetértésben; egyhangúan = unalmasan, monoton módon."
+    },
+    {
+        "id":  88,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik csoportban szerepelnek KIZÁRÓLAG hangulatfestő szavak?",
+        "options":  [
+                        "kattan, reccsen, ugat",
+                        "miau, reccsen, suttog",
+                        "kukorékol, csobog, durran",
+                        "ballag, cammog, tutyimutyi"
+                    ],
+        "correct":  3,
+        "explanation":  "A hangulatfestő szavak (ballag, cammog, csetlik-botlik, tutyimutyi) mozgás vagy tulajdonság hangulatát érzékeltetik."
+    },
+    {
+        "id":  89,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a „Közös lónak túros a háta” közmondás?",
+        "options":  [
+                        "A közös tulajdonra senki sem vigyáz",
+                        "A lovakat kettesével kell befogni",
+                        "A legokosabb ember is tévedhet",
+                        "Aki lóval jár, gyorsabban célba ér"
+                    ],
+        "correct":  0,
+        "explanation":  "Aminek több gazdája van, azt könnyen elhanyagolják."
+    },
+    {
+        "id":  90,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik közmondás jelenti azt, hogy a legokosabb ember is hibázhat?",
+        "options":  [
+                        "Közös lónak túros a háta.",
+                        "A lónak négy lába van, mégis megbotlik.",
+                        "Akinek lova nincs, az járjon gyalog.",
+                        "Ha ló nincs, a szamár is jó."
+                    ],
+        "correct":  1,
+        "explanation":  "„A lónak négy lába van, mégis megbotlik” – vagyis a tévedés bárkivel előfordulhat."
+    },
+    {
+        "id":  91,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a „Fogához veri a garast” szólás?",
+        "options":  [
+                        "Sok pénzt keres",
+                        "Szorgalmasan dolgozik",
+                        "Nagyon fukar, zsugori",
+                        "Hangosan dicsekszik"
+                    ],
+        "correct":  2,
+        "explanation":  "Fogához veri a garast = rendkívül fukar, fösvény."
+    },
+    {
+        "id":  92,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a „Nem látja a fától az erdőt” szólás?",
+        "options":  [
+                        "Fát vág a sűrű erdőben",
+                        "Szívós, kitartó jellemű",
+                        "Nagy vállalkozásba kezd bele",
+                        "Elvész a részletekben, nem látja a lényeget"
+                    ],
+        "correct":  3,
+        "explanation":  "Nem látja a fától az erdőt = az apró részletek miatt nem veszi észre az összefüggést."
+    },
+    {
+        "id":  93,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik állandósult szókapcsolat szóláshasonlat?",
+        "options":  [
+                        "Kerülgeti, mint macska a forró kását.",
+                        "Kákán is csomót keres.",
+                        "Egy gyékényen árulnak.",
+                        "Lóvá tesz valakit."
+                    ],
+        "correct":  0,
+        "explanation":  "A szóláshasonlat a „mint” kötőszóval hasonlít össze egy cselekvést vagy tulajdonságot egy képszerű fogalommal."
+    },
+    {
+        "id":  94,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Kitől származik az „Ember küzdj és bízva bízzál!” szállóige?",
+        "options":  [
+                        "Arany Jánostól",
+                        "Madách Imrétől",
+                        "Julius Caesartól",
+                        "Petőfi Sándortól"
+                    ],
+        "correct":  1,
+        "explanation":  "Az „Ember küzdj és bízva bízzál!” Madách Imre Az ember tragédiája című művének zárszava."
+    },
+    {
+        "id":  95,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik kifejezés köznyelvi (mindennapi beszédben állandósult) metafora?",
+        "options":  [
+                        "Fehér, mint a hó",
+                        "Tiszta, friss forrásvíz",
+                        "Az idő repül / Kattog az agyam",
+                        "Ki korán kel, aranyat lel"
+                    ],
+        "correct":  2,
+        "explanation":  "A köznyelvi metaforák (az idő repül, kattog az agyam, nádszálkarcsú) a hétköznapi nyelvbe beépült névcserék."
+    },
+    {
+        "id":  96,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen szerkezetű szó a „golyóstollal” és az „ablaküvegek”?",
+        "options":  [
+                        "Tőszó",
+                        "Toldalék nélküli összetett szó",
+                        "Toldalékos egyszerű szó",
+                        "Toldalékos összetett szó"
+                    ],
+        "correct":  3,
+        "explanation":  "Mindkét szó két szótőből álló összetett szó, amelyhez a végén toldalék kapcsolódik."
+    },
+    {
+        "id":  97,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen sorrendben követik egymást a szóelemek a magyar szavakban?",
+        "options":  [
+                        "SZÓTŐ + KÉPZŐ + JEL + RAG",
+                        "SZÓTŐ + RAG + JEL + KÉPZŐ",
+                        "SZÓTŐ + JEL + KÉPZŐ + RAG",
+                        "KÉPZŐ + SZÓTŐ + RAG + JEL"
+                    ],
+        "correct":  0,
+        "explanation":  "A magyar szóépítés kötött sorrendje: SZÓTŐ + KÉPZŐ (K) + JEL (J) + RAG (R)."
+    },
+    {
+        "id":  98,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik toldalék hoz létre új szótári szót (gyakran új szófajjal)?",
+        "options":  [
+                        "A rag",
+                        "A képző",
+                        "A jel",
+                        "A kötőhangzó"
+                    ],
+        "correct":  1,
+        "explanation":  "A képző új szót alkot, a jel módosítja a jelentést, a rag pedig lezárja a szót."
+    },
+    {
+        "id":  99,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen szóelemekből áll az „ír-o-gat-nak” igealak?",
+        "options":  [
+                        "szótő + képző + jel + rag",
+                        "igekötő + szótő + jel + rag",
+                        "szótő + kötőhangzó + képző + rag",
+                        "szótő + jel + képző + rag"
+                    ],
+        "correct":  2,
+        "explanation":  "Felbontása: ír (szótő) + -o- (kötőhangzó) + -gat (képző) + -nak (igei személyrag)."
+    },
+    {
+        "id":  100,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan épül fel szerkezetileg a „leg-szeb-b-ért” szóalak?",
+        "options":  [
+                        "képző + szótő + jel + rag",
+                        "szótő + képző + jel + rag",
+                        "igekötő + szótő + képző + rag",
+                        "jel + szótő + jel + rag"
+                    ],
+        "correct":  3,
+        "explanation":  "A „legszebbért” szóban a szótő (szép) előtt áll a leg- felsőfokjel, utána pedig a -bb középfokjel és az -ért rag."
+    },
+    {
+        "id":  101,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mely főnevek tartoznak a rövid -u/-ü végű szavak közé?",
+        "options":  [
+                        "falu, kapu, daru, bábu, menü",
+                        "bosszú, varjú, borjú, fiú",
+                        "hattyú, gyűrű, betű, fésű",
+                        "szomorú, keserű, gyönyörű"
+                    ],
+        "correct":  0,
+        "explanation":  "A melléknevek végén az -ú/-ű mindig hosszú, de rövid végű főnév pl. a falu, hamu, daru, kapu, bábu, batyu, áru, menü, eskü."
+    },
+    {
+        "id":  102,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik mondatban hibátlan a rövid és hosszú mássalhangzók írása?",
+        "options":  [
+                        "Anya inget var a szobában.",
+                        "A madár száll, a szabó ruhát varr.",
+                        "A pénztárnál nagy a kasza.",
+                        "A tóban úszik a hall."
+                    ],
+        "correct":  1,
+        "explanation":  "Szál (vékony darab) ↔ száll (repül); var (seb kérge) ↔ varr (tűvel dolgozik); kasza ↔ kassza."
+    },
+    {
+        "id":  103,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik sorban hibátlan a „kéz, híd, kút, tűz” főnevek tárgyragos alakja?",
+        "options":  [
+                        "kézt, hídt, kútt, tűzt",
+                        "kezzet, hiddat, kuttat, tüzzet",
+                        "kezet, hidat, kutat, tüzet",
+                        "kézet, hídat, kútat, tűzet"
+                    ],
+        "correct":  2,
+        "explanation":  "Magánhangzós ragok előtt a tőmagánhangzó megrövidül (kezet, hidat, kutat, tüzet), mássalhangzós ragok előtt hosszú marad (kézzel, híddal)."
+    },
+    {
+        "id":  104,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik a helyes -val/-vel ragos alak a „doh”, a „cseh” és a „méh” szavaknál?",
+        "options":  [
+                        "dohval, csehhel, csak méhhel",
+                        "dohval, csehvel, méhval",
+                        "dohhal, csehhel, méhval",
+                        "dohhal, csehvel, méhvel / méhhel"
+                    ],
+        "correct":  3,
+        "explanation":  "Ejtett h: dohhal; néma h: csehvel, céhvel; ingadozó h (kettős alak): méhvel/méhhel, dühvel/dühhel, juhval/juhhal."
+    },
+    {
+        "id":  105,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik helyesírási alapelv érvényesül a „gólya” és a „Kossuth” szavakban?",
+        "options":  [
+                        "A hagyomány elve",
+                        "A szóelemzés elve",
+                        "A kiejtés elve",
+                        "Az egyszerűsítés elve"
+                    ],
+        "correct":  0,
+        "explanation":  "A hagyomány elve őrzi az ly betűt és a történelmi családnevek régi írásmódját."
+    },
+    {
+        "id":  106,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mikor NEM egyszerűsítjük a három azonos mássalhangzót (pl. sakk-kör, Széll-lel)?",
+        "options":  [
+                        "Közszavak ragozásakor (pl. tollal)",
+                        "Összetett szavaknál és tulajdonneveknél",
+                        "Főnevek többes számában",
+                        "Melléknevek fokozásakor"
+                    ],
+        "correct":  1,
+        "explanation":  "Összetett szavak határán (balett-táncos, sakk-kör, jegygyűrű) és tulajdonneveknél (Széll-lel, Tarr-ral) nem egyszerűsítünk."
+    },
+    {
+        "id":  107,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan toldalékoljuk helyesen a rövidítéseket: cm, kg, db a -val/-vel raggal?",
+        "options":  [
+                        "cm-el, kg-al, db-al",
+                        "cmrel, kgmal, dbbal",
+                        "cm-rel, kg-mal, db-bal",
+                        "cm-vel, kg-val, db-val"
+                    ],
+        "correct":  2,
+        "explanation":  "A rövidítésekhez kötőjellel kapcsoljuk a ragot, amely a kiejtett szó utolsó hangjához hasonul."
+    },
+    {
+        "id":  108,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik igecsoport fejez ki AKARATTÓL FÜGGETLEN történést?",
+        "options":  [
+                        "tanul, ír, szalad, beszél",
+                        "van, nincs, sincs, lesz",
+                        "olvas, rajzol, épít, számol",
+                        "esik, megöregszik, elszárad"
+                    ],
+        "correct":  3,
+        "explanation":  "A történést kifejező igék (esik, megöregszik, elszárad, megbotlik) folyamata független a cselekvő akaratától."
+    },
+    {
+        "id":  109,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan fejezzük ki a magyar nyelvben az összetett jövő időt?",
+        "options":  [
+                        "Főnévi igenév (-ni) + fog segédige",
+                        "A volna segédigével",
+                        "A -t / -tt jellel",
+                        "A -na / -ne jellel"
+                    ],
+        "correct":  0,
+        "explanation":  "Jelen idő: ∅ jel; múlt idő: -t/-tt jel; jövő idő: -ni főnévi igenév + fog segédige (pl. tanulni fog)."
+    },
+    {
+        "id":  110,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mi a feltételes mód jele jelen időben, és mi a segédigéje múlt időben?",
+        "options":  [
+                        "Jelen: -t/-tt, Múlt: fog",
+                        "Jelen: -na/-ne/-ná/-né, Múlt: volna",
+                        "Jelen: -j, Múlt: vala",
+                        "Nincs múlt ideje"
+                    ],
+        "correct":  1,
+        "explanation":  "Feltételes mód jelen idő: -na/-ne/-ná/-né (tanulna); múlt idő: múlt idejű igealak + volna (tanult volna)."
+    },
+    {
+        "id":  111,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan írjuk helyesen felszólító módban: [haggya], [haggy], [higgye]?",
+        "options":  [
+                        "hadja, hadj, hiszje",
+                        "hagyja, hagyj, hijje",
+                        "hagyja, hagyj, higgye",
+                        "haggya, haggy, higye"
+                    ],
+        "correct":  2,
+        "explanation":  "A „hagy” igénél megőrizzük a gy + j írásképet (hagyja, hagyj), míg a „hisz” igénél: higgy, higgye!"
+    },
+    {
+        "id":  112,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik sorban hibátlan a t-végű igék felszólító módú alakja?",
+        "options":  [
+                        "segíccs, nyitj, sütj, játszunk",
+                        "segítj, tanítj, nyitsz, játszodj",
+                        "segíss, taníss, nyiss, festj",
+                        "segíts, nyiss, süss, fess, játsszunk"
+                    ],
+        "correct":  3,
+        "explanation":  "Segít → segíts; rövid t-végűek (nyit, süt, fut) → nyiss, süss, fuss; mássalhangzó + t végűek → fess, játsszunk!"
+    },
+    {
+        "id":  113,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan írjuk helyesen a „mond”, az „ad” és az „edz” igék felszólító módú alakját?",
+        "options":  [
+                        "mondja, adj, eddzen",
+                        "mondgya, adgya, edzjen",
+                        "mongya, adjál, edzél",
+                        "monja, aggy, edzen"
+                    ],
+        "correct":  0,
+        "explanation":  "A mond + j + a = mondja, az ad + j = adj, az edz + j + en = eddzen (hosszú ddz)."
+    },
+    {
+        "id":  114,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen ragozásúak lehetnek a tárgyatlan igék (pl. megy, ül, esik)?",
+        "options":  [
+                        "Alanyi és tárgyas ragozásúak is",
+                        "Kizárólag alanyi ragozásúak",
+                        "Nincs múlt idejük",
+                        "Csak tárgyas ragozásúak"
+                    ],
+        "correct":  1,
+        "explanation":  "A tárgyatlan igék nem bővíthetők tárggyal, ezért kizárólag alanyi ragozásban állhatnak."
+    },
+    {
+        "id":  115,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mely segítőszavak döntik el az alanyi és a tárgyas ragozást?",
+        "options":  [
+                        "én és mi",
+                        "holnap és tegnap",
+                        "valamit (alanyi) és azt/őt (tárgyas)",
+                        "szépen és gyorsan"
+                    ],
+        "correct":  2,
+        "explanation":  "Alanyi ragozás: olvasok (valamit); tárgyas ragozás: olvasom (azt)."
+    },
+    {
+        "id":  116,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen igealak az „olvastam volna”?",
+        "options":  [
+                        "Kijelentő mód, jövő idő, T/1., tárgyas",
+                        "Kijelentő mód, múlt idő, E/1., alanyi",
+                        "Felszólító mód, jelen idő, E/1., alanyi",
+                        "Feltételes mód, múlt idő, E/1., tárgyas"
+                    ],
+        "correct":  3,
+        "explanation":  "Az „olvastam volna (azt)” feltételes mód, múlt idő, E/1. személyű, tárgyas ragozású igealak."
+    },
+    {
+        "id":  117,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik az ikes igék (eszik, iszik, alszik) szabályos E/1. személyű alakja jelen időben?",
+        "options":  [
+                        "eszem, iszom, alszom",
+                        "eszik, iszik, alszik",
+                        "eszek, iszok, alszok",
+                        "evett, ivott, aludt"
+                    ],
+        "correct":  0,
+        "explanation":  "Az ikes igék E/3. személyben -ik-re végződnek, E/1. személyben pedig -m ragot kapnak: eszem, iszom, alszom."
+    },
+    {
+        "id":  118,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik az „alszik” és „eszik” igék igényes ikes alakja feltételes és felszólító mód E/1-ben?",
+        "options":  [
+                        "aludtam volna, ettem volna",
+                        "aludnám, enném, aludjam, egyem",
+                        "aludnék, ennék, aludjak, egyek",
+                        "alszanék, eszenék, aludjál, egyél"
+                    ],
+        "correct":  1,
+        "explanation":  "Az ikes igék igényes E/1. alakja feltételes módban -nám/-ném, felszólító módban -jam/-jem."
+    },
+    {
+        "id":  119,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen tőváltozat lép fel az „alszik” és „fekszik” igékben múlt időben?",
+        "options":  [
+                        "Eltűnik a szótő",
+                        "Magánhangzó-kettőzés történik",
+                        "alud- és feküd- tőváltozat",
+                        "Nem változik a szótő"
+                    ],
+        "correct":  2,
+        "explanation":  "Az alszik, fekszik, nyugszik, esküszik mássalhangzót váltó rendhagyó igetövek (aludtam, feküdtem)."
+    },
+    {
+        "id":  120,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mi történik a „lő, sző, fő, ró” igék tövével a „lövünk, szövök” alakokban?",
+        "options":  [
+                        "Kiesik az első mássalhangzó",
+                        "A magánhangzó meghosszabbodik",
+                        "Főnévvé alakulnak át",
+                        "Az ó/ő megrövidül és v jelenik meg"
+                    ],
+        "correct":  3,
+        "explanation":  "A lő, sző, fő, ró tőhangváltó igékben a hosszú magánhangzó megrövidül és v-s tőváltozat lép fel."
+    }
+]

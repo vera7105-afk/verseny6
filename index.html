@@ -1,0 +1,5376 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kötélhúzó Kvíz • 6. Osztályos Műveltségi Bajnokság (5. osztályos tananyag)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-main: #00d2ff;
+      --blue-glow: #0072ff;
+      --blue-card: rgba(8, 28, 58, 0.92);
+      --blue-border: rgba(0, 210, 255, 0.45);
+      --blue-btn-hover: rgba(0, 210, 255, 0.22);
+      
+      --red-main: #ff416c;
+      --red-glow: #ff4b2b;
+      --red-card: rgba(58, 12, 22, 0.92);
+      --red-border: rgba(255, 65, 108, 0.45);
+      --red-btn-hover: rgba(255, 65, 108, 0.22);
+      
+      --gold: #fbbf24;
+      --gold-glow: #f59e0b;
+      --green-correct: #10b981;
+      --red-wrong: #ef4444;
+      
+      --bg-dark: #0b0f19;
+      --bg-surface: #111827;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      
+      --arena-height: 180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 50% 10%, #172554 0%, #0b0f19 65%, #050811 100%);
+      color: var(--text-main);
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- TOP NAVBAR --- */
+    .top-navbar {
+      height: 48px;
+      background: rgba(11, 15, 25, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 50;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      font-size: 22px;
+      filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+      animation: pulse-icon 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-icon {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #fff, #93c5fd, #fca5a5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      padding: 2px 7px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .match-status-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 4px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+    }
+
+    .team-pill-blue {
+      color: var(--blue-main);
+      font-weight: 700;
+    }
+
+    .team-pill-red {
+      color: var(--red-main);
+      font-weight: 700;
+    }
+
+    .score-vs {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .nav-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* --- ARENA: TUG OF WAR --- */
+    .arena-container {
+      height: var(--arena-height);
+      position: relative;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 15, 28, 0.98) 100%);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    /* Stadium Lights Glow */
+    .stadium-glow-blue {
+      position: absolute;
+      top: -50px;
+      left: 10%;
+      width: 300px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(20px);
+    }
+
+    .stadium-glow-red {
+      position: absolute;
+      top: -50px;
+      right: 10%;
+      width: 300px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(255, 65, 108, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(20px);
+    }
+
+    /* Goal Lines */
+    .goal-zone {
+      position: absolute;
+      top: 0;
+      bottom: 20px;
+      width: 65px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .goal-blue {
+      left: 15px;
+      border-right: 3px dashed var(--blue-main);
+      background: linear-gradient(90deg, rgba(0, 210, 255, 0.18), transparent);
+    }
+
+    .goal-red {
+      right: 15px;
+      border-left: 3px dashed var(--red-main);
+      background: linear-gradient(-90deg, rgba(255, 65, 108, 0.18), transparent);
+    }
+
+    .goal-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transform: rotate(-9deg);
+      opacity: 0.85;
+    }
+
+    .goal-blue .goal-label { color: var(--blue-main); }
+    .goal-red .goal-label { color: var(--red-main); }
+
+    /* Rope Track & Ground */
+    .rope-track {
+      position: relative;
+      width: 100%;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Floor Yard Marks */
+    .yard-marks {
+      position: absolute;
+      bottom: 2px;
+      width: 82%;
+      height: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0 15px;
+      pointer-events: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .yard-tick {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 11px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+    }
+
+    .yard-tick::before {
+      content: '';
+      width: 2px;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.25);
+      margin-bottom: 2px;
+    }
+
+    .yard-tick.center {
+      color: var(--gold);
+    }
+    .yard-tick.center::before {
+      background: var(--gold);
+      height: 13px;
+      width: 3px;
+      box-shadow: 0 0 10px var(--gold);
+    }
+
+    /* The Center Line */
+    .arena-center-line {
+      position: absolute;
+      top: 10px;
+      bottom: 22px;
+      left: 50%;
+      width: 3px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.8);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* THE ROPE */
+    .rope-assembly {
+      position: absolute;
+      top: 56px;
+      left: 4%;
+      right: 4%;
+      height: 20px;
+      z-index: 12;
+      pointer-events: none;
+    }
+
+    .rope-cable {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #cca26e 0px,
+        #cca26e 10px,
+        #966b37 10px,
+        #966b37 20px,
+        #dfb784 20px,
+        #dfb784 26px
+      );
+      box-shadow: 
+        inset 0 3px 5px rgba(255, 255, 255, 0.3),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.7),
+        0 6px 14px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    /* Tug Ribbon / Knot */
+    .rope-knot {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 38px;
+      height: 64px;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: left 0.4s cubic-bezier(0.25, 1.25, 0.5, 1);
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+    }
+
+    .knot-ribbon {
+      width: 28px;
+      height: 30px;
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      border-radius: 5px;
+      border: 2.5px solid #ffffff;
+      box-shadow: 0 0 14px rgba(239, 68, 68, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .knot-arrow {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      animation: bounce-arrow 1s infinite alternate;
+    }
+
+    @keyframes bounce-arrow {
+      0% { transform: translateY(-2px); }
+      100% { transform: translateY(2px); }
+    }
+
+    .knot-tails {
+      display: flex;
+      gap: 3px;
+      margin-top: -2px;
+    }
+
+    .knot-tail {
+      width: 7px;
+      height: 24px;
+      background: linear-gradient(180deg, #dc2626, #991b1b);
+      border-radius: 0 0 3px 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .knot-tail:first-child { transform: rotate(-8deg); }
+    .knot-tail:last-child { transform: rotate(8deg); }
+
+    /* CHARACTERS ON ROPE */
+    .puller-team {
+      position: absolute;
+      top: -24px;
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      z-index: 15;
+      transition: transform 0.4s cubic-bezier(0.25, 1.25, 0.5, 1);
+      pointer-events: none;
+    }
+
+    .puller-team-blue {
+      left: 28%;
+    }
+
+    .puller-team-red {
+      right: 28%;
+      flex-direction: row-reverse;
+    }
+
+    .character-figure {
+      width: 74px;
+      height: 106px;
+      position: relative;
+      transition: transform 0.25s ease-out;
+      transform-origin: bottom center;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55));
+    }
+
+    .character-figure svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* Dynamic Action Animation Classes */
+    .team-heave-left .character-figure {
+      animation: heave-pull-left 0.45s ease-out;
+    }
+
+    .team-heave-right .character-figure {
+      animation: heave-pull-right 0.45s ease-out;
+    }
+
+    @keyframes heave-pull-left {
+      0% { transform: rotate(0deg); }
+      40% { transform: rotate(-22deg) translateY(-6px) scale(1.06); }
+      100% { transform: rotate(-12deg); }
+    }
+
+    @keyframes heave-pull-right {
+      0% { transform: rotate(0deg); }
+      40% { transform: rotate(22deg) translateY(-6px) scale(1.06); }
+      100% { transform: rotate(12deg); }
+    }
+
+    .stumble-character {
+      animation: stumble-anim 0.6s ease-in-out !important;
+    }
+
+    @keyframes stumble-anim {
+      0% { transform: rotate(0); }
+      30% { transform: rotate(15deg) translateY(4px); }
+      60% { transform: rotate(-8deg); }
+      100% { transform: rotate(0); }
+    }
+
+    /* Chalk & Dust particles */
+    .chalk-puff {
+      position: absolute;
+      bottom: 5px;
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 50%;
+      filter: blur(3px);
+      animation: puff-fade 0.6s forwards ease-out;
+      pointer-events: none;
+      z-index: 18;
+    }
+
+    @keyframes puff-fade {
+      0% { transform: scale(0.6) translate(0, 0); opacity: 1; }
+      100% { transform: scale(2.8) translate(-15px, -18px); opacity: 0; }
+    }
+
+    /* Tension Bar at bottom of Arena */
+    .arena-tension-bar {
+      height: 6px;
+      width: 100%;
+      background: #1e293b;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tension-indicator {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 0%;
+      transition: all 0.4s cubic-bezier(0.25, 1.25, 0.5, 1);
+    }
+
+    .tension-blue {
+      background: linear-gradient(90deg, var(--blue-main), #38bdf8);
+      box-shadow: 0 0 10px var(--blue-main);
+      transform-origin: left;
+    }
+
+    .tension-red {
+      background: linear-gradient(-90deg, var(--red-main), #f43f5e);
+      box-shadow: 0 0 10px var(--red-main);
+      transform-origin: right;
+    }
+
+    /* --- GAMEPLAY WORKSPACE (DUAL PANELS) --- */
+    .workspace {
+      flex: 1;
+      display: flex;
+      padding: 8px 16px 10px 16px;
+      gap: 16px;
+      min-height: 0;
+    }
+
+    .team-station {
+      flex: 1;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      min-height: 0;
+    }
+
+    /* Station Blue */
+    .station-blue {
+      background: var(--blue-card);
+      border: 2px solid var(--blue-border);
+    }
+
+    .station-blue:hover {
+      box-shadow: 0 10px 35px rgba(0, 210, 255, 0.2);
+    }
+
+    /* Station Red */
+    .station-red {
+      background: var(--red-card);
+      border: 2px solid var(--red-border);
+    }
+
+    .station-red:hover {
+      box-shadow: 0 10px 35px rgba(255, 65, 108, 0.2);
+    }
+
+    /* Station Header */
+    .station-header {
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+    }
+
+    .station-name-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .station-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .station-blue .station-badge {
+      background: var(--blue-main);
+      color: #031427;
+      box-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+    }
+
+    .station-red .station-badge {
+      background: var(--red-main);
+      color: #270308;
+      box-shadow: 0 0 10px rgba(255, 65, 108, 0.7);
+    }
+
+    .station-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+
+    .station-blue .station-title { color: var(--blue-main); }
+    .station-red .station-title { color: var(--red-main); }
+
+    .station-stats {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .streak-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 10px;
+      background: rgba(251, 191, 36, 0.18);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      display: none;
+      animation: popIn 0.3s ease;
+    }
+
+    .streak-pill.active {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .pulls-count-badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3px 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Question Box */
+    .station-body {
+      flex: 1;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 0;
+      position: relative;
+    }
+
+    .question-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .subject-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+    }
+
+    .q-number-pill {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .question-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 14px;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+    }
+
+    .question-prompt {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #ffffff;
+      width: 100%;
+    }
+
+    /* Answers Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 8px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1.5px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      padding: 8px 12px;
+      color: #f1f5f9;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+      transition: all 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      min-height: 48px;
+    }
+
+    .option-key {
+      flex: 0 0 24px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+      transition: background 0.15s;
+    }
+
+    .option-text {
+      flex: 1;
+      line-height: 1.3;
+      word-break: break-word;
+    }
+
+    /* Hover States */
+    .station-blue .option-btn:hover:not(:disabled) {
+      background: var(--blue-btn-hover);
+      border-color: var(--blue-main);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 210, 255, 0.25);
+    }
+    .station-blue .option-btn:hover:not(:disabled) .option-key {
+      background: var(--blue-main);
+      color: #031427;
+    }
+
+    .station-red .option-btn:hover:not(:disabled) {
+      background: var(--red-btn-hover);
+      border-color: var(--red-main);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 65, 108, 0.25);
+    }
+    .station-red .option-btn:hover:not(:disabled) .option-key {
+      background: var(--red-main);
+      color: #270308;
+    }
+
+    .option-btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    /* Correct Feedback */
+    .option-btn.btn-correct {
+      background: rgba(16, 185, 129, 0.35) !important;
+      border-color: #10b981 !important;
+      color: #ecfdf5 !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.6) !important;
+      animation: pulse-correct 0.4s ease;
+    }
+    .option-btn.btn-correct .option-key {
+      background: #10b981 !important;
+      color: #022c22 !important;
+    }
+
+    @keyframes pulse-correct {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+      100% { transform: scale(1); }
+    }
+
+    /* Wrong Feedback */
+    .option-btn.btn-wrong {
+      background: rgba(239, 68, 68, 0.35) !important;
+      border-color: #ef4444 !important;
+      color: #fef2f2 !important;
+      animation: shake-wrong 0.45s ease;
+    }
+    .option-btn.btn-wrong .option-key {
+      background: #ef4444 !important;
+      color: #450a0a !important;
+    }
+
+    @keyframes shake-wrong {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+
+    /* Cooldown Overlay */
+    .cooldown-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      gap: 10px;
+      z-index: 30;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      text-align: center;
+    }
+
+    .cooldown-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cooldown-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: #ef4444;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cooldown-explanation {
+      font-size: 13px;
+      color: #cbd5e1;
+      max-width: 92%;
+      line-height: 1.4;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 8px 12px;
+      border-radius: 8px;
+      border-left: 3px solid #ef4444;
+    }
+
+    .cooldown-bar-wrap {
+      width: 160px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .cooldown-bar {
+      height: 100%;
+      width: 100%;
+      background: #ef4444;
+      border-radius: 3px;
+      transform-origin: left;
+    }
+
+    /* Floating Score Popup */
+    .score-popup {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      pointer-events: none;
+      z-index: 40;
+      animation: float-score 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .score-popup.blue {
+      color: var(--blue-main);
+      text-shadow: 0 0 16px var(--blue-glow);
+    }
+
+    .score-popup.red {
+      color: var(--red-main);
+      text-shadow: 0 0 16px var(--red-glow);
+    }
+
+    @keyframes float-score {
+      0% { opacity: 0; transform: translate(-50%, 0) scale(0.6); }
+      30% { opacity: 1; transform: translate(-50%, -15px) scale(1.15); }
+      100% { opacity: 0; transform: translate(-50%, -50px) scale(1); }
+    }
+
+    /* --- MODALS --- */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(5, 8, 17, 0.88);
+      backdrop-filter: blur(14px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      width: 90%;
+      max-width: 650px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .modal-backdrop.open .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+      flex-shrink: 0;
+    }
+
+    .modal-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-modal-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    .close-modal-btn:hover { color: #fff; }
+
+    .modal-content {
+      padding: 18px 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .setting-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .setting-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+    }
+
+    .presets-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .preset-btn {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .preset-btn:hover {
+      background: rgba(59, 130, 246, 0.25);
+      border-color: #3b82f6;
+      color: #fff;
+    }
+
+    .subject-tags-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 7px;
+    }
+
+    .subject-check-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #cbd5e1;
+      transition: all 0.15s;
+    }
+
+    .subject-check-label:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .subject-check-label input:checked + span {
+      color: #fff;
+    }
+
+    .subject-check-label:has(input:checked) {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+    }
+
+    .filter-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .small-link-btn {
+      background: none;
+      border: none;
+      color: #38bdf8;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .names-inputs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .input-group label {
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .input-group.blue label { color: var(--blue-main); }
+    .input-group.red label { color: var(--red-main); }
+
+    .team-text-input {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .team-text-input:focus {
+      border-color: #38bdf8;
+    }
+
+    .target-scores-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .target-radio-btn {
+      flex: 1;
+      padding: 9px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .target-radio-btn.active {
+      background: rgba(251, 191, 36, 0.2);
+      border-color: #fbbf24;
+      color: #fbbf24;
+      box-shadow: 0 0 12px rgba(251, 191, 36, 0.3);
+    }
+
+    .modal-footer {
+      padding: 14px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      padding: 9px 20px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+      transition: all 0.2s;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.5);
+    }
+
+    /* --- VICTORY OVERLAY --- */
+    .victory-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 7, 18, 0.94);
+      backdrop-filter: blur(16px);
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      padding: 20px;
+    }
+
+    .victory-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #confetti-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 151;
+    }
+
+    .victory-content {
+      position: relative;
+      z-index: 155;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 620px;
+      width: 95%;
+      animation: victory-pop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    @keyframes victory-pop {
+      0% { transform: scale(0.7) translateY(30px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .trophy-icon {
+      font-size: 72px;
+      filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.8));
+      margin-bottom: 10px;
+      animation: float-trophy 2.5s infinite ease-in-out;
+    }
+
+    @keyframes float-trophy {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .victory-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .victory-title.blue {
+      color: var(--blue-main);
+      text-shadow: 0 0 30px rgba(0, 210, 255, 0.7);
+    }
+
+    .victory-title.red {
+      color: var(--red-main);
+      text-shadow: 0 0 30px rgba(255, 65, 108, 0.7);
+    }
+
+    .victory-subtitle {
+      font-size: 16px;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .match-stats-table {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .stat-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .victory-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .restart-match-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+
+    .restart-match-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.6);
+    }
+
+    .review-match-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .review-match-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    /* Key CheatSheet Strip */
+    .keys-cheatsheet {
+      height: 26px;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      font-size: 11px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      flex-shrink: 0;
+    }
+
+    .key-badge {
+      display: inline-block;
+      padding: 1px 5px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      color: #fff;
+      font-family: 'Outfit', monospace;
+      font-weight: 700;
+      font-size: 10.5px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .workspace {
+        flex-direction: column;
+      }
+      .arena-container {
+        height: 160px;
+      }
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="top-navbar">
+    <div class="brand">
+      <div class="brand-icon">⚔️</div>
+      <div>
+        <span class="brand-title">KÖTÉLHÚZÓ KVÍZ</span>
+        <span class="brand-tag">6. Osztályos Bajnokság • 5. Évfolyamos Tananyag (200 Kérdés)</span>
+      </div>
+    </div>
+
+    <!-- Match Status Pill -->
+    <div class="match-status-bar">
+      <span class="team-pill-blue" id="nav-blue-name">Kék versenyző</span>
+      <span class="score-vs" id="nav-score-display">0 : 0</span>
+      <span class="team-pill-red" id="nav-red-name">Piros versenyző</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="nav-actions">
+      <button class="nav-btn" id="sound-btn" onclick="toggleSound()" title="Hang némítása / visszakapcsolása">
+        <span id="sound-icon">🔊</span> Hang
+      </button>
+      <button class="nav-btn" onclick="openSettingsModal()" title="Tantárgyak és beállítások módosítása">
+        ⚙️ Beállítások
+      </button>
+      <button class="nav-btn" onclick="toggleFullscreen()" title="Teljes képernyő (Okostáblához)">
+        ⛶ Teljes képernyő
+      </button>
+      <button class="nav-btn" onclick="resetMatch(true)" title="Kötél újraindítása">
+        🔄 Újra
+      </button>
+    </div>
+  </header>
+
+  <!-- ARENA: TUG OF WAR FIELD -->
+  <div class="arena-container">
+    <div class="stadium-glow-blue"></div>
+    <div class="stadium-glow-red"></div>
+
+    <!-- Goal lines -->
+    <div class="goal-zone goal-blue">
+      <div class="goal-label">Kék Cél</div>
+    </div>
+    <div class="goal-zone goal-red">
+      <div class="goal-label">Piros Cél</div>
+    </div>
+
+    <div class="arena-center-line"></div>
+
+    <div class="rope-track" id="rope-track">
+      <!-- Blue Puller (Individual Competitor) -->
+      <div class="puller-team puller-team-blue" id="blue-team-figures">
+        <div class="character-figure">
+          <svg viewBox="0 0 80 110">
+            <circle cx="45" cy="22" r="14" fill="#00d2ff" />
+            <circle cx="45" cy="22" r="12" fill="#fed7aa" />
+            <rect x="32" y="16" width="26" height="5" rx="2" fill="#00d2ff" />
+            <circle cx="50" cy="22" r="2.5" fill="#1e293b" />
+            <path d="M42 34 L30 70 L54 70 L46 34 Z" fill="#0284c7" />
+            <text x="41" y="55" fill="#fff" font-family="'Outfit', sans-serif" font-size="12" font-weight="900" text-anchor="middle">★</text>
+            <path d="M42 40 L66 49 L78 45" stroke="#fed7aa" stroke-width="8" stroke-linecap="round" fill="none"/>
+            <path d="M44 46 L70 54 L80 51" stroke="#00d2ff" stroke-width="8" stroke-linecap="round" fill="none"/>
+            <path d="M34 68 L20 96 L10 96" stroke="#0369a1" stroke-width="9" stroke-linecap="round" fill="none"/>
+            <path d="M48 68 L34 98 L22 98" stroke="#0284c7" stroke-width="9" stroke-linecap="round" fill="none"/>
+            <rect x="6" y="93" width="18" height="7" rx="3" fill="#38bdf8" />
+            <rect x="18" y="95" width="18" height="7" rx="3" fill="#38bdf8" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- The Rope -->
+      <div class="rope-assembly">
+        <div class="rope-cable" id="rope-cable"></div>
+        <div class="rope-knot" id="rope-knot">
+          <div class="knot-ribbon">
+            <span class="knot-arrow">▼</span>
+          </div>
+          <div class="knot-tails">
+            <div class="knot-tail"></div>
+            <div class="knot-tail"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Red Puller (Individual Competitor) -->
+      <div class="puller-team puller-team-red" id="red-team-figures">
+        <div class="character-figure">
+          <svg viewBox="0 0 80 110">
+            <g transform="translate(80, 0) scale(-1, 1)">
+              <circle cx="45" cy="22" r="14" fill="#ff416c" />
+              <circle cx="45" cy="22" r="12" fill="#fed7aa" />
+              <rect x="32" y="16" width="26" height="5" rx="2" fill="#ff416c" />
+              <circle cx="50" cy="22" r="2.5" fill="#1e293b" />
+              <path d="M42 34 L30 70 L54 70 L46 34 Z" fill="#e11d48" />
+              <path d="M42 40 L66 49 L78 45" stroke="#fed7aa" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <path d="M44 46 L70 54 L80 51" stroke="#ff416c" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <path d="M34 68 L20 96 L10 96" stroke="#9f1239" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <path d="M48 68 L34 98 L22 98" stroke="#be123c" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <rect x="6" y="93" width="18" height="7" rx="3" fill="#fb7185" />
+              <rect x="18" y="95" width="18" height="7" rx="3" fill="#fb7185" />
+            </g>
+            <text x="39" y="55" fill="#fff" font-family="'Outfit', sans-serif" font-size="12" font-weight="900" text-anchor="middle">★</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Yard marks ticks -->
+      <div class="yard-marks" id="yard-marks"></div>
+    </div>
+
+    <!-- Momentum / Tension bar -->
+    <div class="arena-tension-bar">
+      <div class="tension-indicator" id="tension-indicator"></div>
+    </div>
+  </div>
+
+  <!-- PLAY WORKSPACE (DUAL QUESTION STATIONS) -->
+  <main class="workspace">
+    <!-- BLUE TEAM STATION -->
+    <div class="team-station station-blue" id="station-blue">
+      <div class="station-header">
+        <div class="station-name-wrap" onclick="promptTeamName('blue')">
+          <div class="station-badge">K</div>
+          <div class="station-title" id="title-blue">Kék versenyző ✏️</div>
+        </div>
+        <div class="station-stats">
+          <div class="streak-pill" id="streak-blue">🔥 <span>3x</span></div>
+          <div class="pulls-count-badge" id="pulls-blue">0 Húzás</div>
+        </div>
+      </div>
+
+      <div class="station-body">
+        <div class="question-meta">
+          <div class="subject-pill" id="sub-pill-blue">
+            <span id="sub-icon-blue">📖</span>
+            <span id="sub-text-blue">Irodalom • 5. osztály</span>
+          </div>
+          <div class="q-number-pill" id="q-counter-blue">#1</div>
+        </div>
+
+        <div class="question-card">
+          <div class="question-prompt" id="q-text-blue">Betöltés...</div>
+        </div>
+
+        <div class="options-grid" id="options-blue">
+          <!-- 4 option buttons generated via JS -->
+        </div>
+
+        <!-- Cooldown / Explanation Overlay -->
+        <div class="cooldown-overlay" id="cooldown-blue">
+          <div class="cooldown-title">❌ Nem talált!</div>
+          <div class="cooldown-explanation" id="cooldown-expl-blue"></div>
+          <div class="cooldown-bar-wrap">
+            <div class="cooldown-bar" id="cooldown-bar-blue"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RED TEAM STATION -->
+    <div class="team-station station-red" id="station-red">
+      <div class="station-header">
+        <div class="station-name-wrap" onclick="promptTeamName('red')">
+          <div class="station-badge">P</div>
+          <div class="station-title" id="title-red">Piros versenyző ✏️</div>
+        </div>
+        <div class="station-stats">
+          <div class="streak-pill" id="streak-red">🔥 <span>3x</span></div>
+          <div class="pulls-count-badge" id="pulls-red">0 Húzás</div>
+        </div>
+      </div>
+
+      <div class="station-body">
+        <div class="question-meta">
+          <div class="subject-pill" id="sub-pill-red">
+            <span id="sub-icon-red">📖</span>
+            <span id="sub-text-red">Irodalom • 5. osztály</span>
+          </div>
+          <div class="q-number-pill" id="q-counter-red">#1</div>
+        </div>
+
+        <div class="question-card">
+          <div class="question-prompt" id="q-text-red">Betöltés...</div>
+        </div>
+
+        <div class="options-grid" id="options-red">
+          <!-- 4 option buttons generated via JS -->
+        </div>
+
+        <!-- Cooldown / Explanation Overlay -->
+        <div class="cooldown-overlay" id="cooldown-red">
+          <div class="cooldown-title">❌ Nem talált!</div>
+          <div class="cooldown-explanation" id="cooldown-expl-red"></div>
+          <div class="cooldown-bar-wrap">
+            <div class="cooldown-bar" id="cooldown-bar-red"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- KEYBOARD CHEATSHEET STRIP -->
+  <footer class="keys-cheatsheet">
+    <div>🟦 Kék versenyző gombok: <span class="key-badge">A</span> <span class="key-badge">S</span> <span class="key-badge">D</span> <span class="key-badge">F</span> vagy <span class="key-badge">1</span> <span class="key-badge">2</span> <span class="key-badge">3</span> <span class="key-badge">4</span></div>
+    <div>🟥 Piros versenyző gombok: <span class="key-badge">H</span> <span class="key-badge">J</span> <span class="key-badge">K</span> <span class="key-badge">L</span> vagy <span class="key-badge">7</span> <span class="key-badge">8</span> <span class="key-badge">9</span> <span class="key-badge">0</span></div>
+  </footer>
+
+  <!-- SETTINGS MODAL -->
+  <div class="modal-backdrop" id="settings-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">⚙️ Játék és Kvíz Beállítások</div>
+        <button class="close-modal-btn" onclick="closeSettingsModal()">✕</button>
+      </div>
+      <div class="modal-content">
+        <!-- Presets quick buttons -->
+        <div class="setting-section">
+          <div class="setting-label">Gyors Tantárgyi Profilok</div>
+          <div class="presets-row" style="flex-wrap: wrap;">
+            <button class="preset-btn" onclick="applyPreset('all')">⚔️ Összes tantárgy (200 kérdés)</button>
+            <button class="preset-btn" onclick="applyPreset('hungarian')">📚 Csak Magyar (120 kérdés: 60 irodalom + 60 nyelvtan)</button>
+            <button class="preset-btn" onclick="applyPreset('stem_history')">🔬 Reál + Történelem + Zene (80 kérdés)</button>
+          </div>
+        </div>
+
+        <!-- Team Names -->
+        <div class="setting-section">
+          <div class="setting-label">Versenyzők neve</div>
+          <div class="names-inputs-grid">
+            <div class="input-group blue">
+              <label>Kék versenyző neve</label>
+              <input type="text" id="input-name-blue" class="team-text-input" value="Kék versenyző">
+            </div>
+            <div class="input-group red">
+              <label>Piros versenyző neve</label>
+              <input type="text" id="input-name-red" class="team-text-input" value="Piros versenyző">
+            </div>
+          </div>
+        </div>
+
+        <!-- Target Score -->
+        <div class="setting-section">
+          <div class="setting-label">Győzelmi Feltétel (Kötélhúzási különbség)</div>
+          <div class="target-scores-row">
+            <div class="target-radio-btn" onclick="setTargetScore(5)" id="target-btn-5">5 Pont (Gyors)</div>
+            <div class="target-radio-btn active" onclick="setTargetScore(7)" id="target-btn-7">7 Pont (Normál)</div>
+            <div class="target-radio-btn" onclick="setTargetScore(10)" id="target-btn-10">10 Pont (Bajnoki)</div>
+          </div>
+        </div>
+
+        <!-- Subjects selection -->
+        <div class="setting-section">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="setting-label">Választható Tantárgyak (5. Évfolyamos Tananyag)</div>
+            <div class="filter-actions">
+              <button class="small-link-btn" onclick="selectAllSubjects(true)">Mindet kijelöl</button>
+              <button class="small-link-btn" onclick="selectAllSubjects(false)">Mind töröl</button>
+            </div>
+          </div>
+          <div class="subject-tags-grid" id="subjects-filter-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="primary-btn" onclick="saveSettings()">Beállítások Mentése és Folytatás</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VICTORY & SUMMARY MODAL -->
+  <div class="victory-overlay" id="victory-overlay">
+    <canvas id="confetti-canvas"></canvas>
+    <div class="victory-content">
+      <div class="trophy-icon">🏆</div>
+      <h1 class="victory-title" id="victory-winner-title">A KÉK VERSENYZŐ GYŐZÖTT!</h1>
+      <p class="victory-subtitle" id="victory-subtitle">Fantasztikus tudás és nagyszerű győzelem a párbajban!</p>
+
+      <div class="match-stats-table">
+        <div class="stat-box">
+          <div class="stat-num" id="stat-blue-correct" style="color:var(--blue-main)">0</div>
+          <div class="stat-label">Kék helyes válasz</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" id="stat-total-q">0</div>
+          <div class="stat-label">Összes megválaszolt</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" id="stat-red-correct" style="color:var(--red-main)">0</div>
+          <div class="stat-label">Piros helyes válasz</div>
+        </div>
+      </div>
+
+      <div class="victory-buttons">
+        <button class="restart-match-btn" onclick="resetMatch(false)">⚔️ Új Bajnoki Meccs</button>
+        <button class="review-match-btn" onclick="openReviewModal()">📜 Kérdések Áttekintése</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS REVIEW MODAL -->
+  <div class="modal-backdrop" id="review-modal">
+    <div class="modal-card" style="max-width: 750px;">
+      <div class="modal-header">
+        <div class="modal-title">📜 Kérdések és Javítókulcs Áttekintése</div>
+        <button class="close-modal-btn" onclick="closeReviewModal()">✕</button>
+      </div>
+      <div class="modal-content" id="review-list">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SOUND SYSTEM & LOGIC -->
+  <script>
+                // --- EXACTLY 200 CURATED QUESTIONS (60 LITERATURE + 60 GRAMMAR + 80 5TH GRADE SUBJECTS) ---
+    const ALL_QUESTIONS = [
+    {
+        "id":  1,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hogyan terjedtek a népmesék évszázadokon át?",
+        "options":  [
+                        "Szájhagyomány útján",
+                        "Nyomtatott könyvekben",
+                        "Kőbe vésve",
+                        "Rovásírásos táblákon"
+                    ],
+        "correct":  0,
+        "explanation":  "A népmese szerzője ismeretlen és szájhagyomány útján, több változatban terjedt."
+    },
+    {
+        "id":  2,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyek a magyar népmesék legjellemzőbb bűvös számai?",
+        "options":  [
+                        "2, 4, 8, 16",
+                        "3, 7, 12, 77",
+                        "1, 6, 9, 13",
+                        "5, 10, 20, 50"
+                    ],
+        "correct":  1,
+        "explanation":  "A mesék jellegzetes bűvös számai a 3, a 7, a 12 és a 77."
+    },
+    {
+        "id":  3,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik mesetípusban győz a hős csodás elemek nélkül, a saját eszével?",
+        "options":  [
+                        "Láncmese",
+                        "Tündérmese",
+                        "Valósmese (reális mese)",
+                        "Mitikus mese"
+                    ],
+        "correct":  2,
+        "explanation":  "A valósmesében (reális mesében, pl. Az okos lány) a hős a furfangjával és eszével győz."
+    },
+    {
+        "id":  4,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik mesetípus épül fel egymásból következő, ismétlődő eseménysorokból?",
+        "options":  [
+                        "Állatmese",
+                        "Tündérmese",
+                        "Csalimese",
+                        "Láncmese"
+                    ],
+        "correct":  3,
+        "explanation":  "A láncmese eseményei ok-okozati láncszerű ismétlődéssel kapcsolódnak egymáshoz."
+    },
+    {
+        "id":  5,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik mesetípus csapja be tréfásan a hallgatót és ér hirtelen véget?",
+        "options":  [
+                        "Csalimese",
+                        "Állatmese",
+                        "Tündérmese",
+                        "Mitikus mese"
+                    ],
+        "correct":  0,
+        "explanation":  "A csalimese célja a hallgatóság tréfás félrevezetése és a váratlan lezárás."
+    },
+    {
+        "id":  6,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki írta A teáskanna című műmesét?",
+        "options":  [
+                        "Jules Verne",
+                        "Hans Christian Andersen",
+                        "Molnár Ferenc",
+                        "Benedek Elek"
+                    ],
+        "correct":  1,
+        "explanation":  "A teáskanna című műmese szerzője a dán meseíró, Hans Christian Andersen."
+    },
+    {
+        "id":  7,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik népmesében szerepel Fanyűvő, Kőmorzsoló és Vasgyúró?",
+        "options":  [
+                        "A teáskanna",
+                        "A bolond falu",
+                        "Fehérlófia",
+                        "Az okos lány"
+                    ],
+        "correct":  2,
+        "explanation":  "A Fehérlófia című tündérmesében a főhős segítő társai Fanyűvő, Kőmorzsoló és Vasgyúró."
+    },
+    {
+        "id":  8,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mikor és hol játszódik A Pál utcai fiúk cselekménye?",
+        "options":  [
+                        "1867 nyarán Szegeden",
+                        "1848 tavaszán Debrecenben",
+                        "1907 telén Bécsben",
+                        "1889 tavaszán Budapesten"
+                    ],
+        "correct":  3,
+        "explanation":  "A regény cselekménye 1889 tavaszán játszódik Budapesten."
+    },
+    {
+        "id":  9,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mit jelentett az „einstand” kifejezés A Pál utcai fiúkban?",
+        "options":  [
+                        "Erőszakos golyórablást",
+                        "Békekötést a csapatok között",
+                        "Titkos egyleti esküt",
+                        "Ünnepélyes kapunyitást"
+                    ],
+        "correct":  0,
+        "explanation":  "A Múzeumkertben a Pásztor testvérek einstandot hirdettek, vagyis az erősebb jogán elvették a kisebbek üveggolyóit."
+    },
+    {
+        "id":  10,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki lopta el a Pál utcai fiúk zászlaját a Grundról?",
+        "options":  [
+                        "Geréb Dezső",
+                        "Áts Feri",
+                        "Az idősebb Pásztor",
+                        "Boka János"
+                    ],
+        "correct":  1,
+        "explanation":  "A bonyodalom akkor indul, amikor Áts Feri, a vörösingesek vezére elviszi a grund zászlaját."
+    },
+    {
+        "id":  11,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kik lopóztak be titokban a Füvészkertbe a 3. fejezetben?",
+        "options":  [
+                        "Geréb, Kolnay és Barabás",
+                        "Boka, Geréb és Leszik",
+                        "Boka, Csónakos és Nemecsek",
+                        "Csele, Weisz és Richter"
+                    ],
+        "correct":  2,
+        "explanation":  "Boka János, Csónakos és Nemecsek Ernő ment el a Füvészkertbe, ahol leleplezték Geréb árulását."
+    },
+    {
+        "id":  12,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hányszor került hideg vízbe Nemecsek Ernő a Füvészkertben?",
+        "options":  [
+                        "Egyszer",
+                        "Négyszer",
+                        "Kétszer",
+                        "Háromszor"
+                    ],
+        "correct":  3,
+        "explanation":  "Nemecsek háromszor került hideg vízbe, ami súlyos tüdőgyulladásához vezetett."
+    },
+    {
+        "id":  13,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Miért büntette meg Áts Feri a Pásztor testvéreket?",
+        "options":  [
+                        "A múzeumkerti einstand miatt",
+                        "Mert elvesztették a lándzsákat",
+                        "Mert elkéstek a gyűlésről",
+                        "Mert elaludtak az őrségben"
+                    ],
+        "correct":  0,
+        "explanation":  "A lovagias Áts Feri megvetette a gyengébbek elleni golyórablást (einstandot)."
+    },
+    {
+        "id":  14,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hogyan óvták a Gittegylet tagjai az egylet gittjét a kiszáradástól?",
+        "options":  [
+                        "Olajjal kenegették",
+                        "Naponta rágniuk kellett",
+                        "Fűrészpor alá ásták",
+                        "Vízben áztatták"
+                    ],
+        "correct":  1,
+        "explanation":  "A Gittegyletben rágással kellett puhán tartani az ablakokból kikapart gittet."
+    },
+    {
+        "id":  15,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki döntötte el a Grundért vívott csatát Áts Feri földre teperésével?",
+        "options":  [
+                        "Csónakos",
+                        "Janó, a tót",
+                        "Nemecsek Ernő",
+                        "Boka János"
+                    ],
+        "correct":  2,
+        "explanation":  "A betegágyából kiszökött Nemecsek Ernő utolsó erejével a földhöz vágta Áts Ferit."
+    },
+    {
+        "id":  16,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen rangra léptette elő Boka a halálos beteg Nemecseket?",
+        "options":  [
+                        "Hadnaggyá",
+                        "Elnökké",
+                        "Tábornokká",
+                        "Kapitánnyá"
+                    ],
+        "correct":  3,
+        "explanation":  "Boka János a hősies helytállásért kapitánnyá léptette elő Nemecseket."
+    },
+    {
+        "id":  17,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mi lesz a Grund sorsa A Pál utcai fiúk végén?",
+        "options":  [
+                        "Bérházat építenek a helyére",
+                        "Városi játszótér lesz",
+                        "A Füvészkerthez csatolják",
+                        "Iskolai sportpálya lesz"
+                    ],
+        "correct":  0,
+        "explanation":  "Boka a regény végén tudja meg Janótól, hogy a Grundot beépítik, emeletes bérház épül rá."
+    },
+    {
+        "id":  18,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mikor és hol született Petőfi Sándor?",
+        "options":  [
+                        "1825. február 18., Komárom",
+                        "1823. január 1., Kiskőrös",
+                        "1817. március 2., Nagyszalonta",
+                        "1800. december 1., Kápolnásnyék"
+                    ],
+        "correct":  1,
+        "explanation":  "Petőfi Sándor 1823. január 1-jén született Kiskőrösön Petrovics István és Hrúz Mária gyermekeként."
+    },
+    {
+        "id":  19,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik városban töltött diákként „három eseménydús esztendőt” Petőfi?",
+        "options":  [
+                        "Debrecenben",
+                        "Nagykőrösön",
+                        "Aszódon",
+                        "Sopronban"
+                    ],
+        "correct":  2,
+        "explanation":  "Petőfi Aszódon tanult három évig (1835–1838): itt kezdett verseket írni és itt volt először szerelmes."
+    },
+    {
+        "id":  20,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kivel kötött életre szóló barátságot Petőfi a pápai gimnáziumban?",
+        "options":  [
+                        "Kölcsey Ferenccel",
+                        "Molnár Ferenccel",
+                        "Csokonai Vitéz Mihállyal",
+                        "Jókai Mórral"
+                    ],
+        "correct":  3,
+        "explanation":  "Pápán kötött szoros barátságot Jókai Mórral és unokatestvérével, Orlai Petrich Somával."
+    },
+    {
+        "id":  21,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik volt Petőfi első nyomtatásban megjelent verse 1842-ben?",
+        "options":  [
+                        "A borozó",
+                        "Nemzeti dal",
+                        "Az alföld",
+                        "Szeptember végén"
+                    ],
+        "correct":  0,
+        "explanation":  "Petőfi első nyomtatásban megjelent verse A borozó volt (1842-ben az Athenaeum folyóiratban)."
+    },
+    {
+        "id":  22,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kit vett feleségül Petőfi Sándor 1847-ben?",
+        "options":  [
+                        "Ercsey Juliannát",
+                        "Szendrey Júliát",
+                        "Cecey Évát",
+                        "Laborfalvi Rózát"
+                    ],
+        "correct":  1,
+        "explanation":  "Petőfi Szendrey Júliát vette feleségül, és Koltón töltötték a mézesheteket."
+    },
+    {
+        "id":  23,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik csatában tűnt el Petőfi Sándor 1849. július 31-én?",
+        "options":  [
+                        "A komáromi csatában",
+                        "Az isaszegi csatában",
+                        "A fehéregyházi csatában",
+                        "A pákozdi csatában"
+                    ],
+        "correct":  2,
+        "explanation":  "Petőfi Bem József seregében szolgált, és 1849. július 31-én a fehéregyházi ütközetben tűnt el."
+    },
+    {
+        "id":  24,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mennyi idő alatt írta meg Petőfi Sándor a János vitézt?",
+        "options":  [
+                        "Három esztendő alatt",
+                        "Harminc nap alatt",
+                        "Egy teljes év alatt",
+                        "Hat nap és hat éjszaka alatt"
+                    ],
+        "correct":  3,
+        "explanation":  "Petőfi 1844 decemberében mindössze 6 nap és 6 éjszaka alatt írta meg a János vitézt."
+    },
+    {
+        "id":  25,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hány fejezetből (részből) áll a János vitéz?",
+        "options":  [
+                        "27 részből",
+                        "20 részből",
+                        "10 részből",
+                        "12 énekből"
+                    ],
+        "correct":  0,
+        "explanation":  "A János vitéz 27 részből áll: az 1–18. rész a valóságos világban, a 19–27. rész a mesei világban játszódik."
+    },
+    {
+        "id":  26,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Miért kergette el a gazdája Kukorica Jancsit a faluból?",
+        "options":  [
+                        "Összeveszett a bíróval",
+                        "Elvesztette a nyáj felét",
+                        "Elaludt a kukoricásban",
+                        "Megverte a szomszéd bojtárt"
+                    ],
+        "correct":  1,
+        "explanation":  "Miközben Jancsi Iluskát vigasztalta, a nyáj szétrebbent és a fele elveszett."
+    },
+    {
+        "id":  27,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mit tett Jancsi az erdei zsiványok tanyájával a 6. részben?",
+        "options":  [
+                        "Elvette a zsiványok aranyát",
+                        "Beköltözött a házukba",
+                        "Felgyújtotta a zsiványtanyát",
+                        "Eladta a rablott kincseket"
+                    ],
+        "correct":  2,
+        "explanation":  "Tiszta lelkiismerete nem engedte, hogy a rablott kincshez nyúljon, ezért inkább felgyújtotta a zsiványtanyát."
+    },
+    {
+        "id":  28,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik fogalom jelöli a valós és mesei országok irreális sorrendjét a János vitézben?",
+        "options":  [
+                        "Keretes szerkezet",
+                        "Retrospekció",
+                        "Sormetszet",
+                        "Meseföldrajz"
+                    ],
+        "correct":  3,
+        "explanation":  "A meseföldrajzban a huszárok Tatárországon, Taljánországon, Lengyelországon és Indián át vonulnak Franciaországba."
+    },
+    {
+        "id":  29,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kinek meséli el János vitéz a saját gyermekkori történetét a 14. részben?",
+        "options":  [
+                        "A francia királynak",
+                        "Az óriások csőszének",
+                        "A török basának",
+                        "Az öreg halásznak"
+                    ],
+        "correct":  0,
+        "explanation":  "A 14. részben a francia királyi udvarban János visszatekintve meséli el, hogyan találták a kukoricásban."
+    },
+    {
+        "id":  30,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen lény hátán repült haza János vitéz a hajótörés után?",
+        "options":  [
+                        "Sárkánykígyó hátán",
+                        "Griffmadár hátán",
+                        "Turulmadár hátán",
+                        "Táltos paripa hátán"
+                    ],
+        "correct":  1,
+        "explanation":  "A tengeri viharból felhőbe kapaszkodva menekült meg, majd egy griffmadár hátán repült haza a falujába."
+    },
+    {
+        "id":  31,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen varázstárgyat kapott János vitéz a legyőzött óriásoktól?",
+        "options":  [
+                        "Egy aranyalmát",
+                        "Egy láthatatlanná tevő köpenyt",
+                        "Egy varázssípot",
+                        "Egy gyémántkardot"
+                    ],
+        "correct":  2,
+        "explanation":  "Az óriások hűséget fogadtak Jánosnak és egy sípot adtak neki, amellyel bármikor hívhatta őket."
+    },
+    {
+        "id":  32,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kit ismert fel János vitéz az utolsó menekülő boszorkányban?",
+        "options":  [
+                        "A falu javasasszonyát",
+                        "A zsiványkapitány feleségét",
+                        "A török szultán varázslóját",
+                        "Iluska gonosz mostoháját"
+                    ],
+        "correct":  3,
+        "explanation":  "Sötétség országában az utolsó boszorkányban János felismerte Iluska gonosz mostoháját."
+    },
+    {
+        "id":  33,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen szörny őrizte Tündérország harmadik kapuját?",
+        "options":  [
+                        "Egy hatalmas sárkánykígyó",
+                        "Három vad oroszlán",
+                        "Három szilaj medve",
+                        "Egy kősziklát dobáló óriás"
+                    ],
+        "correct":  0,
+        "explanation":  "Az 1. kaput három medve, a 2. kaput három oroszlán, a 3. kaput pedig egy sárkánykígyó őrizte."
+    },
+    {
+        "id":  34,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen sorfajú és rímelésű a János vitéz?",
+        "options":  [
+                        "Felező nyolcas, keresztrímmel",
+                        "Felező tizenkettes, páros rímmel",
+                        "Rímtelen szabadvers",
+                        "Időmértékes hexameter"
+                    ],
+        "correct":  1,
+        "explanation":  "A János vitéz magyaros ütemhangsúlyos, négyütemű felező tizenkettes sorfajú, páros rímeléssel (aabb)."
+    },
+    {
+        "id":  35,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen költői kép: „te vagy a szívemnek egyetlen virága”?",
+        "options":  [
+                        "Megszemélyesítés",
+                        "Alliteráció",
+                        "Metafora",
+                        "Hasonlat"
+                    ],
+        "correct":  2,
+        "explanation":  "A metafora két fogalom névcserén alapuló azonosítása a „mint” kötőszó nélkül."
+    },
+    {
+        "id":  36,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mikor és hol született Arany János?",
+        "options":  [
+                        "1823. január 1., Kiskőrös",
+                        "1817. január 1., Debrecen",
+                        "1825. március 15., Nagykőrös",
+                        "1817. március 2., Nagyszalonta"
+                    ],
+        "correct":  3,
+        "explanation":  "Arany János 1817. március 2-án született Nagyszalontán."
+    },
+    {
+        "id":  37,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki volt Arany János felesége?",
+        "options":  [
+                        "Ercsey Julianna",
+                        "Szendrey Júlia",
+                        "Laborfalvi Róza",
+                        "Cecey Éva"
+                    ],
+        "correct":  0,
+        "explanation":  "Arany János felesége Ercsey Julianna volt; gyermekeik Juliska és Arany László."
+    },
+    {
+        "id":  38,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hol volt gimnáziumi tanár Arany János 1851 és 1859 között?",
+        "options":  [
+                        "Aszódon",
+                        "Nagykőrösön",
+                        "Pápán",
+                        "Debrecenben"
+                    ],
+        "correct":  1,
+        "explanation":  "A szabadságharc leverése után Arany Nagykőrösön tanított magyart, latint és görögöt."
+    },
+    {
+        "id":  39,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik három mű alkotja Arany János Toldi-trilógiáját?",
+        "options":  [
+                        "Toldi, Buda halála, Csaba királyfi",
+                        "Toldi, A walesi bárdok, Mátyás anyja",
+                        "Toldi, Toldi estéje, Toldi szerelme",
+                        "Toldi, Toldi ifjúsága, Toldi halála"
+                    ],
+        "correct":  2,
+        "explanation":  "A Toldi-trilógia részei: Toldi (1846), Toldi estéje (1848) és Toldi szerelme (1879)."
+    },
+    {
+        "id":  40,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hol írta idős korában Arany János az Őszikék című versciklusát?",
+        "options":  [
+                        "Balatonfüreden",
+                        "Nagykőrösön",
+                        "Visegrádon",
+                        "A Margitszigeten"
+                    ],
+        "correct":  3,
+        "explanation":  "Arany az MTA főtitkáraként, idős korában a Margitszigeten lévő tölgyfák alatt írta az Őszikéket."
+    },
+    {
+        "id":  41,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik angol drámaíró műveit (pl. Hamlet) fordította magyarra Arany János?",
+        "options":  [
+                        "William Shakespeare",
+                        "Walter Scott",
+                        "Charles Dickens",
+                        "Daniel Defoe"
+                    ],
+        "correct":  0,
+        "explanation":  "Arany János fordította magyarra Shakespeare híres drámáit (Hamlet, Szentivánéji álom, János király)."
+    },
+    {
+        "id":  42,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik műfajnak van mindig valós történelmi vagy földrajzi alapja?",
+        "options":  [
+                        "A mítosznak",
+                        "A mondának",
+                        "A csalimesének",
+                        "A tündérmesének"
+                    ],
+        "correct":  1,
+        "explanation":  "A mítosz istenekről szóló történet valóságmag nélkül, míg a mondának mindig van történelmi vagy földrajzi valóságalapja."
+    },
+    {
+        "id":  43,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik görög mítoszban dönt a trójai királyfi három istennő között?",
+        "options":  [
+                        "Odüsszeusz kalandjai",
+                        "Prométheusz története",
+                        "Parisz ítélete",
+                        "Daidalosz és Ikarosz"
+                    ],
+        "correct":  2,
+        "explanation":  "A Parisz ítélete című mítoszban a királyfi Aphroditénak adja az aranyalmát."
+    },
+    {
+        "id":  44,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mi okozta Ikarosz vesztét a görög mitológiai történetben?",
+        "options":  [
+                        "Elfelejtett szárnyat építeni",
+                        "Túl alacsonyan szállt a víz felett",
+                        "Eltévedt a labirintusban",
+                        "Túl közel repült a Naphoz"
+                    ],
+        "correct":  3,
+        "explanation":  "Ikarosz nem hallgatott apja, Daidalosz tanácsára: túl közel repült a Naphoz, és a szárnyát összetartó viasz megolvadt."
+    },
+    {
+        "id":  45,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik mondatípusba tartozik a földrajzi képződményt magyarázó Csörsz árka?",
+        "options":  [
+                        "Helyi monda",
+                        "Eredetmonda",
+                        "Tréfás monda",
+                        "Legenda"
+                    ],
+        "correct":  0,
+        "explanation":  "A helyi mondák különböző földrajzi képződményekhez (árkokhoz, hegyekhez, tavakhoz) fűződő történetek."
+    },
+    {
+        "id":  46,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mit kértek a magyarok Szvatopluktól a felnyergelt fehér lóért cserébe?",
+        "options":  [
+                        "Királyi koronát és jogart",
+                        "Földet, füvet és vizet",
+                        "Szabad átvonulást nyugatra",
+                        "Száz szekér aranyat"
+                    ],
+        "correct":  1,
+        "explanation":  "A fehér ló mondájában Árpádék jelképesen földet, füvet és vizet kértek a lóért."
+    },
+    {
+        "id":  47,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik vezérünk sújtotta fejbe kürtjével a császárt a mondában?",
+        "options":  [
+                        "Botond vitéz",
+                        "Koppány vezér",
+                        "Lehel vezér",
+                        "Álmos vezér"
+                    ],
+        "correct":  2,
+        "explanation":  "A mondabeli Lehel vezér az augsburgi csata után megfújta kürtjét, majd agyonütötte vele a császárt."
+    },
+    {
+        "id":  48,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki volt Markóp a Mátyás királyról szóló tréfás mondában?",
+        "options":  [
+                        "Kevély budai főúr",
+                        "A török szultán követe",
+                        "A kolozsvári bíró",
+                        "Furfangos udvari bolond"
+                    ],
+        "correct":  3,
+        "explanation":  "Markóp az eszes udvari bolond, aki humorával és józan eszével túljár Mátyás király eszén."
+    },
+    {
+        "id":  49,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik páros volt híres magyar monda- és népmesegyűjtő?",
+        "options":  [
+                        "Benedek Elek és Kriza János",
+                        "Janus Pannonius és Balassi Bálint",
+                        "Molnár Ferenc és Gárdonyi Géza",
+                        "Kölcsey Ferenc és Berzsenyi Dániel"
+                    ],
+        "correct":  0,
+        "explanation":  "A néphagyományt többek között Benedek Elek, Kriza János, Orbán Balázs, Ipolyi Arnold, Bartók és Kodály gyűjtötte."
+    },
+    {
+        "id":  50,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik három műnem jegyeit egyesíti a ballada?",
+        "options":  [
+                        "Óda, himnusz és elégia",
+                        "Epika, líra és dráma",
+                        "Mese, monda és mítosz",
+                        "Regény, novella és eposz"
+                    ],
+        "correct":  1,
+        "explanation":  "A ballada „háromarcú műfaj”: egyszerre epikai (történet), lírai (verses-érzelmes) és drámai (párbeszédes)."
+    },
+    {
+        "id":  51,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik várat építi a tizenkét kőműves a Kőmíves Kelemenné című népballadában?",
+        "options":  [
+                        "Eger várát",
+                        "Buda várát",
+                        "Magas Déva várát",
+                        "Visegrád várát"
+                    ],
+        "correct":  2,
+        "explanation":  "A Kőmíves Kelemenné című építőáldozat-balladában Déva várának felépítéséért áldozzák fel az asszonyt."
+    },
+    {
+        "id":  52,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mi a szerkezeti szerepe a kocsis figyelmeztetésének a Kőmíves Kelemennében?",
+        "options":  [
+                        "Expozíció (bevezetés)",
+                        "Megoldás",
+                        "Tetőpont",
+                        "Késleltető mozzanat"
+                    ],
+        "correct":  3,
+        "explanation":  "A kocsis figyelmeztetése késleltető mozzanat, amely fokozza a drámai feszültséget a tragédia előtt."
+    },
+    {
+        "id":  53,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen madár viszi el Szilágyi Erzsébet levelét Prágába a Mátyás anyja című balladában?",
+        "options":  [
+                        "Egy fekete holló",
+                        "Egy turulmadár",
+                        "Egy aranysólyom",
+                        "Egy fehér galamb"
+                    ],
+        "correct":  0,
+        "explanation":  "Arany János Mátyás anyja című vígballadájában a fekete holló viszi el a levelet és hozza vissza az örömhírt."
+    },
+    {
+        "id":  54,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik angol király a zsarnok főszereplője A walesi bárdok című balladának?",
+        "options":  [
+                        "János király",
+                        "Edward király",
+                        "Oroszlánszívű Richárd",
+                        "Artúr király"
+                    ],
+        "correct":  1,
+        "explanation":  "Arany János 1857-ben Edward angol király történetébe burkolva utasította el Ferenc József dicsőítését."
+    },
+    {
+        "id":  55,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hány walesi bárd halt máglyahalált, és mi lett Edward király büntetése?",
+        "options":  [
+                        "100 bárd; a király trónt vesztett",
+                        "12 bárd; a király elmenekült",
+                        "500 bárd; a király megőrült",
+                        "50 bárd; a király bocsánatot kért"
+                    ],
+        "correct":  2,
+        "explanation":  "A lakomán 3 bárd lépett elő, 500 walesi énekest égettek el máglyán, Edward király pedig beleőrült a bűntudatba."
+    },
+    {
+        "id":  56,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen verselésű A walesi bárdok című ballada?",
+        "options":  [
+                        "Ütemhangsúlyos felező tizenkettes",
+                        "Kötetlen szabadvers",
+                        "Időmértékes hexameter",
+                        "Időmértékes (jambusi és spondeusi)"
+                    ],
+        "correct":  3,
+        "explanation":  "A walesi bárdok időmértékes verselésében a jambus (∪ –) és a spondeus (– –) váltakozik."
+    },
+    {
+        "id":  57,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen szótagokból áll a jambus (∪ –) versláb az időmértékes verselésben?",
+        "options":  [
+                        "Egy rövid és egy hosszú szótagból",
+                        "Egy hosszú és egy rövid szótagból",
+                        "Három rövid szótagból",
+                        "Két hosszú szótagból"
+                    ],
+        "correct":  0,
+        "explanation":  "A jambus képlete: ∪ – (egy rövid és egy hosszú szótag), a spondeusé pedig: – – (két hosszú szótag)."
+    },
+    {
+        "id":  58,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen lírai műfajba tartozik Arany János Családi kör című verse?",
+        "options":  [
+                        "Történelmi ballada",
+                        "Életkép",
+                        "Elbeszélő költemény",
+                        "Óda"
+                    ],
+        "correct":  1,
+        "explanation":  "A Családi kör a mindennapi falusi élet meghitt esti pillanatát ábrázoló, keretes szerkezetű életkép."
+    },
+    {
+        "id":  59,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hogyan nevezzük az „abab” és az „abba” rímképletet?",
+        "options":  [
+                        "Páros rím (abab) és bokorrím (abba)",
+                        "Bokorrím (abab) és félrím (abba)",
+                        "Keresztrím (abab) és ölelkező rím (abba)",
+                        "Félrím (abab) és páros rím (abba)"
+                    ],
+        "correct":  2,
+        "explanation":  "aaaa = bokorrím, aabb = páros rím, abab = keresztrím, abba = ölelkező rím, abcb = félrím."
+    },
+    {
+        "id":  60,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik fogalom jelöli a főhős sorsában gyökeres változást hozó döntő eseményt?",
+        "options":  [
+                        "Keretes szerkezet",
+                        "Beszélő név",
+                        "Sormetszet",
+                        "Fordulópont"
+                    ],
+        "correct":  3,
+        "explanation":  "A fordulópont olyan sorsdöntő esemény a mű cselekményében, amely gyökeres változást hoz a főhős életében."
+    },
+    {
+        "id":  61,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyek a kommunikációs folyamat alapvető tényezői?",
+        "options":  [
+                        "Adó, vevő, üzenet, kód, csatorna",
+                        "Hang, betű, szótag, mondat",
+                        "Szótő, képző, jel, rag",
+                        "Bevezetés, tárgyalás, befejezés"
+                    ],
+        "correct":  0,
+        "explanation":  "A kommunikáció tényezői: az adó (feladó), a vevő (címzett), az üzenet, a kód, a csatorna és a beszédhelyzet."
+    },
+    {
+        "id":  62,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mi a beszédhang írásbeli, látható jele az ábécében?",
+        "options":  [
+                        "A hanglejtés",
+                        "A betű",
+                        "A szótag",
+                        "A hangsúly"
+                    ],
+        "correct":  1,
+        "explanation":  "A hangot kiejtjük és halljuk, a betű pedig a beszédhang írásbeli jele."
+    },
+    {
+        "id":  63,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hol helyezkednek el a hangszalagok az emberi testben?",
+        "options":  [
+                        "A tüdő alján",
+                        "Az orrüregben",
+                        "A gégefőben",
+                        "A szájpadláson"
+                    ],
+        "correct":  2,
+        "explanation":  "A levegő a tüdőből a légcsövön át a gégefőbe jut, ahol a két hangszalag található."
+    },
+    {
+        "id":  64,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik beszélőszervünk működik szelepként a száj- és az orrüreg között?",
+        "options":  [
+                        "A kemény szájpadlás",
+                        "A metszőfogak",
+                        "Az alsó ajak",
+                        "Az ínycsap (ínyvitorla)"
+                    ],
+        "correct":  3,
+        "explanation":  "Az ínycsap leereszkedve utat nyit az orrüregbe, így keletkeznek az m, n, ny orrhangok."
+    },
+    {
+        "id":  65,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyek a szájüreg aktív (mozgó) beszélőszervei?",
+        "options":  [
+                        "A nyelv és az ajkak",
+                        "A fogak és a szájpadlás",
+                        "Az orrüreg és a garat",
+                        "A felső fogsor"
+                    ],
+        "correct":  0,
+        "explanation":  "A szájüregben a nyelv és az ajkak aktívan mozognak, míg a fogak és a szájpadlás passzív beszélőszervek."
+    },
+    {
+        "id":  66,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik emlékeztető szó tartalmazza a magas magánhangzók típusait?",
+        "options":  [
+                        "vitorláshajó",
+                        "teniszütő",
+                        "autó, háború",
+                        "koszorú"
+                    ],
+        "correct":  1,
+        "explanation":  "Mély magánhangzók (autó, háború): a, á, o, ó, u, ú; magas magánhangzók (teniszütő): e, é, i, í, ö, ő, ü, ű."
+    },
+    {
+        "id":  67,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mely magánhangzók tartoznak az ajakréses magánhangzók csoportjába?",
+        "options":  [
+                        "a, á, o, ó, ö, ő",
+                        "a, o, ó, u, ú",
+                        "á, e, é, i, í",
+                        "ö, ő, ü, ű"
+                    ],
+        "correct":  2,
+        "explanation":  "Az ajakréses magánhangzók: á, e, é, i, í (a többi 9 magánhangzó ajakkerekítéses)."
+    },
+    {
+        "id":  68,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mi dönti el a toldalék hangrendjét az összetett szavaknál (pl. Budapesten)?",
+        "options":  [
+                        "A szótagok száma",
+                        "Az első összetételi tag (előtag)",
+                        "A kezdőbetű",
+                        "Az utolsó összetételi tag (utótag)"
+                    ],
+        "correct":  3,
+        "explanation":  "Összetett szavak toldalékolásakor mindig az utótag hangrendje dönt: Budapest-en, golyóstoll-al."
+    },
+    {
+        "id":  69,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hány betűből áll a teljes magyar ábécé?",
+        "options":  [
+                        "44 betűből",
+                        "36 betűből",
+                        "26 betűből",
+                        "40 betűből"
+                    ],
+        "correct":  0,
+        "explanation":  "A kiterjesztett teljes magyar ábécé 44 betűből áll (ebből 40 magyar és 4 idegen betű: q, w, x, y)."
+    },
+    {
+        "id":  70,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik a helyes betűrendi sorrend?",
+        "options":  [
+                        "kóró, korom, korona",
+                        "korom, kóró, korona",
+                        "korona, korom, kóró",
+                        "korom, korona, kóró"
+                    ],
+        "correct":  1,
+        "explanation":  "Az o és ó egyenértékű, így a 4. betű után az 5. dönt: korom → kóró → korona."
+    },
+    {
+        "id":  71,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik áll előbb betűrendben: szeder / Szeder, illetve kor / kór?",
+        "options":  [
+                        "Szeder és kor",
+                        "szeder és kór",
+                        "szeder és kor",
+                        "Szeder és kór"
+                    ],
+        "correct":  2,
+        "explanation":  "Azonos betűalak esetén a kisbetűs megelőzi a nagybetűst (szeder → Szeder), a rövid pedig a hosszút (kor → kór)."
+    },
+    {
+        "id":  72,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik emlékeztető mondat tartalmazza a 10 zöngétlen mássalhangzót?",
+        "options":  [
+                        "„Bátor vitéz győz a harcban!”",
+                        "„Sárga rózsa nyílik a kertben!”",
+                        "„Minden madár magasan száll!”",
+                        "„Tyűha, pici, úszó kacsa, futás!”"
+                    ],
+        "correct":  3,
+        "explanation":  "A „Tyűha, pici, úszó kacsa, futás!” mondat mássalhangzói a zöngétlenek: ty, h, p, c, sz, k, cs, f, t, s."
+    },
+    {
+        "id":  73,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen mássalhangzótörvény érvényesül a „népdal” [nébdal] és a „hozta” [hoszta] szavakban?",
+        "options":  [
+                        "Zöngésség szerinti részleges hasonulás",
+                        "Mássalhangzó-kiesés",
+                        "Összeolvadás",
+                        "Képzés helye szerinti hasonulás"
+                    ],
+        "correct":  0,
+        "explanation":  "A népdalban zöngésülés [nébdal], a hozta szóban zöngétlenedés [hoszta] történik."
+    },
+    {
+        "id":  74,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen mássalhangzótörvény lép fel az „azonban” [azomban] és a „színpad” [szímpad] szavakban?",
+        "options":  [
+                        "Zöngésség szerinti részleges hasonulás",
+                        "Képzés helye szerinti részleges hasonulás",
+                        "Írásban jelölt teljes hasonulás",
+                        "Mássalhangzó-rövidülés"
+                    ],
+        "correct":  1,
+        "explanation":  "A kétajkú b és p előtt az n hang képzési helye megváltozik, és m hangot ejtünk."
+    },
+    {
+        "id":  75,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szócsoportban figyelhető meg az összeolvadás a kiejtésben?",
+        "options":  [
+                        "mindnyájan, azt hitte",
+                        "lábbal, késsel, tollal",
+                        "látja, tanítsa, fonja",
+                        "otthon, hallgat, jobbra"
+                    ],
+        "correct":  2,
+        "explanation":  "Összeolvadáskor két különböző mássalhangzó egy harmadik, hosszú mássalhangzóvá olvad össze: [láttya], [taníccsa], [fonnya]."
+    },
+    {
+        "id":  76,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen mássalhangzótörvény érvényesül a „mindnyájan” [minnyájan] kiejtésekor?",
+        "options":  [
+                        "Mássalhangzó-rövidülés",
+                        "Írásban jelölt teljes hasonulás",
+                        "Részleges hasonulás",
+                        "Mássalhangzó-kiesés"
+                    ],
+        "correct":  3,
+        "explanation":  "Három egymás melletti mássalhangzó közül a középső kiesik a kiejtésben."
+    },
+    {
+        "id":  77,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan választjuk el helyesen a „poggyász”, „mennyi”, „össze” szavakat?",
+        "options":  [
+                        "pogy-gyász, meny-nyi, ösz-sze",
+                        "pog-gyász, men-nyi, ös-sze",
+                        "po-ggyász, me-nnyi, ö-ssze",
+                        "pogyg-yász, menyn-yi, öszs-ze"
+                    ],
+        "correct":  0,
+        "explanation":  "Elválasztáskor mindkét sorban kiírjuk a teljes kétjegyű betűt: pogy-gyász, meny-nyi, ösz-sze."
+    },
+    {
+        "id":  78,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan választjuk el helyesen a „templom”, „ostrom”, „Veszprém” szavakat?",
+        "options":  [
+                        "te-mplom, o-strom, Ve-szprém",
+                        "temp-lom, ost-rom, Veszp-rém",
+                        "tem-plom, os-trom, Vesz-prém",
+                        "Nem választhatók el"
+                    ],
+        "correct":  1,
+        "explanation":  "Több mássalhangzó találkozásakor csak a legutolsó mássalhangzó kerül át az új sorba."
+    },
+    {
+        "id":  79,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan választjuk el helyesen az „orchidea” és a „hexameter” szavakat?",
+        "options":  [
+                        "orch-idea, hexa-meter",
+                        "o-rchidea, h-exameter",
+                        "or-chidea, he-xameter",
+                        "orc-hidea, hex-ameter"
+                    ],
+        "correct":  2,
+        "explanation":  "A ch és az x egyetlen rövid mássalhangzónak számít, ezért átkerül a következő sorba."
+    },
+    {
+        "id":  80,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik mozaikszót (betűszót) TILOS elválasztani a sor végén?",
+        "options":  [
+                        "Ma-lév",
+                        "ELTE-re",
+                        "NA-TO",
+                        "MLSZ, BVSC, ORFK"
+                    ],
+        "correct":  3,
+        "explanation":  "A mássalhangzós vagy egyetlen magánhangzós alapalakú betűszók (MLSZ, BVSC, ORFK) nem választhatók el."
+    },
+    {
+        "id":  81,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan választjuk el helyesen a „legerősebb” és a „legalább” szavakat?",
+        "options":  [
+                        "leg-erősebb, leg-alább",
+                        "Tilos elválasztani őket",
+                        "lege-rősebb, lega-lább",
+                        "le-gerősebb, le-galább"
+                    ],
+        "correct":  0,
+        "explanation":  "A „leg-” felsőfokjel összetételi tagként viselkedik, ezért a határán választjuk el."
+    },
+    {
+        "id":  82,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Miért tér el a „me-gint” (= újra) és a „meg-int” (= figyelmeztet) elválasztása?",
+        "options":  [
+                        "Mindkét elválasztás hibás",
+                        "Az első egyszerű szó, a második igekötős",
+                        "Idegen eredetű szavak",
+                        "Csak versben választhatók így el"
+                    ],
+        "correct":  1,
+        "explanation":  "Az egyszerű szó szótagolás szerint (me-gint), az igekötős szó az összetételi határon (meg-int) válik el."
+    },
+    {
+        "id":  83,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan nevezzük azokat a szavakat, amelyek hangalakja azonos, de jelentéseik között nincs kapcsolat (pl. vár, ár)?",
+        "options":  [
+                        "Többjelentésű szavak",
+                        "Hasonló alakú szavak",
+                        "Azonos alakú szavak (homonimák)",
+                        "Rokon értelmű szavak"
+                    ],
+        "correct":  2,
+        "explanation":  "A többjelentésű szavak jelentései összefüggenek (pl. levél, toll), az azonos alakúakéi (homonimák: vár, fog) nem."
+    },
+    {
+        "id":  84,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szó jelent települést (falut, várost), és melyik szobát, termet?",
+        "options":  [
+                        "helység = szoba, helyiség = település",
+                        "helység = hegység, helyiség = síkság",
+                        "Mindkettő tantermet jelent",
+                        "helység = település, helyiség = szoba"
+                    ],
+        "correct":  3,
+        "explanation":  "A helység = település (falu, város), míg a helyiség = szoba, terem, épületrész."
+    },
+    {
+        "id":  85,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szó jelenti azt, hogy „most még, jelenleg”?",
+        "options":  [
+                        "egyelőre",
+                        "egyenlően",
+                        "egyenlőre",
+                        "egyformára"
+                    ],
+        "correct":  0,
+        "explanation":  "Az egyelőre jelentése: most még, jelenleg; az egyenlőre jelentése: egyforma nagyságúra."
+    },
+    {
+        "id":  86,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szó jelenti a történetből levonható erkölcsi leckét?",
+        "options":  [
+                        "tanúság",
+                        "tanulság",
+                        "fáradtság",
+                        "fáradság"
+                    ],
+        "correct":  1,
+        "explanation":  "A tanulság a levonható bölcsesség, a tanúság pedig bizonyíték, igazolás."
+    },
+    {
+        "id":  87,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik szó jelenti szavazáskor azt, hogy „teljes egyetértésben”?",
+        "options":  [
+                        "íztelenül",
+                        "ízetlenül",
+                        "egyhangúlag",
+                        "egyhangúan"
+                    ],
+        "correct":  2,
+        "explanation":  "Egyhangúlag = szavazáskor teljes egyetértésben; egyhangúan = unalmasan, monoton módon."
+    },
+    {
+        "id":  88,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik csoportban szerepelnek KIZÁRÓLAG hangulatfestő szavak?",
+        "options":  [
+                        "kattan, reccsen, ugat",
+                        "miau, reccsen, suttog",
+                        "kukorékol, csobog, durran",
+                        "ballag, cammog, tutyimutyi"
+                    ],
+        "correct":  3,
+        "explanation":  "A hangulatfestő szavak (ballag, cammog, csetlik-botlik, tutyimutyi) mozgás vagy tulajdonság hangulatát érzékeltetik."
+    },
+    {
+        "id":  89,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a „Közös lónak túros a háta” közmondás?",
+        "options":  [
+                        "A közös tulajdonra senki sem vigyáz",
+                        "A lovakat kettesével kell befogni",
+                        "A legokosabb ember is tévedhet",
+                        "Aki lóval jár, gyorsabban célba ér"
+                    ],
+        "correct":  0,
+        "explanation":  "Aminek több gazdája van, azt könnyen elhanyagolják."
+    },
+    {
+        "id":  90,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik közmondás jelenti azt, hogy a legokosabb ember is hibázhat?",
+        "options":  [
+                        "Közös lónak túros a háta.",
+                        "A lónak négy lába van, mégis megbotlik.",
+                        "Akinek lova nincs, az járjon gyalog.",
+                        "Ha ló nincs, a szamár is jó."
+                    ],
+        "correct":  1,
+        "explanation":  "„A lónak négy lába van, mégis megbotlik” – vagyis a tévedés bárkivel előfordulhat."
+    },
+    {
+        "id":  91,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a „Fogához veri a garast” szólás?",
+        "options":  [
+                        "Sok pénzt keres",
+                        "Szorgalmasan dolgozik",
+                        "Nagyon fukar, zsugori",
+                        "Hangosan dicsekszik"
+                    ],
+        "correct":  2,
+        "explanation":  "Fogához veri a garast = rendkívül fukar, fösvény."
+    },
+    {
+        "id":  92,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a „Nem látja a fától az erdőt” szólás?",
+        "options":  [
+                        "Fát vág a sűrű erdőben",
+                        "Szívós, kitartó jellemű",
+                        "Nagy vállalkozásba kezd bele",
+                        "Elvész a részletekben, nem látja a lényeget"
+                    ],
+        "correct":  3,
+        "explanation":  "Nem látja a fától az erdőt = az apró részletek miatt nem veszi észre az összefüggést."
+    },
+    {
+        "id":  93,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik állandósult szókapcsolat szóláshasonlat?",
+        "options":  [
+                        "Kerülgeti, mint macska a forró kását.",
+                        "Kákán is csomót keres.",
+                        "Egy gyékényen árulnak.",
+                        "Lóvá tesz valakit."
+                    ],
+        "correct":  0,
+        "explanation":  "A szóláshasonlat a „mint” kötőszóval hasonlít össze egy cselekvést vagy tulajdonságot egy képszerű fogalommal."
+    },
+    {
+        "id":  94,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Kitől származik az „Ember küzdj és bízva bízzál!” szállóige?",
+        "options":  [
+                        "Arany Jánostól",
+                        "Madách Imrétől",
+                        "Julius Caesartól",
+                        "Petőfi Sándortól"
+                    ],
+        "correct":  1,
+        "explanation":  "Az „Ember küzdj és bízva bízzál!” Madách Imre Az ember tragédiája című művének zárszava."
+    },
+    {
+        "id":  95,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik kifejezés köznyelvi (mindennapi beszédben állandósult) metafora?",
+        "options":  [
+                        "Fehér, mint a hó",
+                        "Tiszta, friss forrásvíz",
+                        "Az idő repül / Kattog az agyam",
+                        "Ki korán kel, aranyat lel"
+                    ],
+        "correct":  2,
+        "explanation":  "A köznyelvi metaforák (az idő repül, kattog az agyam, nádszálkarcsú) a hétköznapi nyelvbe beépült névcserék."
+    },
+    {
+        "id":  96,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen szerkezetű szó a „golyóstollal” és az „ablaküvegek”?",
+        "options":  [
+                        "Tőszó",
+                        "Toldalék nélküli összetett szó",
+                        "Toldalékos egyszerű szó",
+                        "Toldalékos összetett szó"
+                    ],
+        "correct":  3,
+        "explanation":  "Mindkét szó két szótőből álló összetett szó, amelyhez a végén toldalék kapcsolódik."
+    },
+    {
+        "id":  97,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen sorrendben követik egymást a szóelemek a magyar szavakban?",
+        "options":  [
+                        "SZÓTŐ + KÉPZŐ + JEL + RAG",
+                        "SZÓTŐ + RAG + JEL + KÉPZŐ",
+                        "SZÓTŐ + JEL + KÉPZŐ + RAG",
+                        "KÉPZŐ + SZÓTŐ + RAG + JEL"
+                    ],
+        "correct":  0,
+        "explanation":  "A magyar szóépítés kötött sorrendje: SZÓTŐ + KÉPZŐ (K) + JEL (J) + RAG (R)."
+    },
+    {
+        "id":  98,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik toldalék hoz létre új szótári szót (gyakran új szófajjal)?",
+        "options":  [
+                        "A rag",
+                        "A képző",
+                        "A jel",
+                        "A kötőhangzó"
+                    ],
+        "correct":  1,
+        "explanation":  "A képző új szót alkot, a jel módosítja a jelentést, a rag pedig lezárja a szót."
+    },
+    {
+        "id":  99,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen szóelemekből áll az „ír-o-gat-nak” igealak?",
+        "options":  [
+                        "szótő + képző + jel + rag",
+                        "igekötő + szótő + jel + rag",
+                        "szótő + kötőhangzó + képző + rag",
+                        "szótő + jel + képző + rag"
+                    ],
+        "correct":  2,
+        "explanation":  "Felbontása: ír (szótő) + -o- (kötőhangzó) + -gat (képző) + -nak (igei személyrag)."
+    },
+    {
+        "id":  100,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan épül fel szerkezetileg a „leg-szeb-b-ért” szóalak?",
+        "options":  [
+                        "képző + szótő + jel + rag",
+                        "szótő + képző + jel + rag",
+                        "igekötő + szótő + képző + rag",
+                        "jel + szótő + jel + rag"
+                    ],
+        "correct":  3,
+        "explanation":  "A „legszebbért” szóban a szótő (szép) előtt áll a leg- felsőfokjel, utána pedig a -bb középfokjel és az -ért rag."
+    },
+    {
+        "id":  101,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mely főnevek tartoznak a rövid -u/-ü végű szavak közé?",
+        "options":  [
+                        "falu, kapu, daru, bábu, menü",
+                        "bosszú, varjú, borjú, fiú",
+                        "hattyú, gyűrű, betű, fésű",
+                        "szomorú, keserű, gyönyörű"
+                    ],
+        "correct":  0,
+        "explanation":  "A melléknevek végén az -ú/-ű mindig hosszú, de rövid végű főnév pl. a falu, hamu, daru, kapu, bábu, batyu, áru, menü, eskü."
+    },
+    {
+        "id":  102,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik mondatban hibátlan a rövid és hosszú mássalhangzók írása?",
+        "options":  [
+                        "Anya inget var a szobában.",
+                        "A madár száll, a szabó ruhát varr.",
+                        "A pénztárnál nagy a kasza.",
+                        "A tóban úszik a hall."
+                    ],
+        "correct":  1,
+        "explanation":  "Szál (vékony darab) ↔ száll (repül); var (seb kérge) ↔ varr (tűvel dolgozik); kasza ↔ kassza."
+    },
+    {
+        "id":  103,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik sorban hibátlan a „kéz, híd, kút, tűz” főnevek tárgyragos alakja?",
+        "options":  [
+                        "kézt, hídt, kútt, tűzt",
+                        "kezzet, hiddat, kuttat, tüzzet",
+                        "kezet, hidat, kutat, tüzet",
+                        "kézet, hídat, kútat, tűzet"
+                    ],
+        "correct":  2,
+        "explanation":  "Magánhangzós ragok előtt a tőmagánhangzó megrövidül (kezet, hidat, kutat, tüzet), mássalhangzós ragok előtt hosszú marad (kézzel, híddal)."
+    },
+    {
+        "id":  104,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik a helyes -val/-vel ragos alak a „doh”, a „cseh” és a „méh” szavaknál?",
+        "options":  [
+                        "dohval, csehhel, csak méhhel",
+                        "dohval, csehvel, méhval",
+                        "dohhal, csehhel, méhval",
+                        "dohhal, csehvel, méhvel / méhhel"
+                    ],
+        "correct":  3,
+        "explanation":  "Ejtett h: dohhal; néma h: csehvel, céhvel; ingadozó h (kettős alak): méhvel/méhhel, dühvel/dühhel, juhval/juhhal."
+    },
+    {
+        "id":  105,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik helyesírási alapelv érvényesül a „gólya” és a „Kossuth” szavakban?",
+        "options":  [
+                        "A hagyomány elve",
+                        "A szóelemzés elve",
+                        "A kiejtés elve",
+                        "Az egyszerűsítés elve"
+                    ],
+        "correct":  0,
+        "explanation":  "A hagyomány elve őrzi az ly betűt és a történelmi családnevek régi írásmódját."
+    },
+    {
+        "id":  106,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mikor NEM egyszerűsítjük a három azonos mássalhangzót (pl. sakk-kör, Széll-lel)?",
+        "options":  [
+                        "Közszavak ragozásakor (pl. tollal)",
+                        "Összetett szavaknál és tulajdonneveknél",
+                        "Főnevek többes számában",
+                        "Melléknevek fokozásakor"
+                    ],
+        "correct":  1,
+        "explanation":  "Összetett szavak határán (balett-táncos, sakk-kör, jegygyűrű) és tulajdonneveknél (Széll-lel, Tarr-ral) nem egyszerűsítünk."
+    },
+    {
+        "id":  107,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan toldalékoljuk helyesen a rövidítéseket: cm, kg, db a -val/-vel raggal?",
+        "options":  [
+                        "cm-el, kg-al, db-al",
+                        "cmrel, kgmal, dbbal",
+                        "cm-rel, kg-mal, db-bal",
+                        "cm-vel, kg-val, db-val"
+                    ],
+        "correct":  2,
+        "explanation":  "A rövidítésekhez kötőjellel kapcsoljuk a ragot, amely a kiejtett szó utolsó hangjához hasonul."
+    },
+    {
+        "id":  108,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik igecsoport fejez ki AKARATTÓL FÜGGETLEN történést?",
+        "options":  [
+                        "tanul, ír, szalad, beszél",
+                        "van, nincs, sincs, lesz",
+                        "olvas, rajzol, épít, számol",
+                        "esik, megöregszik, elszárad"
+                    ],
+        "correct":  3,
+        "explanation":  "A történést kifejező igék (esik, megöregszik, elszárad, megbotlik) folyamata független a cselekvő akaratától."
+    },
+    {
+        "id":  109,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan fejezzük ki a magyar nyelvben az összetett jövő időt?",
+        "options":  [
+                        "Főnévi igenév (-ni) + fog segédige",
+                        "A volna segédigével",
+                        "A -t / -tt jellel",
+                        "A -na / -ne jellel"
+                    ],
+        "correct":  0,
+        "explanation":  "Jelen idő: ∅ jel; múlt idő: -t/-tt jel; jövő idő: -ni főnévi igenév + fog segédige (pl. tanulni fog)."
+    },
+    {
+        "id":  110,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mi a feltételes mód jele jelen időben, és mi a segédigéje múlt időben?",
+        "options":  [
+                        "Jelen: -t/-tt, Múlt: fog",
+                        "Jelen: -na/-ne/-ná/-né, Múlt: volna",
+                        "Jelen: -j, Múlt: vala",
+                        "Nincs múlt ideje"
+                    ],
+        "correct":  1,
+        "explanation":  "Feltételes mód jelen idő: -na/-ne/-ná/-né (tanulna); múlt idő: múlt idejű igealak + volna (tanult volna)."
+    },
+    {
+        "id":  111,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan írjuk helyesen felszólító módban: [haggya], [haggy], [higgye]?",
+        "options":  [
+                        "hadja, hadj, hiszje",
+                        "hagyja, hagyj, hijje",
+                        "hagyja, hagyj, higgye",
+                        "haggya, haggy, higye"
+                    ],
+        "correct":  2,
+        "explanation":  "A „hagy” igénél megőrizzük a gy + j írásképet (hagyja, hagyj), míg a „hisz” igénél: higgy, higgye!"
+    },
+    {
+        "id":  112,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik sorban hibátlan a t-végű igék felszólító módú alakja?",
+        "options":  [
+                        "segíccs, nyitj, sütj, játszunk",
+                        "segítj, tanítj, nyitsz, játszodj",
+                        "segíss, taníss, nyiss, festj",
+                        "segíts, nyiss, süss, fess, játsszunk"
+                    ],
+        "correct":  3,
+        "explanation":  "Segít → segíts; rövid t-végűek (nyit, süt, fut) → nyiss, süss, fuss; mássalhangzó + t végűek → fess, játsszunk!"
+    },
+    {
+        "id":  113,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Hogyan írjuk helyesen a „mond”, az „ad” és az „edz” igék felszólító módú alakját?",
+        "options":  [
+                        "mondja, adj, eddzen",
+                        "mondgya, adgya, edzjen",
+                        "mongya, adjál, edzél",
+                        "monja, aggy, edzen"
+                    ],
+        "correct":  0,
+        "explanation":  "A mond + j + a = mondja, az ad + j = adj, az edz + j + en = eddzen (hosszú ddz)."
+    },
+    {
+        "id":  114,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen ragozásúak lehetnek a tárgyatlan igék (pl. megy, ül, esik)?",
+        "options":  [
+                        "Alanyi és tárgyas ragozásúak is",
+                        "Kizárólag alanyi ragozásúak",
+                        "Nincs múlt idejük",
+                        "Csak tárgyas ragozásúak"
+                    ],
+        "correct":  1,
+        "explanation":  "A tárgyatlan igék nem bővíthetők tárggyal, ezért kizárólag alanyi ragozásban állhatnak."
+    },
+    {
+        "id":  115,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mely segítőszavak döntik el az alanyi és a tárgyas ragozást?",
+        "options":  [
+                        "én és mi",
+                        "holnap és tegnap",
+                        "valamit (alanyi) és azt/őt (tárgyas)",
+                        "szépen és gyorsan"
+                    ],
+        "correct":  2,
+        "explanation":  "Alanyi ragozás: olvasok (valamit); tárgyas ragozás: olvasom (azt)."
+    },
+    {
+        "id":  116,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen igealak az „olvastam volna”?",
+        "options":  [
+                        "Kijelentő mód, jövő idő, T/1., tárgyas",
+                        "Kijelentő mód, múlt idő, E/1., alanyi",
+                        "Felszólító mód, jelen idő, E/1., alanyi",
+                        "Feltételes mód, múlt idő, E/1., tárgyas"
+                    ],
+        "correct":  3,
+        "explanation":  "Az „olvastam volna (azt)” feltételes mód, múlt idő, E/1. személyű, tárgyas ragozású igealak."
+    },
+    {
+        "id":  117,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik az ikes igék (eszik, iszik, alszik) szabályos E/1. személyű alakja jelen időben?",
+        "options":  [
+                        "eszem, iszom, alszom",
+                        "eszik, iszik, alszik",
+                        "eszek, iszok, alszok",
+                        "evett, ivott, aludt"
+                    ],
+        "correct":  0,
+        "explanation":  "Az ikes igék E/3. személyben -ik-re végződnek, E/1. személyben pedig -m ragot kapnak: eszem, iszom, alszom."
+    },
+    {
+        "id":  118,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Melyik az „alszik” és „eszik” igék igényes ikes alakja feltételes és felszólító mód E/1-ben?",
+        "options":  [
+                        "aludtam volna, ettem volna",
+                        "aludnám, enném, aludjam, egyem",
+                        "aludnék, ennék, aludjak, egyek",
+                        "alszanék, eszenék, aludjál, egyél"
+                    ],
+        "correct":  1,
+        "explanation":  "Az ikes igék igényes E/1. alakja feltételes módban -nám/-ném, felszólító módban -jam/-jem."
+    },
+    {
+        "id":  119,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Milyen tőváltozat lép fel az „alszik” és „fekszik” igékben múlt időben?",
+        "options":  [
+                        "Eltűnik a szótő",
+                        "Magánhangzó-kettőzés történik",
+                        "alud- és feküd- tőváltozat",
+                        "Nem változik a szótő"
+                    ],
+        "correct":  2,
+        "explanation":  "Az alszik, fekszik, nyugszik, esküszik mássalhangzót váltó rendhagyó igetövek (aludtam, feküdtem)."
+    },
+    {
+        "id":  120,
+        "subject":  "Magyar nyelv",
+        "icon":  "✍️",
+        "grade":  "5. osztály",
+        "q":  "Mi történik a „lő, sző, fő, ró” igék tövével a „lövünk, szövök” alakokban?",
+        "options":  [
+                        "Kiesik az első mássalhangzó",
+                        "A magánhangzó meghosszabbodik",
+                        "Főnévvé alakulnak át",
+                        "Az ó/ő megrövidül és v jelenik meg"
+                    ],
+        "correct":  3,
+        "explanation":  "A lő, sző, fő, ró tőhangváltó igékben a hosszú magánhangzó megrövidül és v-s tőváltozat lép fel."
+    },
+    {
+        "id":  121,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mit nevezünk kódexnek, és melyik a leghíresebb magyar történeti kódexünk?",
+        "options":  [
+                        "Kézzel írott középkori könyv; Képes krónika",
+                        "Agyagtáblára írt levél; Ninivei könyvtár",
+                        "Kőbe vésett törvényoszlop; Hammurapi oszlopa",
+                        "Nyomtatott napilap; Pesti Hírlap"
+                    ],
+        "correct":  0,
+        "explanation":  "A kódex kézzel írott, pergamenre készített és miniatúrákkal díszített középkori könyv, mint a Képes krónika."
+    },
+    {
+        "id":  122,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Milyen időrendi sorrendben követik egymást a történelmi korszakok?",
+        "options":  [
+                        "Ókor → Középkor → Őskor → Jelenkor → Újkor",
+                        "Őskor → Ókor → Középkor → Újkor → Jelenkor",
+                        "Ókor → Őskor → Középkor → Újkor → Jelenkor",
+                        "Őskor → Középkor → Ókor → Újkor → Jelenkor"
+                    ],
+        "correct":  1,
+        "explanation":  "A történelmi korszakok helyes sorrendje: Őskor → Ókor (476-ig) → Középkor (1492-ig) → Újkor → Jelenkor."
+    },
+    {
+        "id":  123,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyik folyó mentén alakult ki Egyiptom, és hogyan nevezték a képírásukat?",
+        "options":  [
+                        "Tigris és Eufrátesz; ékírás",
+                        "Duna; rovásírás",
+                        "Nílus; hieroglifa",
+                        "Tiberis; latin betűs írás"
+                    ],
+        "correct":  2,
+        "explanation":  "Az ókori Egyiptom a Nílus mentén jött létre, írásuk pedig a papiruszra vagy kőbe rótt hieroglifa volt."
+    },
+    {
+        "id":  124,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mi szolgált az egyiptomi fáraók sírhelyéül?",
+        "options":  [
+                        "Az amfiteátrumok Athénban",
+                        "A diadalívek Rómában",
+                        "A kolostorok Babilonban",
+                        "A piramisok és a Királyok Völgye sziklasírjai"
+                    ],
+        "correct":  3,
+        "explanation":  "Az Óbirodalom idején kőpiramisokat (pl. Kheopsz-piramis) építettek, később a Királyok Völgye sziklasírjaiba temették a fáraókat."
+    },
+    {
+        "id":  125,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor rendezték az első ókori olümpiai játékokat, és melyik isten tiszteletére?",
+        "options":  [
+                        "Kr. e. 776-ban; Zeusz főisten tiszteletére",
+                        "Kr. u. 476-ban; Poszeidón tiszteletére",
+                        "Kr. e. 490-ben; Apollón tiszteletére",
+                        "Kr. e. 753-ban; Pallasz Athéné tiszteletére"
+                    ],
+        "correct":  0,
+        "explanation":  "Az első feljegyzett olümpiai játékokat Kr. e. 776-ban tartották Olümpiában Zeusz tiszteletére."
+    },
+    {
+        "id":  126,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Milyen zárt harci alakzatban küzdöttek a görög hopliták Marathónnál (Kr. e. 490)?",
+        "options":  [
+                        "Harci elefántokkal",
+                        "Falanxban (pajzsfalas, lándzsás alakzatban)",
+                        "Harci szekerekkel",
+                        "Könnyűlovas alakzatban"
+                    ],
+        "correct":  1,
+        "explanation":  "A görög nehézfegyverzetű gyalogosok (hopliták) zárt falanxban győzték le a perzsákat Marathónnál."
+    },
+    {
+        "id":  127,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor alapították Rómát a monda szerint, és kik voltak az alapító ikrek?",
+        "options":  [
+                        "Kr. u. 476-ban; Caesar és Augustus",
+                        "Kr. e. 490-ben; Dávid és Salamon",
+                        "Kr. e. 753-ban; Romulus és Remus",
+                        "Kr. e. 776-ban; Hunor és Magor"
+                    ],
+        "correct":  2,
+        "explanation":  "A monda szerint az anyafarkas által táplált Romulus és Remus Kr. e. 753-ban alapította Rómát."
+    },
+    {
+        "id":  128,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Ki volt Róma első császára, és ki volt a punok elefántokkal támadó hadvezére?",
+        "options":  [
+                        "Periklész; Nagy Sándor",
+                        "Kheopsz; Dareiosz",
+                        "Romulus; Spartacus",
+                        "Augustus császár; Hannibál"
+                    ],
+        "correct":  3,
+        "explanation":  "Hannibál a punok hadvezéreként kelt át az Alpokon; Julius Caesar fogadott fia, Augustus pedig Róma első császára lett."
+    },
+    {
+        "id":  129,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Hogyan nevezték a rómaiak a dunántúli provinciát, és hol állt Aquincum?",
+        "options":  [
+                        "Pannónia; a mai Budapest (Óbuda) területén",
+                        "Dacia; Debrecen helyén",
+                        "Hispania; Eger helyén",
+                        "Gallia; Szeged helyén"
+                    ],
+        "correct":  0,
+        "explanation":  "A Dunántúl római neve Pannónia volt, székhelye pedig Aquincum a mai Óbuda területén."
+    },
+    {
+        "id":  130,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Ki volt a hunok leghíresebb uralkodója, és mikor bukott meg a Nyugatrómai Birodalom?",
+        "options":  [
+                        "Árpád fejedelem; Kr. u. 895-ben",
+                        "Attila nagykirály; Kr. u. 476-ban",
+                        "Nagy Sándor; Kr. e. 323-ban",
+                        "Kheopsz; Kr. e. 753-ban"
+                    ],
+        "correct":  1,
+        "explanation":  "A Hun Birodalom élén Attila állt; a Nyugatrómai Birodalom Kr. u. 476-os bukása pedig az ókor végét jelenti."
+    },
+    {
+        "id":  131,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyik két fő részből áll a Biblia, és hol született Jézus?",
+        "options":  [
+                        "Korán és Védák; Mekkában",
+                        "Iliász és Odüsszeia; Athénban",
+                        "Ószövetség és Újszövetség; Betlehemben",
+                        "Képes krónika és Aranybulla; Rómában"
+                    ],
+        "correct":  2,
+        "explanation":  "A kereszténység szent könyve, a Biblia az Ószövetségből és az Újszövetségből áll; Jézus Betlehemben született."
+    },
+    {
+        "id":  132,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mit jelentett a középkori uradalomban a „robot”?",
+        "options":  [
+                        "A kolostori kódexmásolást",
+                        "A királyi palota őrzését",
+                        "A céhek szabályzatát",
+                        "A földesúr földjén végzett ingyenes munkát"
+                    ],
+        "correct":  3,
+        "explanation":  "A jobbágyok a telek használatáért terményadóval és a földesúr földjén végzett ingyenes munkával (robottal) tartoztak."
+    },
+    {
+        "id":  133,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Hol épült fel 996-ban hazánk első bencés apátsága, és melyik a magyar alapítású szerzetesrend?",
+        "options":  [
+                        "Pannonhalmán; pálos rend",
+                        "Budán; ferences rend",
+                        "Debrecenben; jezsuita rend",
+                        "Visegrádon; ciszterci rend"
+                    ],
+        "correct":  0,
+        "explanation":  "996-ban Pannonhalmán alapították az első bencés kolostort; az egyetlen magyar alapítású szerzetesrend pedig a pálos rend."
+    },
+    {
+        "id":  134,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mi jellemzi a román, illetve a gótikus templomépítészetet?",
+        "options":  [
+                        "Nincs köztük különbség",
+                        "Román: félkörív, vastag fal; Gótikus: csúcsív",
+                        "Román: csúcsív; Gótikus: piramis alak",
+                        "Román: üvegfal; Gótikus: faépület"
+                    ],
+        "correct":  1,
+        "explanation":  "A román stílusra a vastag falak és félköríves ablakok (pl. Ják), a gótikára a csúcsívek és rózsaablakok jellemzők."
+    },
+    {
+        "id":  135,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mi volt a középkori céh, és ki találta fel a könyvnyomtatást?",
+        "options":  [
+                        "Királyi pénzverde; Mohamed",
+                        "Falusi gyűlés; Szent Benedek",
+                        "Kézművesek szervezete; Gutenberg",
+                        "Lovagi sereg; Kolumbusz Kristóf"
+                    ],
+        "correct":  2,
+        "explanation":  "Az azonos mesterséget űző városi iparosok céhekbe tömörültek; a könyvnyomtatást pedig Gutenberg találta fel."
+    },
+    {
+        "id":  136,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mely mondáink szólnak a magyarok eredetéről és az Árpád-ház származásáról?",
+        "options":  [
+                        "Mátyás király és a kolozsvári bíró",
+                        "Romulus és Remus mondája",
+                        "Szent László és Kőmíves Kelemen",
+                        "A csodaszarvas mondája és Emese álma"
+                    ],
+        "correct":  3,
+        "explanation":  "A csodaszarvas mondája (Hunor és Magor) a nép eredetét, Emese álma (a turulmadárral) az Árpád-ház származását beszéli el."
+    },
+    {
+        "id":  137,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor zajlott a honfoglalás, honnan indultak a magyarok és melyik hágón keltek át?",
+        "options":  [
+                        "895-ben; Etelközből a Vereckei-hágón át",
+                        "955-ben; Mezopotámiából a Balkánon át",
+                        "1241-ben; Levédiából a Duna mentén",
+                        "1000-ben; Pannóniából az Alpokon át"
+                    ],
+        "correct":  0,
+        "explanation":  "895-ben Árpád vezetésével Etelközből a Vereckei-hágón és az erdélyi hágókon át foglalták el a Kárpát-medencét."
+    },
+    {
+        "id":  138,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyik győztes csatával védték meg a magyarok a hazát 907-ben?",
+        "options":  [
+                        "A muhi csatával",
+                        "A pozsonyi csatával",
+                        "Az augsburgi csatával",
+                        "A marathóni csatával"
+                    ],
+        "correct":  1,
+        "explanation":  "907-ben a pozsonyi csatában a magyarok legyőzték a támadó keleti frank–bajor sereget."
+    },
+    {
+        "id":  139,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Kit győzött le Szent István, és mit alapított meg?",
+        "options":  [
+                        "Batu kánt; a kővárakat",
+                        "II. Andrást; az Aranybullát",
+                        "Koppányt; a vármegyéket és egyházmegyéket",
+                        "Szvatoplukot; a vérszerződést"
+                    ],
+        "correct":  2,
+        "explanation":  "Szent István legyőzte Koppányt, majd megalapította a vármegyéket, az esztergomi érsekséget és elrendelte a templomépítést."
+    },
+    {
+        "id":  140,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyek a koronázási jelvényeink, és melyik volt a koronázóvárosunk?",
+        "options":  [
+                        "Pannonhalmi alapítólevél; Pécs",
+                        "Turulmadaras pajzs és kopja; Debrecen",
+                        "Aranybulla és Lehel kürtje; Visegrád",
+                        "Korona, palást, jogar, országalma, kard; Székesfehérvár"
+                    ],
+        "correct":  3,
+        "explanation":  "A koronázási ékszerekkel Székesfehérvárott az esztergomi érsek koronázta meg a magyar királyokat."
+    },
+    {
+        "id":  141,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Ki volt a „lovagkirály” és ki volt a „művelt király” az Árpád-korban?",
+        "options":  [
+                        "I. (Szent) László és Könyves Kálmán",
+                        "Géza fejedelem és III. Béla",
+                        "II. András és IV. Béla",
+                        "Álmos és Árpád"
+                    ],
+        "correct":  0,
+        "explanation":  "Szent László (a lovagkirály) szigorú törvényeket hozott és meghódította Horvátországot; Könyves Kálmán pedig enyhítette a törvényeket."
+    },
+    {
+        "id":  142,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor adta ki II. András az Aranybullát, és miről kapta a nevét?",
+        "options":  [
+                        "1241-ben; az aranyforintról",
+                        "1222-ben; a ráfüggesztett aranypecsétről",
+                        "1301-ben; arany keretéről",
+                        "1000-ben; aranybetűiről"
+                    ],
+        "correct":  1,
+        "explanation":  "II. András 1222-ben adta ki a nemesek jogait biztosító Aranybullát, amelyet aranypecséttel hitelesítettek."
+    },
+    {
+        "id":  143,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Mikor volt a tatárjárás, és ki volt a „második honalapító” királyunk?",
+        "options":  [
+                        "1301-ben; III. András",
+                        "1000-ben; Szent István",
+                        "1241–1242-ben; a kővárakat építtető IV. Béla",
+                        "907-ben; Árpád fejedelem"
+                    ],
+        "correct":  2,
+        "explanation":  "Az 1241–1242-es tatárjárás után IV. Béla kővárakat építtetett, telepeseket hívott be és újjáépítette az országot."
+    },
+    {
+        "id":  144,
+        "subject":  "Történelem",
+        "icon":  "🏰",
+        "grade":  "5. osztály",
+        "q":  "Melyik évben és kinek a halálával halt ki az Árpád-ház férfiága?",
+        "options":  [
+                        "1490-ben; Mátyás király halálával",
+                        "1242-ben; IV. Béla halálával",
+                        "1222-ben; II. András halálával",
+                        "1301-ben; III. András halálával"
+                    ],
+        "correct":  3,
+        "explanation":  "Az Árpád-ház férfiága 1301-ben, III. András király halálával halt ki."
+    },
+    {
+        "id":  145,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mi a neve: 1) szilárdból folyékony, 2) folyékonyból légnemű (felszínen), 3) légneműből folyékony?",
+        "options":  [
+                        "1) olvadás, 2) párolgás, 3) lecsapódás",
+                        "1) fagyás, 2) lecsapódás, 3) olvadás",
+                        "1) oldódás, 2) fagyás, 3) párolgás",
+                        "1) forrás, 2) olvadás, 3) fagyás"
+                    ],
+        "correct":  0,
+        "explanation":  "Szilárdból folyékony = olvadás; folyékonyból légnemű a felszínen = párolgás; légneműből folyékony = lecsapódás."
+    },
+    {
+        "id":  146,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mi történik a víz térfogatával, amikor 0 °C-on megfagy?",
+        "options":  [
+                        "Egyáltalán nem változik",
+                        "Megnő (kitágul), ezért a jég úszik a vízen",
+                        "Összehúzódik, ezért a jég lesüllyed",
+                        "Azonnal elpárolog"
+                    ],
+        "correct":  1,
+        "explanation":  "A víz térfogata fagyáskor megnő, ezért a jég úszik a víz tetején, a sziklák repedéseiben pedig aprózza a kőzeteket."
+    },
+    {
+        "id":  147,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mi a különbség az olvadás és az oldódás között?",
+        "options":  [
+                        "Az oldódás csak 100 °C felett történik",
+                        "Olvadáskor az anyag gázzá válik",
+                        "Olvadás: hő hatására; Oldódás: oldószerben",
+                        "A két szó pontosan ugyanazt jelenti"
+                    ],
+        "correct":  2,
+        "explanation":  "Az olvadás hő hatására történő halmazállapot-változás, az oldódáshoz viszont oldószer (pl. víz) és oldandó anyag (pl. cukor) szükséges."
+    },
+    {
+        "id":  148,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mi a humusz a talajban?",
+        "options":  [
+                        "Gyárakban előállított műtrágya",
+                        "Apró kavicsok és homokszemek rétege",
+                        "A talajban élő giliszták összessége",
+                        "Bomló maradványokból keletkező szerves anyag"
+                    ],
+        "correct":  3,
+        "explanation":  "A humusz az elhalt növényi és állati maradványokból keletkező sötét színű szerves anyag, amely a talaj termőképességét adja."
+    },
+    {
+        "id":  149,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Milyen gázok alkotják a levegőt?",
+        "options":  [
+                        "78% nitrogén, 21% oxigén, 1% egyéb gáz",
+                        "80% vízgőz és 20% szén-dioxid",
+                        "50% szén-dioxid és 50% hidrogén",
+                        "100% tiszta oxigén"
+                    ],
+        "correct":  0,
+        "explanation":  "A levegő 78% nitrogénből, 21% oxigénből és 1% egyéb gázból áll; a légzéshez és az égéshez az oxigén szükséges."
+    },
+    {
+        "id":  150,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Milyen mozgást végez a napraforgó, amikor a Nap felé fordul?",
+        "options":  [
+                        "Keringő mozgást",
+                        "Helyzetváltoztató mozgást (egy helyben maradva)",
+                        "Helyváltoztató mozgást",
+                        "Vándorló mozgást"
+                    ],
+        "correct":  1,
+        "explanation":  "A növények a gyökerükkel rögzítettek, így egy helyben maradva helyzetváltoztató mozgást végeznek."
+    },
+    {
+        "id":  151,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Hogyan számítjuk ki a napi hőingást?",
+        "options":  [
+                        "A legmagasabb és legalacsonyabb értéket szorozzuk",
+                        "A reggeli és esti értéket összeadjuk",
+                        "A legmagasabb és legalacsonyabb hőmérséklet különbsége",
+                        "A mért hőmérsékletek átlagát vesszük"
+                    ],
+        "correct":  2,
+        "explanation":  "A napi hőingás a legmagasabb és a legalacsonyabb hőmérséklet különbsége; a középhőmérséklet pedig a mérések átlaga."
+    },
+    {
+        "id":  152,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mit mutat az éghajlati diagramon a piros görbe és a kék oszlop?",
+        "options":  [
+                        "Piros: szélsebesség; Kék: légnyomás",
+                        "Mindkettő a fagyos napokat mutatja",
+                        "Piros: napsütés; Kék: folyók mélysége",
+                        "Piros: középhőmérséklet (°C); Kék: csapadék (mm)"
+                    ],
+        "correct":  3,
+        "explanation":  "Az éghajlati diagramon a piros görbe a havi középhőmérsékletet (°C), a kék oszlopok a havi csapadékot (mm) ábrázolják."
+    },
+    {
+        "id":  153,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Hogyan hatnak egymásra a mágneses pólusok?",
+        "options":  [
+                        "Az azonosak taszítják, a különbözőek vonzzák egymást",
+                        "A széliránytól függ a vonzásuk",
+                        "Az azonosak vonzzák, a különbözőek taszítják egymást",
+                        "Csak a műanyagot és a fát vonzzák"
+                    ],
+        "correct":  0,
+        "explanation":  "Az azonos pólusok (É–É, D–D) taszítják, a különböző pólusok (É–D) vonzzák egymást."
+    },
+    {
+        "id":  154,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Melyek a zöld növények alapvető élettelen életfeltételei?",
+        "options":  [
+                        "Sötétség és erős szél",
+                        "Fény, hő, víz, levegő és talaj (tápanyagok)",
+                        "Mágneses tér és hanghullámok",
+                        "Cukros víz és homok"
+                    ],
+        "correct":  1,
+        "explanation":  "A növények életéhez öt élettelen környezeti feltétel szükséges: fény, megfelelő hőmérséklet, levegő, víz és talaj."
+    },
+    {
+        "id":  155,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mely csapadékfajták keletkeznek közvetlenül a lehűlő földfelszínen?",
+        "options":  [
+                        "Köd és szivárvány",
+                        "Eső, zápor, felhőszakadás",
+                        "Harmat, dér, zúzmara",
+                        "Hó, havas eső, jégeső"
+                    ],
+        "correct":  2,
+        "explanation":  "A felhőkből hullik az eső, hó, jégeső; közvetlenül a felszínen csapódik ki a harmat, a dér és a zúzmara."
+    },
+    {
+        "id":  156,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mi okozza a napszakok, illetve az évszakok váltakozását?",
+        "options":  [
+                        "A felhők és a szelek mozgása",
+                        "A Nap kering a Föld körül",
+                        "A Hold keringése a Föld körül",
+                        "Napszakok: Föld forgása; Évszakok: Föld keringése"
+                    ],
+        "correct":  3,
+        "explanation":  "A Föld 24 órás tengely körüli forgása a napszakokat, a 365 és negyed napos Nap körüli keringése (ferde tengellyel) az évszakokat okozza."
+    },
+    {
+        "id":  157,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Melyek a fővilágtájak, és merre van észak a térképen?",
+        "options":  [
+                        "Észak, Kelet, Dél, Nyugat; a térkép felső szélén",
+                        "Bal és Jobb; a térkép közepén",
+                        "ÉK, DK, DNy, ÉNy; a térkép alján",
+                        "Észak, Dél; a térkép jobb oldalán"
+                    ],
+        "correct":  0,
+        "explanation":  "A fővilágtájak: É, K, D, Ny (mellékvilágtájak: ÉK, DK, DNy, ÉNy); a térképen észak felfelé van."
+    },
+    {
+        "id":  158,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mit jelöl a domborzati térképen a zöld és a barna szín?",
+        "options":  [
+                        "Az országok politikai határait",
+                        "Zöld: síkság (0–200 m); Barna: dombság és hegység",
+                        "Zöld: sivatag; Barna: óceán",
+                        "Zöld: erdő; Barna: szántóföld"
+                    ],
+        "correct":  1,
+        "explanation":  "Kék: vizek; zöld: alföld (0–200 m); világosbarna: dombság (200–500 m); sötétbarna: közép- és magashegység (500 m felett)."
+    },
+    {
+        "id":  159,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a térképen az 1 : 100 000 méretarány?",
+        "options":  [
+                        "A térkép 100 000 éves",
+                        "A térkép 100 000-szer nagyobb a valóságnál",
+                        "1 cm a térképen a valóságban 100 000 cm (1 km)",
+                        "Csak 100 000 főnél nagyobb városokat mutat"
+                    ],
+        "correct":  2,
+        "explanation":  "1 : 100 000 méretaránynál a térképen mért 1 cm a valóságban 100 000 cm = 1000 m = 1 km."
+    },
+    {
+        "id":  160,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Melyik földrészen és tájegységben fekszik Magyarország?",
+        "options":  [
+                        "Észak-Amerikában",
+                        "Dél-Európában, az Alpokban",
+                        "Nyugat-Ázsiában",
+                        "Közép-Európában, a Kárpát-medencében"
+                    ],
+        "correct":  3,
+        "explanation":  "Magyarország Európa középső részén (Közép-Európában), a Kárpát-medencében helyezkedik el."
+    },
+    {
+        "id":  161,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Hogyan állapítjuk meg egy folyó jobb és bal partját?",
+        "options":  [
+                        "A folyásirányba (a torkolat felé) nézve",
+                        "A széliránynak háttal állva",
+                        "A forrással szemben állva",
+                        "A térképen mindig a nyugati part a bal part"
+                    ],
+        "correct":  0,
+        "explanation":  "A folyó folyásirányába (a torkolat felé) nézve a jobb kezünk felé esik a jobb part, bal kezünk felé a bal part."
+    },
+    {
+        "id":  162,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Melyek a virágos növények fajfenntartó (szaporító) szervei?",
+        "options":  [
+                        "Csak a gyökérzet és a fatörzs",
+                        "A virág és a termés (benne a maggal)",
+                        "Csak a lomblevelek",
+                        "A gyökér, a szár és a levél"
+                    ],
+        "correct":  1,
+        "explanation":  "A gyökér, a szár és a levél az egyed életét biztosító önfenntartó szervek; a virág és a termés (maggal) a fajfenntartó szervek."
+    },
+    {
+        "id":  163,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mi a különbség a fa és a cserje (bokor) fásszára között?",
+        "options":  [
+                        "A cserjék minden ősszel elpusztulnak",
+                        "A fák szára zöld és lágyszárú",
+                        "A fának törzse van, a cserje tőből elágazik",
+                        "A cserjének vastag fatörzse van"
+                    ],
+        "correct":  2,
+        "explanation":  "A fáknak egyetlen fő fatörzsük és koronájuk van, míg a cserjék közvetlenül a talaj felett (tőből) több ágra ágaznak."
+    },
+    {
+        "id":  164,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "A virág melyik részéből fejlődik ki a termés a megporzás után?",
+        "options":  [
+                        "A csészelevelekből",
+                        "A porzószálakból",
+                        "A sziromlevelekből",
+                        "A termő alsó részéből (a magházból)"
+                    ],
+        "correct":  3,
+        "explanation":  "A megporzás és megtermékenyítés után a sziromlevelek lehullanak, a termő magházából pedig kifejlődik a termés."
+    },
+    {
+        "id":  165,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Mi jellemzi a gerinces állatokat a gerinctelenekkel szemben?",
+        "options":  [
+                        "Belső csontvázuk és gerincoszlopuk van",
+                        "A gerincteleneknek nincs fejük",
+                        "Minden vízi állat gerinctelen",
+                        "Külső kitinpáncél védi a testüket"
+                    ],
+        "correct":  0,
+        "explanation":  "A gerinceseknek (halak, kétéltűek, hüllők, madarak, emlősök) belső csontos vázuk van, a gerincteleneknek (pl. rovarok) nincs."
+    },
+    {
+        "id":  166,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Melyek a rovarok fő testtájai, és hány lábuk van?",
+        "options":  [
+                        "2 testtáj; 5 pár (10 db) láb",
+                        "Fej, tor, potroh; 3 pár (6 db) ízelt láb",
+                        "4 testtáj; 4 pár (8 db) láb",
+                        "Fej, nyak, törzs; 2 pár (4 db) láb"
+                    ],
+        "correct":  1,
+        "explanation":  "A rovarok testét kitinpáncél védi, 3 testtájuk (fej, tor, potroh) és 3 pár (6 db) ízelt lábuk van."
+    },
+    {
+        "id":  167,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Hogyan csoportosítjuk az emlősöket táplálkozásuk alapján?",
+        "options":  [
+                        "Minden emlős növényevő",
+                        "Csak ragadozókra és magevőkre",
+                        "Növényevőkre, ragadozókra és mindenevőkre",
+                        "Csővel táplálkozókra"
+                    ],
+        "correct":  2,
+        "explanation":  "Az emlősök lehetnek növényevők (szarvasmarha, nyúl), ragadozók (macska, róka) vagy mindenevők (sertés, medve)."
+    },
+    {
+        "id":  168,
+        "subject":  "Természettudomány",
+        "icon":  "🌿",
+        "grade":  "5. osztály",
+        "q":  "Milyen sorrendben követik egymást a tápláléklánc tagjai?",
+        "options":  [
+                        "Lebontó → Ragadozó → Növény",
+                        "Csúcsragadozó → Növényevő → Növény",
+                        "Ragadozó → Lebontó → Termelő",
+                        "Termelő (növény) → Növényevő → Ragadozó"
+                    ],
+        "correct":  3,
+        "explanation":  "A tápláléklánc mindig a termelővel (zöld növénnyel) kezdődik, amelyet az elsődleges fogyasztó (növényevő), majd a ragadozó követ."
+    },
+    {
+        "id":  169,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi az MCDLVI római szám arab számjegyekkel?",
+        "options":  [
+                        "1456",
+                        "1465",
+                        "1546",
+                        "1656"
+                    ],
+        "correct":  0,
+        "explanation":  "M = 1000, CD = 400, L = 50, VI = 6. Összesen: 1456."
+    },
+    {
+        "id":  170,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi a 78 452 számban a 8-as számjegy alaki, helyi és valódi értéke?",
+        "options":  [
+                        "Alaki: 8000, helyi: 8, valódi: 1000",
+                        "Alaki: 8, helyi: 1000 (ezres), valódi: 8000",
+                        "Mindhárom értéke 8",
+                        "Alaki: 8, helyi: 10 000, valódi: 80 000"
+                    ],
+        "correct":  1,
+        "explanation":  "A 78 452-ben a 8-as alaki értéke 8, helyi értéke ezres (1000), valódi értéke pedig 8000."
+    },
+    {
+        "id":  171,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi a 36 485 százasokra, illetve ezresekre kerekített értéke?",
+        "options":  [
+                        "Százasokra: 36 500; Ezresekre: 37 000",
+                        "Százasokra: 36 400; Ezresekre: 37 000",
+                        "Százasokra: 36 500; Ezresekre: 36 000",
+                        "Százasokra: 36 000; Ezresekre: 36 500"
+                    ],
+        "correct":  2,
+        "explanation":  "Százasokra kerekítve: 36 500; ezresekre kerekítve: 36 000."
+    },
+    {
+        "id":  172,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi a műveletsor eredménye: 60 – (12 + 8) : 4 + 3 · 5?",
+        "options":  [
+                        "50",
+                        "20",
+                        "35",
+                        "70"
+                    ],
+        "correct":  3,
+        "explanation":  "12 + 8 = 20; 20 : 4 = 5; 3 · 5 = 15. Végül: 60 – 5 + 15 = 70."
+    },
+    {
+        "id":  173,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Ha az osztandó 149 és az osztó 12, mennyi a hányados és a maradék?",
+        "options":  [
+                        "Hányados: 12, maradék: 5",
+                        "Hányados: 13, maradék: 3",
+                        "Hányados: 11, maradék: 17",
+                        "Hányados: 12, maradék: 0"
+                    ],
+        "correct":  0,
+        "explanation":  "12 · 12 = 144, és 149 – 144 = 5, tehát a hányados 12, a maradék 5."
+    },
+    {
+        "id":  174,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Melyik szám osztható egyszerre 2-vel, 3-mal, 5-tel és 9-cel is?",
+        "options":  [
+                        "240",
+                        "450",
+                        "305",
+                        "135"
+                    ],
+        "correct":  1,
+        "explanation":  "A 450 végződése 0 (osztható 2-vel és 5-tel), számjegyeinek összege pedig 9 (osztható 3-mal és 9-cel)."
+    },
+    {
+        "id":  175,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Reggel –4 °C volt, délig 11 °C-ot melegedett. Hány fok lett délben, és mennyi a –4 abszolút értéke?",
+        "options":  [
+                        "+7 °C; abszolút értéke: –4",
+                        "–15 °C; abszolút értéke: 0",
+                        "+7 °C; abszolút értéke: 4",
+                        "+15 °C; abszolút értéke: 4"
+                    ],
+        "correct":  2,
+        "explanation":  "–4 + 11 = +7 °C. A –4 abszolút értéke (a 0-tól való távolsága) 4."
+    },
+    {
+        "id":  176,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi egy 24 fős osztály tanulóinak a 3/4 része?",
+        "options":  [
+                        "32 tanuló",
+                        "6 tanuló",
+                        "16 tanuló",
+                        "18 tanuló"
+                    ],
+        "correct":  3,
+        "explanation":  "24 : 4 = 6, és 6 · 3 = 18 tanuló."
+    },
+    {
+        "id":  177,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi a 17/5 vegyes számmal, és a 15/20 egyszerűsített alakja?",
+        "options":  [
+                        "3 egész 2/5; illetve 3/4",
+                        "3 egész 1/5; illetve 3/5",
+                        "4 egész 2/5; illetve 1/4",
+                        "2 egész 7/5; illetve 5/10"
+                    ],
+        "correct":  0,
+        "explanation":  "17/5 = 3 egész 2/5; a 15/20-at 5-tel egyszerűsítve 3/4-et kapunk."
+    },
+    {
+        "id":  178,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi a törtművelet eredménye: 5/8 + 1/4 – 3/8?",
+        "options":  [
+                        "7/8",
+                        "4/8 = 1/2",
+                        "3/12",
+                        "1/8"
+                    ],
+        "correct":  1,
+        "explanation":  "1/4 = 2/8, így 5/8 + 2/8 – 3/8 = 4/8 = 1/2."
+    },
+    {
+        "id":  179,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi a 12,4 + 3,75 és a 0,68 · 100 eredménye?",
+        "options":  [
+                        "16,15 és 0,0068",
+                        "15,79 és 6,8",
+                        "16,15 és 68",
+                        "4,99 és 680"
+                    ],
+        "correct":  2,
+        "explanation":  "12,40 + 3,75 = 16,15; és 0,68 · 100 = 68."
+    },
+    {
+        "id":  180,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Melyik mértékegység-átváltás HIBÁTLAN?",
+        "options":  [
+                        "3,5 t = 350 kg; 4 l = 400 dl",
+                        "2,5 km = 250 m; 3 óra = 300 perc",
+                        "1 m² = 10 dm²; 1 nap = 12 óra",
+                        "2,5 km = 2500 m; 3,5 t = 3500 kg; 4 l = 40 dl"
+                    ],
+        "correct":  3,
+        "explanation":  "2,5 km = 2500 m, 3,5 t = 3500 kg, 4 l = 40 dl, 2 óra 15 perc = 135 perc."
+    },
+    {
+        "id":  181,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mi a szögek neve sorrendben: 1) 0°–90°, 2) 90°, 3) 90°–180°, 4) 180°?",
+        "options":  [
+                        "hegyesszög, derékszög, tompaszög, egyenesszög",
+                        "derékszög, hegyesszög, tompaszög, homorúszög",
+                        "hegyesszög, egyenesszög, derékszög, teljesszög",
+                        "tompaszög, egyenesszög, hegyesszög, derékszög"
+                    ],
+        "correct":  0,
+        "explanation":  "0°–90°: hegyesszög; 90°: derékszög; 90°–180°: tompaszög; 180°: egyenesszög."
+    },
+    {
+        "id":  182,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Hány végpontja van az egyenesnek, a félegyenesnek és a szakasznak?",
+        "options":  [
+                        "Egyenes: 1, félegyenes: 2, szakasz: 0",
+                        "Egyenes: 0, félegyenes: 1, szakasz: 2",
+                        "Mindháromnak 2 végpontja van",
+                        "Egyenes: 2, félegyenes: 1, szakasz: 0"
+                    ],
+        "correct":  1,
+        "explanation":  "Az egyenes mindkét irányban végtelen (0 végpont), a félegyenesnek 1 kezdőpontja van, a szakasznak 2 végpontja van."
+    },
+    {
+        "id":  183,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mennyi az a = 9 cm és b = 6 cm oldalú téglalap kerülete és területe?",
+        "options":  [
+                        "K = 36 cm; T = 48 cm²",
+                        "K = 54 cm; T = 30 cm²",
+                        "K = 30 cm; T = 54 cm²",
+                        "K = 15 cm; T = 54 cm²"
+                    ],
+        "correct":  2,
+        "explanation":  "K = 2 · (9 + 6) = 30 cm; T = 9 · 6 = 54 cm²."
+    },
+    {
+        "id":  184,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Egy négyzet kerülete 36 cm. Mekkora az oldala és a területe?",
+        "options":  [
+                        "Oldala: 6 cm; Területe: 36 cm²",
+                        "Oldala: 9 cm; Területe: 18 cm²",
+                        "Oldala: 18 cm; Területe: 324 cm²",
+                        "Oldala: 9 cm; Területe: 81 cm²"
+                    ],
+        "correct":  3,
+        "explanation":  "Oldala: 36 : 4 = 9 cm; területe: 9 · 9 = 81 cm²."
+    },
+    {
+        "id":  185,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Hány lapja, éle és csúcsa van egy kockának?",
+        "options":  [
+                        "6 lap, 12 él, 8 csúcs",
+                        "6 lap, 8 él, 12 csúcs",
+                        "8 lap, 12 él, 6 csúcs",
+                        "4 lap, 8 él, 4 csúcs"
+                    ],
+        "correct":  0,
+        "explanation":  "Minden kockának és téglatestnek 6 lapja, 12 éle és 8 csúcsa van."
+    },
+    {
+        "id":  186,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Mekkora egy a = 5 cm élű kocka felszíne (A) és térfogata (V)?",
+        "options":  [
+                        "A = 25 cm²; V = 60 cm³",
+                        "A = 150 cm²; V = 125 cm³",
+                        "A = 125 cm²; V = 150 cm³",
+                        "A = 100 cm²; V = 125 cm³"
+                    ],
+        "correct":  1,
+        "explanation":  "A = 6 · 5 · 5 = 150 cm²; V = 5 · 5 · 5 = 125 cm³."
+    },
+    {
+        "id":  187,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Melyik a számsorozat következő két tagja: 3, 7, 15, 31, ...?",
+        "options":  [
+                        "62, 124",
+                        "35, 39",
+                        "63, 127",
+                        "47, 63"
+                    ],
+        "correct":  2,
+        "explanation":  "Minden tag az előző kétszeresénél 1-gyel nagyobb (+4, +8, +16, +32, +64): 63, 127."
+    },
+    {
+        "id":  188,
+        "subject":  "Matematika",
+        "icon":  "📐",
+        "grade":  "5. osztály",
+        "q":  "Szabályos dobókockával dobva milyen esemény: 1) 7-nél kisebb, 2) páros, 3) 8-as?",
+        "options":  [
+                        "1) lehetséges, 2) lehetetlen, 3) biztos",
+                        "1) lehetetlen, 2) biztos, 3) lehetséges",
+                        "Mindhárom biztos esemény",
+                        "1) biztos, 2) lehetséges, 3) lehetetlen"
+                    ],
+        "correct":  3,
+        "explanation":  "7-nél kisebb szám: biztos; páros szám: lehetséges (de nem biztos); 8-as dobás: lehetetlen."
+    },
+    {
+        "id":  189,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Mi jellemzi a régi stílusú magyar népdalokat?",
+        "options":  [
+                        "Ereszkedő dallam, pentaton hangsor, kvintváltás",
+                        "Kizárólag zongorakíséretesek",
+                        "Háromszólamú kánonban éneklik őket",
+                        "Kupolás dallamvonal és dúr hangsor"
+                    ],
+        "correct":  0,
+        "explanation":  "A régi stílusú népdalaink ereszkedő dallamvonalúak, ötfokú (pentaton) hangsorúak és gyakran kvintváltó szerkezetűek."
+    },
+    {
+        "id":  190,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a „tempo giusto”, a „parlando” és a „rubato” előadásmód?",
+        "options":  [
+                        "gyorsan, közepesen és lassan",
+                        "feszes (táncos), elbeszélve, illetve szabadon",
+                        "halkan, közepesen és hangosan",
+                        "magasan, középen és mélyen"
+                    ],
+        "correct":  1,
+        "explanation":  "Tempo giusto = feszes, táncos; parlando = beszédszerűen; rubato = szabadon, kötött ütemezés nélkül."
+    },
+    {
+        "id":  191,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent az „a cappella” kifejezés?",
+        "options":  [
+                        "Szólóének zongorakísérettel",
+                        "Zenekari előadás ének nélkül",
+                        "Hangszerkíséret nélküli énekkari előadás",
+                        "Katonai fúvószenekari induló"
+                    ],
+        "correct":  2,
+        "explanation":  "Az a cappella hangszerkíséret nélküli többszólamú kóruséneklést jelent."
+    },
+    {
+        "id":  192,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Milyen dalok a „Csínom Palkó” és a „Föl, föl vitézek”?",
+        "options":  [
+                        "Karácsonyi regős énekek",
+                        "Bölcsődalok",
+                        "Nyári aratódalok",
+                        "Kuruc és 1848-as katona- és toborzódalok"
+                    ],
+        "correct":  3,
+        "explanation":  "A Csínom Palkó kuruc kori toborzódal, a Föl, föl vitézek pedig az 1848–49-es szabadságharc katonadala."
+    },
+    {
+        "id":  193,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Ki komponálta a Háry János daljátékot és a Székelyfonót?",
+        "options":  [
+                        "Kodály Zoltán",
+                        "Farkas Ferenc",
+                        "Liszt Ferenc",
+                        "Erkel Ferenc"
+                    ],
+        "correct":  0,
+        "explanation":  "Kodály Zoltán színpadi művei a Háry János és a Székelyfonó."
+    },
+    {
+        "id":  194,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Ki komponálta a Magyar képek zenekari sorozatot (Este a székelyeknél, Ürögi kanásztánc)?",
+        "options":  [
+                        "Wolfgang Amadeus Mozart",
+                        "Bartók Béla",
+                        "Johannes Brahms",
+                        "Bárdos Lajos"
+                    ],
+        "correct":  1,
+        "explanation":  "Bartók Béla Magyar képek című szvitjének híres tételei az Este a székelyeknél és az Ürögi kanásztánc."
+    },
+    {
+        "id":  195,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Melyik két híres zeneművet szerezte Wolfgang Amadeus Mozart?",
+        "options":  [
+                        "Egy kiállítás képei és Manók tánca",
+                        "Parasztkantáta és V. magyar tánc",
+                        "Egy kis éji zene és Török induló",
+                        "Csillagok háborúja és Régi magyar táncok"
+                    ],
+        "correct":  2,
+        "explanation":  "Mozart remekművei az Egy kis éji zene és az A-dúr zongoraszonáta III. tétele, a Török induló."
+    },
+    {
+        "id":  196,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Ki alkotta meg az Egy kiállítás képei című zongoraciklust?",
+        "options":  [
+                        "Johann Sebastian Bach",
+                        "Ligeti György",
+                        "Ludwig van Beethoven",
+                        "Mogyeszt Muszorgszkij"
+                    ],
+        "correct":  3,
+        "explanation":  "Muszorgszkij barátja, Hartmann képei nyomán komponálta az Egy kiállítás képei című művet."
+    },
+    {
+        "id":  197,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Melyik a klasszikus szimfonikus zenekar négy hangszercsaládja?",
+        "options":  [
+                        "Vonósok, fafúvósok, rézfúvósok, ütőhangszerek",
+                        "Pengetősök és zongora",
+                        "Elektromos gitár és szintetizátor",
+                        "Csak vonósok és orgona"
+                    ],
+        "correct":  0,
+        "explanation":  "A szimfonikus zenekar 4 családja: vonósok, fafúvósok, rézfúvósok, ütősök; népi hangszereink pl. a citera, cimbalom, duda, tekerő, furulya."
+    },
+    {
+        "id":  198,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Hány tizenhatod ér egy negyedet, és milyen a kis éles ritmus (ti-tá.)?",
+        "options":  [
+                        "6 tizenhatod; szünetekből áll",
+                        "4 tizenhatod; a rövid hang áll elöl",
+                        "8 tizenhatod; három egész hangból áll",
+                        "2 tizenhatod; a hosszú hang áll elöl"
+                    ],
+        "correct":  1,
+        "explanation":  "4 tizenhatod ér 1 negyedet; a kis élesben (ti-tá.) a rövid, a kis nyújtottban (tá.-ti) a pontozott hosszú hang áll elöl."
+    },
+    {
+        "id":  199,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Melyek a tiszta hangközök, és melyek a tanult módosított szolmizációs hangok?",
+        "options":  [
+                        "Csak a szext; nincs módosított hang",
+                        "Szekund és terc; dó, ré, mi",
+                        "Prím, kvárt, kvint, oktáv; fi, szi, ta",
+                        "Szeptim; lá, szó, fá"
+                    ],
+        "correct":  2,
+        "explanation":  "A tiszta hangközök: T1, T4, T5, T8; a tanult módosított szolmizációs hangok: a felemelt fi, szi és a leszállított ta."
+    },
+    {
+        "id":  200,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Melyek a törzshangok abc-s betűnevei a C-dúr és a természetes a-moll hangsorban?",
+        "options":  [
+                        "C-dúr: a–h–c–d–e–f–g; a-moll: c–d–e–f–g–a–h",
+                        "Megegyeznek a szolmizációs nevekkel",
+                        "Mindkét hangsor fisz-szel kezdődik",
+                        "C-dúr: c–d–e–f–g–a–h–c\u0027; a-moll: a–h–c–d–e–f–g–a\u0027"
+                    ],
+        "correct":  3,
+        "explanation":  "A C-dúr hangsor c-től c\u0027-ig, a párhuzamos természetes a-moll pedig a-tól a\u0027-ig épül fel törzshangokból."
+    }
+];
+
+    // --- GAME STATE ---
+    let TARGET_SCORE = 7;
+    let score = 0;
+    let isGameOver = false;
+    let isSoundMuted = false;
+
+    let teamNames = {
+      blue: 'Kék versenyző',
+      red: 'Piros versenyző'
+    };
+
+    let teamStats = {
+      blue: { correct: 0, wrong: 0, pulls: 0, streak: 0, history: [] },
+      red: { correct: 0, wrong: 0, pulls: 0, streak: 0, history: [] }
+    };
+
+    let activeDeck = [];
+    let currentQuestions = {
+      blue: null,
+      red: null
+    };
+
+    let selectedSubjects = new Set([
+      "Irodalom", "Magyar nyelv", "Történelem", "Természettudomány",
+      "Matematika", "Ének-zene"
+    ]);
+
+    // Keyboard bindings mapping
+    const KEY_MAP = {
+      'a': { team: 'blue', opt: 0 },
+      's': { team: 'blue', opt: 1 },
+      'd': { team: 'blue', opt: 2 },
+      'f': { team: 'blue', opt: 3 },
+      '1': { team: 'blue', opt: 0 },
+      '2': { team: 'blue', opt: 1 },
+      '3': { team: 'blue', opt: 2 },
+      '4': { team: 'blue', opt: 3 },
+      'h': { team: 'red', opt: 0 },
+      'j': { team: 'red', opt: 1 },
+      'k': { team: 'red', opt: 2 },
+      'l': { team: 'red', opt: 3 },
+      '7': { team: 'red', opt: 0 },
+      '8': { team: 'red', opt: 1 },
+      '9': { team: 'red', opt: 2 },
+      '0': { team: 'red', opt: 3 },
+    };
+
+    // --- WEB AUDIO API SYNTHESIZER ---
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) {
+          audioCtx = new AudioContext();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playTone(freq, duration, type = 'sine', gainVal = 0.15) {
+      if (isSoundMuted) return;
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(gainVal, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {
+        console.warn('Audio play error:', e);
+      }
+    }
+
+    function soundPull() {
+      if (isSoundMuted) return;
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(140, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.25);
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.25);
+      } catch (e) {}
+    }
+
+    function soundCorrect() {
+      if (isSoundMuted) return;
+      const notes = [523.25, 659.25, 783.99, 1046.50];
+      notes.forEach((f, i) => {
+        setTimeout(() => playTone(f, 0.22, 'triangle', 0.2), i * 65);
+      });
+    }
+
+    function soundWrong() {
+      if (isSoundMuted) return;
+      playTone(220, 0.2, 'sawtooth', 0.12);
+      setTimeout(() => playTone(175, 0.28, 'sawtooth', 0.15), 110);
+    }
+
+    function soundFanfare() {
+      if (isSoundMuted) return;
+      const melody = [
+        { f: 523.25, d: 0.18 },
+        { f: 659.25, d: 0.18 },
+        { f: 783.99, d: 0.18 },
+        { f: 1046.50, d: 0.45 },
+        { f: 880.00, d: 0.2 },
+        { f: 1046.50, d: 0.6 }
+      ];
+      let delay = 0;
+      melody.forEach(item => {
+        setTimeout(() => playTone(item.f, item.d, 'square', 0.16), delay);
+        delay += item.d * 1000 * 0.85;
+      });
+    }
+
+    function toggleSound() {
+      isSoundMuted = !isSoundMuted;
+      document.getElementById('sound-icon').textContent = isSoundMuted ? '🔇' : '🔊';
+      document.getElementById('sound-btn').style.opacity = isSoundMuted ? '0.6' : '1';
+    }
+
+    // --- DECK MANAGEMENT ---
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function getFilteredQuestions() {
+      const filtered = ALL_QUESTIONS.filter(q => selectedSubjects.has(q.subject));
+      return filtered.length > 0 ? filtered : ALL_QUESTIONS;
+    }
+
+    function replenishDeck() {
+      activeDeck = shuffleArray([...getFilteredQuestions()]);
+    }
+
+    function getNextQuestion() {
+      if (activeDeck.length === 0) {
+        replenishDeck();
+      }
+      return activeDeck.pop();
+    }
+
+    // --- RENDER YARD MARKS ---
+    function renderYardMarks() {
+      const container = document.getElementById('yard-marks');
+      container.innerHTML = '';
+      const step = 1;
+      for (let i = -TARGET_SCORE; i <= TARGET_SCORE; i += step) {
+        const tick = document.createElement('div');
+        tick.className = 'yard-tick' + (i === 0 ? ' center' : '');
+        tick.textContent = i === 0 ? '0' : Math.abs(i);
+        container.appendChild(tick);
+      }
+    }
+
+    // --- DISPLAY QUESTION FOR TEAM ---
+    function loadQuestionForTeam(team) {
+      if (isGameOver) return;
+      const q = getNextQuestion();
+      currentQuestions[team] = q;
+
+      const subIcon = document.getElementById(`sub-icon-${team}`);
+      const subText = document.getElementById(`sub-text-${team}`);
+      const qPrompt = document.getElementById(`q-text-${team}`);
+      const optionsGrid = document.getElementById(`options-${team}`);
+
+      subIcon.textContent = q.icon || '📚';
+      subText.textContent = `${q.subject} • ${q.grade || '5. osztály'}`;
+      qPrompt.textContent = q.q;
+
+      optionsGrid.innerHTML = '';
+      const keyHints = team === 'blue' ? ['A', 'S', 'D', 'F'] : ['H', 'J', 'K', 'L'];
+      const altKeyHints = team === 'blue' ? ['1', '2', '3', '4'] : ['7', '8', '9', '0'];
+
+      q.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.id = `btn-${team}-${idx}`;
+        btn.onclick = () => handleAnswer(team, idx);
+
+        const keyBadge = document.createElement('span');
+        keyBadge.className = 'option-key';
+        keyBadge.textContent = keyHints[idx];
+        keyBadge.title = `Gomb: ${keyHints[idx]} vagy ${altKeyHints[idx]}`;
+
+        const textSpan = document.createElement('span');
+        textSpan.className = 'option-text';
+        textSpan.textContent = optText;
+
+        btn.appendChild(keyBadge);
+        btn.appendChild(textSpan);
+        optionsGrid.appendChild(btn);
+      });
+    }
+
+    // --- ANSWER HANDLING ---
+    function handleAnswer(team, selectedIdx) {
+      if (isGameOver) return;
+      getAudioContext();
+
+      const q = currentQuestions[team];
+      if (!q) return;
+
+      const grid = document.getElementById(`options-${team}`);
+      const selectedBtn = document.getElementById(`btn-${team}-${selectedIdx}`);
+      const isCorrect = (selectedIdx === q.correct);
+
+      // Disable buttons temporarily
+      const allBtns = grid.querySelectorAll('.option-btn');
+      allBtns.forEach(b => b.disabled = true);
+
+      // Record to history
+      teamStats[team].history.push({
+        question: q.q,
+        subject: q.subject,
+        chosen: q.options[selectedIdx],
+        correct: q.options[q.correct],
+        isCorrect: isCorrect
+      });
+
+      if (isCorrect) {
+        teamStats[team].correct++;
+        teamStats[team].pulls++;
+        teamStats[team].streak++;
+
+        selectedBtn.classList.add('btn-correct');
+        soundCorrect();
+        triggerPullEffect(team);
+
+        // Update score
+        score += (team === 'blue') ? -1 : 1;
+        updateVisuals();
+        updateStreakPill(team);
+
+        // Check for victory
+        if (Math.abs(score) >= TARGET_SCORE) {
+          setTimeout(() => endGame(team === 'blue' ? teamNames.blue : teamNames.red, team), 350);
+          return;
+        }
+
+        setTimeout(() => {
+          loadQuestionForTeam(team);
+        }, 450);
+
+      } else {
+        teamStats[team].wrong++;
+        teamStats[team].streak = 0;
+        updateStreakPill(team);
+
+        selectedBtn.classList.add('btn-wrong');
+        soundWrong();
+        triggerStumbleEffect(team);
+
+        showCooldownOverlay(team, q);
+      }
+    }
+
+    function updateStreakPill(team) {
+      const pill = document.getElementById(`streak-${team}`);
+      const streak = teamStats[team].streak;
+      if (streak >= 2) {
+        pill.classList.add('active');
+        pill.querySelector('span').textContent = `${streak}x Sorozat!`;
+      } else {
+        pill.classList.remove('active');
+      }
+    }
+
+    function showCooldownOverlay(team, question) {
+      const overlay = document.getElementById(`cooldown-${team}`);
+      const explText = document.getElementById(`cooldown-expl-${team}`);
+      const bar = document.getElementById(`cooldown-bar-${team}`);
+
+      explText.innerHTML = `Helyes válasz: <strong>${question.options[question.correct]}</strong><br><small style="color:#94a3b8">${question.explanation || ''}</small>`;
+      overlay.classList.add('show');
+
+      bar.style.transition = 'none';
+      bar.style.transform = 'scaleX(1)';
+      setTimeout(() => {
+        bar.style.transition = 'transform 2.2s linear';
+        bar.style.transform = 'scaleX(0)';
+      }, 50);
+
+      setTimeout(() => {
+        overlay.classList.remove('show');
+        loadQuestionForTeam(team);
+      }, 2300);
+    }
+
+    // --- VISUAL TUG OF WAR EFFECTS ---
+    function updateVisuals() {
+      const knot = document.getElementById('rope-knot');
+      const tensionIndicator = document.getElementById('tension-indicator');
+      const navScoreDisplay = document.getElementById('nav-score-display');
+      const pullsBlue = document.getElementById('pulls-blue');
+      const pullsRed = document.getElementById('pulls-red');
+
+      const percentage = 50 + (score * (42 / TARGET_SCORE));
+      knot.style.left = `${percentage}%`;
+
+      if (score < 0) {
+        tensionIndicator.className = 'tension-indicator tension-blue';
+        tensionIndicator.style.left = `${percentage}%`;
+        tensionIndicator.style.width = `${50 - percentage}%`;
+      } else if (score > 0) {
+        tensionIndicator.className = 'tension-indicator tension-red';
+        tensionIndicator.style.left = '50%';
+        tensionIndicator.style.width = `${percentage - 50}%`;
+      } else {
+        tensionIndicator.style.width = '0%';
+      }
+
+      const bluePoints = Math.max(0, -score);
+      const redPoints = Math.max(0, score);
+      navScoreDisplay.textContent = `${bluePoints} : ${redPoints}`;
+
+      pullsBlue.textContent = `${teamStats.blue.pulls} Húzás`;
+      pullsRed.textContent = `${teamStats.red.pulls} Húzás`;
+    }
+
+    function triggerPullEffect(team) {
+      soundPull();
+
+      const figures = document.getElementById(`${team}-team-figures`);
+      const animClass = team === 'blue' ? 'team-heave-left' : 'team-heave-right';
+      figures.classList.add(animClass);
+
+      createChalkPuff(team);
+      showScorePopup(team);
+
+      setTimeout(() => {
+        figures.classList.remove(animClass);
+      }, 450);
+    }
+
+    function triggerStumbleEffect(team) {
+      const figures = document.getElementById(`${team}-team-figures`);
+      const chars = figures.querySelectorAll('.character-figure');
+      chars.forEach(c => c.classList.add('stumble-character'));
+      setTimeout(() => {
+        chars.forEach(c => c.classList.remove('stumble-character'));
+      }, 600);
+    }
+
+    function createChalkPuff(team) {
+      const figures = document.getElementById(`${team}-team-figures`);
+      for (let i = 0; i < 3; i++) {
+        const puff = document.createElement('div');
+        puff.className = 'chalk-puff';
+        puff.style.left = (Math.random() * 80 + 10) + 'px';
+        figures.appendChild(puff);
+        setTimeout(() => puff.remove(), 600);
+      }
+    }
+
+    function showScorePopup(team) {
+      const station = document.getElementById(`station-${team}`);
+      const popup = document.createElement('div');
+      popup.className = `score-popup ${team}`;
+      popup.textContent = '+1 HÚZÁS!';
+      station.appendChild(popup);
+      setTimeout(() => popup.remove(), 800);
+    }
+
+    // --- VICTORY & CONFETTI ---
+    function endGame(winnerName, winningTeamKey) {
+      isGameOver = true;
+      soundFanfare();
+
+      const overlay = document.getElementById('victory-overlay');
+      const title = document.getElementById('victory-winner-title');
+      const subtitle = document.getElementById('victory-subtitle');
+
+      title.textContent = `${winnerName.toUpperCase()} GYŐZÖTT! 🎉`;
+      title.className = `victory-title ${winningTeamKey}`;
+      subtitle.textContent = `Fantasztikus tudás és kötélhúzó erő a 6. osztályos műveltségi vetélkedőn (5. évfolyamos tananyag alapján)!`;
+
+      document.getElementById('stat-blue-correct').textContent = teamStats.blue.correct;
+      document.getElementById('stat-red-correct').textContent = teamStats.red.correct;
+      document.getElementById('stat-total-q').textContent = teamStats.blue.correct + teamStats.blue.wrong + teamStats.red.correct + teamStats.red.wrong;
+
+      overlay.classList.add('open');
+      startConfetti();
+    }
+
+    function resetMatch(keepScores = false) {
+      isGameOver = false;
+      score = 0;
+      document.getElementById('victory-overlay').classList.remove('open');
+      stopConfetti();
+
+      if (!keepScores) {
+        teamStats.blue = { correct: 0, wrong: 0, pulls: 0, streak: 0, history: [] };
+        teamStats.red = { correct: 0, wrong: 0, pulls: 0, streak: 0, history: [] };
+      }
+
+      updateVisuals();
+      replenishDeck();
+      loadQuestionForTeam('blue');
+      loadQuestionForTeam('red');
+    }
+
+    // --- CONFETTI SYSTEM ---
+    let confettiAnimId = null;
+    let confettiParticles = [];
+
+    function startConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const colors = ['#00d2ff', '#ff416c', '#fbbf24', '#10b981', '#ffffff', '#a855f7'];
+      confettiParticles = [];
+
+      for (let i = 0; i < 120; i++) {
+        confettiParticles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          size: Math.random() * 9 + 5,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: Math.random() * 4 - 2,
+          vy: Math.random() * 5 + 3,
+          rot: Math.random() * 360,
+          rotSpeed: Math.random() * 8 - 4
+        });
+      }
+
+      function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confettiParticles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.rotSpeed;
+          if (p.y > canvas.height) {
+            p.y = -20;
+            p.x = Math.random() * canvas.width;
+          }
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot * Math.PI / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.7);
+          ctx.restore();
+        });
+
+        confettiAnimId = requestAnimationFrame(loop);
+      }
+      loop();
+    }
+
+    function stopConfetti() {
+      if (confettiAnimId) {
+        cancelAnimationFrame(confettiAnimId);
+        confettiAnimId = null;
+      }
+      const canvas = document.getElementById('confetti-canvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    // --- SETTINGS MODAL ---
+    function openSettingsModal() {
+      document.getElementById('input-name-blue').value = teamNames.blue;
+      document.getElementById('input-name-red').value = teamNames.red;
+      renderSubjectFilterOptions();
+      document.getElementById('settings-modal').classList.add('open');
+    }
+
+    function closeSettingsModal() {
+      document.getElementById('settings-modal').classList.remove('open');
+    }
+
+    function renderSubjectFilterOptions() {
+      const container = document.getElementById('subjects-filter-grid');
+      container.innerHTML = '';
+
+      const subjects = [
+        { name: "Irodalom", icon: "📖", count: 60 },
+        { name: "Magyar nyelv", icon: "✍️", count: 60 },
+        { name: "Történelem", icon: "🏰", count: 24 },
+        { name: "Természettudomány", icon: "🌿", count: 24 },
+        { name: "Matematika", icon: "📐", count: 20 },
+        { name: "Ének-zene", icon: "🎵", count: 12 }
+      ];
+
+      subjects.forEach(sub => {
+        const label = document.createElement('label');
+        label.className = 'subject-check-label';
+
+        const check = document.createElement('input');
+        check.type = 'checkbox';
+        check.value = sub.name;
+        check.checked = selectedSubjects.has(sub.name);
+        check.onchange = (e) => {
+          if (e.target.checked) selectedSubjects.add(sub.name);
+          else selectedSubjects.delete(sub.name);
+        };
+
+        const span = document.createElement('span');
+        span.textContent = `${sub.icon} ${sub.name} (${sub.count})`;
+
+        label.appendChild(check);
+        label.appendChild(span);
+        container.appendChild(label);
+      });
+    }
+
+    function applyPreset(presetType) {
+      selectedSubjects.clear();
+      if (presetType === 'all') {
+        [
+          "Irodalom", "Magyar nyelv", "Történelem", "Matematika",
+          "Természettudomány", "Ének-zene"
+        ].forEach(s => selectedSubjects.add(s));
+      } else if (presetType === 'hungarian') {
+        selectedSubjects.add("Irodalom");
+        selectedSubjects.add("Magyar nyelv");
+      } else if (presetType === 'stem_history') {
+        [
+          "Történelem", "Matematika", "Természettudomány", "Ének-zene"
+        ].forEach(s => selectedSubjects.add(s));
+      }
+      renderSubjectFilterOptions();
+    }
+
+    function selectAllSubjects(all) {
+      const checkboxes = document.querySelectorAll('#subjects-filter-grid input[type="checkbox"]');
+      checkboxes.forEach(c => {
+        c.checked = all;
+        if (all) selectedSubjects.add(c.value);
+        else selectedSubjects.delete(c.value);
+      });
+    }
+
+    function setTargetScore(val) {
+      TARGET_SCORE = val;
+      [5, 7, 10].forEach(n => {
+        const btn = document.getElementById(`target-btn-${n}`);
+        if (btn) btn.classList.toggle('active', n === val);
+      });
+    }
+
+    function saveSettings() {
+      const bName = document.getElementById('input-name-blue').value.trim() || 'Kék versenyző';
+      const rName = document.getElementById('input-name-red').value.trim() || 'Piros versenyző';
+      teamNames.blue = bName;
+      teamNames.red = rName;
+
+      document.getElementById('nav-blue-name').textContent = bName;
+      document.getElementById('nav-red-name').textContent = rName;
+      document.getElementById('title-blue').textContent = `${bName} ✏️`;
+      document.getElementById('title-red').textContent = `${rName} ✏️`;
+
+      renderYardMarks();
+      replenishDeck();
+      closeSettingsModal();
+      updateVisuals();
+    }
+
+    function promptTeamName(team) {
+      const current = teamNames[team];
+      const newName = prompt(`Add meg a(z) ${team === 'blue' ? 'Kék' : 'Piros'} versenyző nevét:`, current);
+      if (newName && newName.trim()) {
+        teamNames[team] = newName.trim();
+        saveSettings();
+      }
+    }
+
+    // --- FULLSCREEN ---
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.log(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // --- REVIEW MODAL ---
+    function openReviewModal() {
+      const modal = document.getElementById('review-modal');
+      const list = document.getElementById('review-list');
+      list.innerHTML = '';
+
+      const allAnswers = [...teamStats.blue.history, ...teamStats.red.history];
+      if (allAnswers.length === 0) {
+        list.innerHTML = '<p style="color:#94a3b8; text-align:center;">Még nincs rögzített válasz ebben a meccsben.</p>';
+      } else {
+        allAnswers.forEach((item, idx) => {
+          const div = document.createElement('div');
+          div.style.padding = '12px 16px';
+          div.style.borderRadius = '12px';
+          div.style.marginBottom = '10px';
+          div.style.background = item.isCorrect ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)';
+          div.style.border = `1px solid ${item.isCorrect ? '#10b981' : '#ef4444'}`;
+
+          div.innerHTML = `
+            <div style="font-size:12px; font-weight:700; color:#94a3b8; margin-bottom:4px;">#${idx + 1} • ${item.subject}</div>
+            <div style="font-weight:600; color:#fff; margin-bottom:6px;">${item.question}</div>
+            <div style="font-size:13.5px; color:${item.isCorrect ? '#10b981' : '#f87171'}">
+              Választott: <strong>${item.chosen}</strong> ${item.isCorrect ? '✅ (Helyes)' : `❌ (Helyes: ${item.correct})`}
+            </div>
+          `;
+          list.appendChild(div);
+        });
+      }
+
+      modal.classList.add('open');
+    }
+
+    function closeReviewModal() {
+      document.getElementById('review-modal').classList.remove('open');
+    }
+
+    // --- KEYBOARD LISTENERS ---
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      const key = e.key.toLowerCase();
+
+      if (key === 'm') {
+        toggleSound();
+        return;
+      }
+
+      if (KEY_MAP[key]) {
+        const { team, opt } = KEY_MAP[key];
+        const btn = document.getElementById(`btn-${team}-${opt}`);
+        if (btn && !btn.disabled) {
+          btn.click();
+        }
+      }
+    });
+
+    // --- INITIALIZATION ---
+    window.onload = () => {
+      renderYardMarks();
+      replenishDeck();
+      loadQuestionForTeam('blue');
+      loadQuestionForTeam('red');
+      updateVisuals();
+    };
+  </script>
+</body>
+</html>

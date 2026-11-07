@@ -1,0 +1,182 @@
+[
+    {
+        "id":  189,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Mi jellemzi a régi stílusú magyar népdalokat?",
+        "options":  [
+                        "Ereszkedő dallam, pentaton hangsor, kvintváltás",
+                        "Kizárólag zongorakíséretesek",
+                        "Háromszólamú kánonban éneklik őket",
+                        "Kupolás dallamvonal és dúr hangsor"
+                    ],
+        "correct":  0,
+        "explanation":  "A régi stílusú népdalaink ereszkedő dallamvonalúak, ötfokú (pentaton) hangsorúak és gyakran kvintváltó szerkezetűek."
+    },
+    {
+        "id":  190,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent a „tempo giusto”, a „parlando” és a „rubato” előadásmód?",
+        "options":  [
+                        "gyorsan, közepesen és lassan",
+                        "feszes (táncos), elbeszélve, illetve szabadon",
+                        "halkan, közepesen és hangosan",
+                        "magasan, középen és mélyen"
+                    ],
+        "correct":  1,
+        "explanation":  "Tempo giusto = feszes, táncos; parlando = beszédszerűen; rubato = szabadon, kötött ütemezés nélkül."
+    },
+    {
+        "id":  191,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Mit jelent az „a cappella” kifejezés?",
+        "options":  [
+                        "Szólóének zongorakísérettel",
+                        "Zenekari előadás ének nélkül",
+                        "Hangszerkíséret nélküli énekkari előadás",
+                        "Katonai fúvószenekari induló"
+                    ],
+        "correct":  2,
+        "explanation":  "Az a cappella hangszerkíséret nélküli többszólamú kóruséneklést jelent."
+    },
+    {
+        "id":  192,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Milyen dalok a „Csínom Palkó” és a „Föl, föl vitézek”?",
+        "options":  [
+                        "Karácsonyi regős énekek",
+                        "Bölcsődalok",
+                        "Nyári aratódalok",
+                        "Kuruc és 1848-as katona- és toborzódalok"
+                    ],
+        "correct":  3,
+        "explanation":  "A Csínom Palkó kuruc kori toborzódal, a Föl, föl vitézek pedig az 1848–49-es szabadságharc katonadala."
+    },
+    {
+        "id":  193,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Ki komponálta a Háry János daljátékot és a Székelyfonót?",
+        "options":  [
+                        "Kodály Zoltán",
+                        "Farkas Ferenc",
+                        "Liszt Ferenc",
+                        "Erkel Ferenc"
+                    ],
+        "correct":  0,
+        "explanation":  "Kodály Zoltán színpadi művei a Háry János és a Székelyfonó."
+    },
+    {
+        "id":  194,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Ki komponálta a Magyar képek zenekari sorozatot (Este a székelyeknél, Ürögi kanásztánc)?",
+        "options":  [
+                        "Wolfgang Amadeus Mozart",
+                        "Bartók Béla",
+                        "Johannes Brahms",
+                        "Bárdos Lajos"
+                    ],
+        "correct":  1,
+        "explanation":  "Bartók Béla Magyar képek című szvitjének híres tételei az Este a székelyeknél és az Ürögi kanásztánc."
+    },
+    {
+        "id":  195,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Melyik két híres zeneművet szerezte Wolfgang Amadeus Mozart?",
+        "options":  [
+                        "Egy kiállítás képei és Manók tánca",
+                        "Parasztkantáta és V. magyar tánc",
+                        "Egy kis éji zene és Török induló",
+                        "Csillagok háborúja és Régi magyar táncok"
+                    ],
+        "correct":  2,
+        "explanation":  "Mozart remekművei az Egy kis éji zene és az A-dúr zongoraszonáta III. tétele, a Török induló."
+    },
+    {
+        "id":  196,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Ki alkotta meg az Egy kiállítás képei című zongoraciklust?",
+        "options":  [
+                        "Johann Sebastian Bach",
+                        "Ligeti György",
+                        "Ludwig van Beethoven",
+                        "Mogyeszt Muszorgszkij"
+                    ],
+        "correct":  3,
+        "explanation":  "Muszorgszkij barátja, Hartmann képei nyomán komponálta az Egy kiállítás képei című művet."
+    },
+    {
+        "id":  197,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Melyik a klasszikus szimfonikus zenekar négy hangszercsaládja?",
+        "options":  [
+                        "Vonósok, fafúvósok, rézfúvósok, ütőhangszerek",
+                        "Pengetősök és zongora",
+                        "Elektromos gitár és szintetizátor",
+                        "Csak vonósok és orgona"
+                    ],
+        "correct":  0,
+        "explanation":  "A szimfonikus zenekar 4 családja: vonósok, fafúvósok, rézfúvósok, ütősök; népi hangszereink pl. a citera, cimbalom, duda, tekerő, furulya."
+    },
+    {
+        "id":  198,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Hány tizenhatod ér egy negyedet, és milyen a kis éles ritmus (ti-tá.)?",
+        "options":  [
+                        "6 tizenhatod; szünetekből áll",
+                        "4 tizenhatod; a rövid hang áll elöl",
+                        "8 tizenhatod; három egész hangból áll",
+                        "2 tizenhatod; a hosszú hang áll elöl"
+                    ],
+        "correct":  1,
+        "explanation":  "4 tizenhatod ér 1 negyedet; a kis élesben (ti-tá.) a rövid, a kis nyújtottban (tá.-ti) a pontozott hosszú hang áll elöl."
+    },
+    {
+        "id":  199,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Melyek a tiszta hangközök, és melyek a tanult módosított szolmizációs hangok?",
+        "options":  [
+                        "Csak a szext; nincs módosított hang",
+                        "Szekund és terc; dó, ré, mi",
+                        "Prím, kvárt, kvint, oktáv; fi, szi, ta",
+                        "Szeptim; lá, szó, fá"
+                    ],
+        "correct":  2,
+        "explanation":  "A tiszta hangközök: T1, T4, T5, T8; a tanult módosított szolmizációs hangok: a felemelt fi, szi és a leszállított ta."
+    },
+    {
+        "id":  200,
+        "subject":  "Ének-zene",
+        "icon":  "🎵",
+        "grade":  "5. osztály",
+        "q":  "Melyek a törzshangok abc-s betűnevei a C-dúr és a természetes a-moll hangsorban?",
+        "options":  [
+                        "C-dúr: a–h–c–d–e–f–g; a-moll: c–d–e–f–g–a–h",
+                        "Megegyeznek a szolmizációs nevekkel",
+                        "Mindkét hangsor fisz-szel kezdődik",
+                        "C-dúr: c–d–e–f–g–a–h–c\u0027; a-moll: a–h–c–d–e–f–g–a\u0027"
+                    ],
+        "correct":  3,
+        "explanation":  "A C-dúr hangsor c-től c\u0027-ig, a párhuzamos természetes a-moll pedig a-tól a\u0027-ig épül fel törzshangokból."
+    }
+]

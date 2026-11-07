@@ -1,0 +1,902 @@
+[
+    {
+        "id":  1,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hogyan terjedtek a népmesék évszázadokon át?",
+        "options":  [
+                        "Szájhagyomány útján",
+                        "Nyomtatott könyvekben",
+                        "Kőbe vésve",
+                        "Rovásírásos táblákon"
+                    ],
+        "correct":  0,
+        "explanation":  "A népmese szerzője ismeretlen és szájhagyomány útján, több változatban terjedt."
+    },
+    {
+        "id":  2,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyek a magyar népmesék legjellemzőbb bűvös számai?",
+        "options":  [
+                        "2, 4, 8, 16",
+                        "3, 7, 12, 77",
+                        "1, 6, 9, 13",
+                        "5, 10, 20, 50"
+                    ],
+        "correct":  1,
+        "explanation":  "A mesék jellegzetes bűvös számai a 3, a 7, a 12 és a 77."
+    },
+    {
+        "id":  3,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik mesetípusban győz a hős csodás elemek nélkül, a saját eszével?",
+        "options":  [
+                        "Láncmese",
+                        "Tündérmese",
+                        "Valósmese (reális mese)",
+                        "Mitikus mese"
+                    ],
+        "correct":  2,
+        "explanation":  "A valósmesében (reális mesében, pl. Az okos lány) a hős a furfangjával és eszével győz."
+    },
+    {
+        "id":  4,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik mesetípus épül fel egymásból következő, ismétlődő eseménysorokból?",
+        "options":  [
+                        "Állatmese",
+                        "Tündérmese",
+                        "Csalimese",
+                        "Láncmese"
+                    ],
+        "correct":  3,
+        "explanation":  "A láncmese eseményei ok-okozati láncszerű ismétlődéssel kapcsolódnak egymáshoz."
+    },
+    {
+        "id":  5,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik mesetípus csapja be tréfásan a hallgatót és ér hirtelen véget?",
+        "options":  [
+                        "Csalimese",
+                        "Állatmese",
+                        "Tündérmese",
+                        "Mitikus mese"
+                    ],
+        "correct":  0,
+        "explanation":  "A csalimese célja a hallgatóság tréfás félrevezetése és a váratlan lezárás."
+    },
+    {
+        "id":  6,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki írta A teáskanna című műmesét?",
+        "options":  [
+                        "Jules Verne",
+                        "Hans Christian Andersen",
+                        "Molnár Ferenc",
+                        "Benedek Elek"
+                    ],
+        "correct":  1,
+        "explanation":  "A teáskanna című műmese szerzője a dán meseíró, Hans Christian Andersen."
+    },
+    {
+        "id":  7,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik népmesében szerepel Fanyűvő, Kőmorzsoló és Vasgyúró?",
+        "options":  [
+                        "A teáskanna",
+                        "A bolond falu",
+                        "Fehérlófia",
+                        "Az okos lány"
+                    ],
+        "correct":  2,
+        "explanation":  "A Fehérlófia című tündérmesében a főhős segítő társai Fanyűvő, Kőmorzsoló és Vasgyúró."
+    },
+    {
+        "id":  8,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mikor és hol játszódik A Pál utcai fiúk cselekménye?",
+        "options":  [
+                        "1867 nyarán Szegeden",
+                        "1848 tavaszán Debrecenben",
+                        "1907 telén Bécsben",
+                        "1889 tavaszán Budapesten"
+                    ],
+        "correct":  3,
+        "explanation":  "A regény cselekménye 1889 tavaszán játszódik Budapesten."
+    },
+    {
+        "id":  9,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mit jelentett az „einstand” kifejezés A Pál utcai fiúkban?",
+        "options":  [
+                        "Erőszakos golyórablást",
+                        "Békekötést a csapatok között",
+                        "Titkos egyleti esküt",
+                        "Ünnepélyes kapunyitást"
+                    ],
+        "correct":  0,
+        "explanation":  "A Múzeumkertben a Pásztor testvérek einstandot hirdettek, vagyis az erősebb jogán elvették a kisebbek üveggolyóit."
+    },
+    {
+        "id":  10,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki lopta el a Pál utcai fiúk zászlaját a Grundról?",
+        "options":  [
+                        "Geréb Dezső",
+                        "Áts Feri",
+                        "Az idősebb Pásztor",
+                        "Boka János"
+                    ],
+        "correct":  1,
+        "explanation":  "A bonyodalom akkor indul, amikor Áts Feri, a vörösingesek vezére elviszi a grund zászlaját."
+    },
+    {
+        "id":  11,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kik lopóztak be titokban a Füvészkertbe a 3. fejezetben?",
+        "options":  [
+                        "Geréb, Kolnay és Barabás",
+                        "Boka, Geréb és Leszik",
+                        "Boka, Csónakos és Nemecsek",
+                        "Csele, Weisz és Richter"
+                    ],
+        "correct":  2,
+        "explanation":  "Boka János, Csónakos és Nemecsek Ernő ment el a Füvészkertbe, ahol leleplezték Geréb árulását."
+    },
+    {
+        "id":  12,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hányszor került hideg vízbe Nemecsek Ernő a Füvészkertben?",
+        "options":  [
+                        "Egyszer",
+                        "Négyszer",
+                        "Kétszer",
+                        "Háromszor"
+                    ],
+        "correct":  3,
+        "explanation":  "Nemecsek háromszor került hideg vízbe, ami súlyos tüdőgyulladásához vezetett."
+    },
+    {
+        "id":  13,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Miért büntette meg Áts Feri a Pásztor testvéreket?",
+        "options":  [
+                        "A múzeumkerti einstand miatt",
+                        "Mert elvesztették a lándzsákat",
+                        "Mert elkéstek a gyűlésről",
+                        "Mert elaludtak az őrségben"
+                    ],
+        "correct":  0,
+        "explanation":  "A lovagias Áts Feri megvetette a gyengébbek elleni golyórablást (einstandot)."
+    },
+    {
+        "id":  14,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hogyan óvták a Gittegylet tagjai az egylet gittjét a kiszáradástól?",
+        "options":  [
+                        "Olajjal kenegették",
+                        "Naponta rágniuk kellett",
+                        "Fűrészpor alá ásták",
+                        "Vízben áztatták"
+                    ],
+        "correct":  1,
+        "explanation":  "A Gittegyletben rágással kellett puhán tartani az ablakokból kikapart gittet."
+    },
+    {
+        "id":  15,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki döntötte el a Grundért vívott csatát Áts Feri földre teperésével?",
+        "options":  [
+                        "Csónakos",
+                        "Janó, a tót",
+                        "Nemecsek Ernő",
+                        "Boka János"
+                    ],
+        "correct":  2,
+        "explanation":  "A betegágyából kiszökött Nemecsek Ernő utolsó erejével a földhöz vágta Áts Ferit."
+    },
+    {
+        "id":  16,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen rangra léptette elő Boka a halálos beteg Nemecseket?",
+        "options":  [
+                        "Hadnaggyá",
+                        "Elnökké",
+                        "Tábornokká",
+                        "Kapitánnyá"
+                    ],
+        "correct":  3,
+        "explanation":  "Boka János a hősies helytállásért kapitánnyá léptette elő Nemecseket."
+    },
+    {
+        "id":  17,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mi lesz a Grund sorsa A Pál utcai fiúk végén?",
+        "options":  [
+                        "Bérházat építenek a helyére",
+                        "Városi játszótér lesz",
+                        "A Füvészkerthez csatolják",
+                        "Iskolai sportpálya lesz"
+                    ],
+        "correct":  0,
+        "explanation":  "Boka a regény végén tudja meg Janótól, hogy a Grundot beépítik, emeletes bérház épül rá."
+    },
+    {
+        "id":  18,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mikor és hol született Petőfi Sándor?",
+        "options":  [
+                        "1825. február 18., Komárom",
+                        "1823. január 1., Kiskőrös",
+                        "1817. március 2., Nagyszalonta",
+                        "1800. december 1., Kápolnásnyék"
+                    ],
+        "correct":  1,
+        "explanation":  "Petőfi Sándor 1823. január 1-jén született Kiskőrösön Petrovics István és Hrúz Mária gyermekeként."
+    },
+    {
+        "id":  19,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik városban töltött diákként „három eseménydús esztendőt” Petőfi?",
+        "options":  [
+                        "Debrecenben",
+                        "Nagykőrösön",
+                        "Aszódon",
+                        "Sopronban"
+                    ],
+        "correct":  2,
+        "explanation":  "Petőfi Aszódon tanult három évig (1835–1838): itt kezdett verseket írni és itt volt először szerelmes."
+    },
+    {
+        "id":  20,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kivel kötött életre szóló barátságot Petőfi a pápai gimnáziumban?",
+        "options":  [
+                        "Kölcsey Ferenccel",
+                        "Molnár Ferenccel",
+                        "Csokonai Vitéz Mihállyal",
+                        "Jókai Mórral"
+                    ],
+        "correct":  3,
+        "explanation":  "Pápán kötött szoros barátságot Jókai Mórral és unokatestvérével, Orlai Petrich Somával."
+    },
+    {
+        "id":  21,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik volt Petőfi első nyomtatásban megjelent verse 1842-ben?",
+        "options":  [
+                        "A borozó",
+                        "Nemzeti dal",
+                        "Az alföld",
+                        "Szeptember végén"
+                    ],
+        "correct":  0,
+        "explanation":  "Petőfi első nyomtatásban megjelent verse A borozó volt (1842-ben az Athenaeum folyóiratban)."
+    },
+    {
+        "id":  22,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kit vett feleségül Petőfi Sándor 1847-ben?",
+        "options":  [
+                        "Ercsey Juliannát",
+                        "Szendrey Júliát",
+                        "Cecey Évát",
+                        "Laborfalvi Rózát"
+                    ],
+        "correct":  1,
+        "explanation":  "Petőfi Szendrey Júliát vette feleségül, és Koltón töltötték a mézesheteket."
+    },
+    {
+        "id":  23,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik csatában tűnt el Petőfi Sándor 1849. július 31-én?",
+        "options":  [
+                        "A komáromi csatában",
+                        "Az isaszegi csatában",
+                        "A fehéregyházi csatában",
+                        "A pákozdi csatában"
+                    ],
+        "correct":  2,
+        "explanation":  "Petőfi Bem József seregében szolgált, és 1849. július 31-én a fehéregyházi ütközetben tűnt el."
+    },
+    {
+        "id":  24,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mennyi idő alatt írta meg Petőfi Sándor a János vitézt?",
+        "options":  [
+                        "Három esztendő alatt",
+                        "Harminc nap alatt",
+                        "Egy teljes év alatt",
+                        "Hat nap és hat éjszaka alatt"
+                    ],
+        "correct":  3,
+        "explanation":  "Petőfi 1844 decemberében mindössze 6 nap és 6 éjszaka alatt írta meg a János vitézt."
+    },
+    {
+        "id":  25,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hány fejezetből (részből) áll a János vitéz?",
+        "options":  [
+                        "27 részből",
+                        "20 részből",
+                        "10 részből",
+                        "12 énekből"
+                    ],
+        "correct":  0,
+        "explanation":  "A János vitéz 27 részből áll: az 1–18. rész a valóságos világban, a 19–27. rész a mesei világban játszódik."
+    },
+    {
+        "id":  26,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Miért kergette el a gazdája Kukorica Jancsit a faluból?",
+        "options":  [
+                        "Összeveszett a bíróval",
+                        "Elvesztette a nyáj felét",
+                        "Elaludt a kukoricásban",
+                        "Megverte a szomszéd bojtárt"
+                    ],
+        "correct":  1,
+        "explanation":  "Miközben Jancsi Iluskát vigasztalta, a nyáj szétrebbent és a fele elveszett."
+    },
+    {
+        "id":  27,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mit tett Jancsi az erdei zsiványok tanyájával a 6. részben?",
+        "options":  [
+                        "Elvette a zsiványok aranyát",
+                        "Beköltözött a házukba",
+                        "Felgyújtotta a zsiványtanyát",
+                        "Eladta a rablott kincseket"
+                    ],
+        "correct":  2,
+        "explanation":  "Tiszta lelkiismerete nem engedte, hogy a rablott kincshez nyúljon, ezért inkább felgyújtotta a zsiványtanyát."
+    },
+    {
+        "id":  28,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik fogalom jelöli a valós és mesei országok irreális sorrendjét a János vitézben?",
+        "options":  [
+                        "Keretes szerkezet",
+                        "Retrospekció",
+                        "Sormetszet",
+                        "Meseföldrajz"
+                    ],
+        "correct":  3,
+        "explanation":  "A meseföldrajzban a huszárok Tatárországon, Taljánországon, Lengyelországon és Indián át vonulnak Franciaországba."
+    },
+    {
+        "id":  29,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kinek meséli el János vitéz a saját gyermekkori történetét a 14. részben?",
+        "options":  [
+                        "A francia királynak",
+                        "Az óriások csőszének",
+                        "A török basának",
+                        "Az öreg halásznak"
+                    ],
+        "correct":  0,
+        "explanation":  "A 14. részben a francia királyi udvarban János visszatekintve meséli el, hogyan találták a kukoricásban."
+    },
+    {
+        "id":  30,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen lény hátán repült haza János vitéz a hajótörés után?",
+        "options":  [
+                        "Sárkánykígyó hátán",
+                        "Griffmadár hátán",
+                        "Turulmadár hátán",
+                        "Táltos paripa hátán"
+                    ],
+        "correct":  1,
+        "explanation":  "A tengeri viharból felhőbe kapaszkodva menekült meg, majd egy griffmadár hátán repült haza a falujába."
+    },
+    {
+        "id":  31,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen varázstárgyat kapott János vitéz a legyőzött óriásoktól?",
+        "options":  [
+                        "Egy aranyalmát",
+                        "Egy láthatatlanná tevő köpenyt",
+                        "Egy varázssípot",
+                        "Egy gyémántkardot"
+                    ],
+        "correct":  2,
+        "explanation":  "Az óriások hűséget fogadtak Jánosnak és egy sípot adtak neki, amellyel bármikor hívhatta őket."
+    },
+    {
+        "id":  32,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Kit ismert fel János vitéz az utolsó menekülő boszorkányban?",
+        "options":  [
+                        "A falu javasasszonyát",
+                        "A zsiványkapitány feleségét",
+                        "A török szultán varázslóját",
+                        "Iluska gonosz mostoháját"
+                    ],
+        "correct":  3,
+        "explanation":  "Sötétség országában az utolsó boszorkányban János felismerte Iluska gonosz mostoháját."
+    },
+    {
+        "id":  33,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen szörny őrizte Tündérország harmadik kapuját?",
+        "options":  [
+                        "Egy hatalmas sárkánykígyó",
+                        "Három vad oroszlán",
+                        "Három szilaj medve",
+                        "Egy kősziklát dobáló óriás"
+                    ],
+        "correct":  0,
+        "explanation":  "Az 1. kaput három medve, a 2. kaput három oroszlán, a 3. kaput pedig egy sárkánykígyó őrizte."
+    },
+    {
+        "id":  34,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen sorfajú és rímelésű a János vitéz?",
+        "options":  [
+                        "Felező nyolcas, keresztrímmel",
+                        "Felező tizenkettes, páros rímmel",
+                        "Rímtelen szabadvers",
+                        "Időmértékes hexameter"
+                    ],
+        "correct":  1,
+        "explanation":  "A János vitéz magyaros ütemhangsúlyos, négyütemű felező tizenkettes sorfajú, páros rímeléssel (aabb)."
+    },
+    {
+        "id":  35,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen költői kép: „te vagy a szívemnek egyetlen virága”?",
+        "options":  [
+                        "Megszemélyesítés",
+                        "Alliteráció",
+                        "Metafora",
+                        "Hasonlat"
+                    ],
+        "correct":  2,
+        "explanation":  "A metafora két fogalom névcserén alapuló azonosítása a „mint” kötőszó nélkül."
+    },
+    {
+        "id":  36,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mikor és hol született Arany János?",
+        "options":  [
+                        "1823. január 1., Kiskőrös",
+                        "1817. január 1., Debrecen",
+                        "1825. március 15., Nagykőrös",
+                        "1817. március 2., Nagyszalonta"
+                    ],
+        "correct":  3,
+        "explanation":  "Arany János 1817. március 2-án született Nagyszalontán."
+    },
+    {
+        "id":  37,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki volt Arany János felesége?",
+        "options":  [
+                        "Ercsey Julianna",
+                        "Szendrey Júlia",
+                        "Laborfalvi Róza",
+                        "Cecey Éva"
+                    ],
+        "correct":  0,
+        "explanation":  "Arany János felesége Ercsey Julianna volt; gyermekeik Juliska és Arany László."
+    },
+    {
+        "id":  38,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hol volt gimnáziumi tanár Arany János 1851 és 1859 között?",
+        "options":  [
+                        "Aszódon",
+                        "Nagykőrösön",
+                        "Pápán",
+                        "Debrecenben"
+                    ],
+        "correct":  1,
+        "explanation":  "A szabadságharc leverése után Arany Nagykőrösön tanított magyart, latint és görögöt."
+    },
+    {
+        "id":  39,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik három mű alkotja Arany János Toldi-trilógiáját?",
+        "options":  [
+                        "Toldi, Buda halála, Csaba királyfi",
+                        "Toldi, A walesi bárdok, Mátyás anyja",
+                        "Toldi, Toldi estéje, Toldi szerelme",
+                        "Toldi, Toldi ifjúsága, Toldi halála"
+                    ],
+        "correct":  2,
+        "explanation":  "A Toldi-trilógia részei: Toldi (1846), Toldi estéje (1848) és Toldi szerelme (1879)."
+    },
+    {
+        "id":  40,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hol írta idős korában Arany János az Őszikék című versciklusát?",
+        "options":  [
+                        "Balatonfüreden",
+                        "Nagykőrösön",
+                        "Visegrádon",
+                        "A Margitszigeten"
+                    ],
+        "correct":  3,
+        "explanation":  "Arany az MTA főtitkáraként, idős korában a Margitszigeten lévő tölgyfák alatt írta az Őszikéket."
+    },
+    {
+        "id":  41,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik angol drámaíró műveit (pl. Hamlet) fordította magyarra Arany János?",
+        "options":  [
+                        "William Shakespeare",
+                        "Walter Scott",
+                        "Charles Dickens",
+                        "Daniel Defoe"
+                    ],
+        "correct":  0,
+        "explanation":  "Arany János fordította magyarra Shakespeare híres drámáit (Hamlet, Szentivánéji álom, János király)."
+    },
+    {
+        "id":  42,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik műfajnak van mindig valós történelmi vagy földrajzi alapja?",
+        "options":  [
+                        "A mítosznak",
+                        "A mondának",
+                        "A csalimesének",
+                        "A tündérmesének"
+                    ],
+        "correct":  1,
+        "explanation":  "A mítosz istenekről szóló történet valóságmag nélkül, míg a mondának mindig van történelmi vagy földrajzi valóságalapja."
+    },
+    {
+        "id":  43,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik görög mítoszban dönt a trójai királyfi három istennő között?",
+        "options":  [
+                        "Odüsszeusz kalandjai",
+                        "Prométheusz története",
+                        "Parisz ítélete",
+                        "Daidalosz és Ikarosz"
+                    ],
+        "correct":  2,
+        "explanation":  "A Parisz ítélete című mítoszban a királyfi Aphroditénak adja az aranyalmát."
+    },
+    {
+        "id":  44,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mi okozta Ikarosz vesztét a görög mitológiai történetben?",
+        "options":  [
+                        "Elfelejtett szárnyat építeni",
+                        "Túl alacsonyan szállt a víz felett",
+                        "Eltévedt a labirintusban",
+                        "Túl közel repült a Naphoz"
+                    ],
+        "correct":  3,
+        "explanation":  "Ikarosz nem hallgatott apja, Daidalosz tanácsára: túl közel repült a Naphoz, és a szárnyát összetartó viasz megolvadt."
+    },
+    {
+        "id":  45,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik mondatípusba tartozik a földrajzi képződményt magyarázó Csörsz árka?",
+        "options":  [
+                        "Helyi monda",
+                        "Eredetmonda",
+                        "Tréfás monda",
+                        "Legenda"
+                    ],
+        "correct":  0,
+        "explanation":  "A helyi mondák különböző földrajzi képződményekhez (árkokhoz, hegyekhez, tavakhoz) fűződő történetek."
+    },
+    {
+        "id":  46,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mit kértek a magyarok Szvatopluktól a felnyergelt fehér lóért cserébe?",
+        "options":  [
+                        "Királyi koronát és jogart",
+                        "Földet, füvet és vizet",
+                        "Szabad átvonulást nyugatra",
+                        "Száz szekér aranyat"
+                    ],
+        "correct":  1,
+        "explanation":  "A fehér ló mondájában Árpádék jelképesen földet, füvet és vizet kértek a lóért."
+    },
+    {
+        "id":  47,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik vezérünk sújtotta fejbe kürtjével a császárt a mondában?",
+        "options":  [
+                        "Botond vitéz",
+                        "Koppány vezér",
+                        "Lehel vezér",
+                        "Álmos vezér"
+                    ],
+        "correct":  2,
+        "explanation":  "A mondabeli Lehel vezér az augsburgi csata után megfújta kürtjét, majd agyonütötte vele a császárt."
+    },
+    {
+        "id":  48,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Ki volt Markóp a Mátyás királyról szóló tréfás mondában?",
+        "options":  [
+                        "Kevély budai főúr",
+                        "A török szultán követe",
+                        "A kolozsvári bíró",
+                        "Furfangos udvari bolond"
+                    ],
+        "correct":  3,
+        "explanation":  "Markóp az eszes udvari bolond, aki humorával és józan eszével túljár Mátyás király eszén."
+    },
+    {
+        "id":  49,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik páros volt híres magyar monda- és népmesegyűjtő?",
+        "options":  [
+                        "Benedek Elek és Kriza János",
+                        "Janus Pannonius és Balassi Bálint",
+                        "Molnár Ferenc és Gárdonyi Géza",
+                        "Kölcsey Ferenc és Berzsenyi Dániel"
+                    ],
+        "correct":  0,
+        "explanation":  "A néphagyományt többek között Benedek Elek, Kriza János, Orbán Balázs, Ipolyi Arnold, Bartók és Kodály gyűjtötte."
+    },
+    {
+        "id":  50,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik három műnem jegyeit egyesíti a ballada?",
+        "options":  [
+                        "Óda, himnusz és elégia",
+                        "Epika, líra és dráma",
+                        "Mese, monda és mítosz",
+                        "Regény, novella és eposz"
+                    ],
+        "correct":  1,
+        "explanation":  "A ballada „háromarcú műfaj”: egyszerre epikai (történet), lírai (verses-érzelmes) és drámai (párbeszédes)."
+    },
+    {
+        "id":  51,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik várat építi a tizenkét kőműves a Kőmíves Kelemenné című népballadában?",
+        "options":  [
+                        "Eger várát",
+                        "Buda várát",
+                        "Magas Déva várát",
+                        "Visegrád várát"
+                    ],
+        "correct":  2,
+        "explanation":  "A Kőmíves Kelemenné című építőáldozat-balladában Déva várának felépítéséért áldozzák fel az asszonyt."
+    },
+    {
+        "id":  52,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Mi a szerkezeti szerepe a kocsis figyelmeztetésének a Kőmíves Kelemennében?",
+        "options":  [
+                        "Expozíció (bevezetés)",
+                        "Megoldás",
+                        "Tetőpont",
+                        "Késleltető mozzanat"
+                    ],
+        "correct":  3,
+        "explanation":  "A kocsis figyelmeztetése késleltető mozzanat, amely fokozza a drámai feszültséget a tragédia előtt."
+    },
+    {
+        "id":  53,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen madár viszi el Szilágyi Erzsébet levelét Prágába a Mátyás anyja című balladában?",
+        "options":  [
+                        "Egy fekete holló",
+                        "Egy turulmadár",
+                        "Egy aranysólyom",
+                        "Egy fehér galamb"
+                    ],
+        "correct":  0,
+        "explanation":  "Arany János Mátyás anyja című vígballadájában a fekete holló viszi el a levelet és hozza vissza az örömhírt."
+    },
+    {
+        "id":  54,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik angol király a zsarnok főszereplője A walesi bárdok című balladának?",
+        "options":  [
+                        "János király",
+                        "Edward király",
+                        "Oroszlánszívű Richárd",
+                        "Artúr király"
+                    ],
+        "correct":  1,
+        "explanation":  "Arany János 1857-ben Edward angol király történetébe burkolva utasította el Ferenc József dicsőítését."
+    },
+    {
+        "id":  55,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hány walesi bárd halt máglyahalált, és mi lett Edward király büntetése?",
+        "options":  [
+                        "100 bárd; a király trónt vesztett",
+                        "12 bárd; a király elmenekült",
+                        "500 bárd; a király megőrült",
+                        "50 bárd; a király bocsánatot kért"
+                    ],
+        "correct":  2,
+        "explanation":  "A lakomán 3 bárd lépett elő, 500 walesi énekest égettek el máglyán, Edward király pedig beleőrült a bűntudatba."
+    },
+    {
+        "id":  56,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen verselésű A walesi bárdok című ballada?",
+        "options":  [
+                        "Ütemhangsúlyos felező tizenkettes",
+                        "Kötetlen szabadvers",
+                        "Időmértékes hexameter",
+                        "Időmértékes (jambusi és spondeusi)"
+                    ],
+        "correct":  3,
+        "explanation":  "A walesi bárdok időmértékes verselésében a jambus (∪ –) és a spondeus (– –) váltakozik."
+    },
+    {
+        "id":  57,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen szótagokból áll a jambus (∪ –) versláb az időmértékes verselésben?",
+        "options":  [
+                        "Egy rövid és egy hosszú szótagból",
+                        "Egy hosszú és egy rövid szótagból",
+                        "Három rövid szótagból",
+                        "Két hosszú szótagból"
+                    ],
+        "correct":  0,
+        "explanation":  "A jambus képlete: ∪ – (egy rövid és egy hosszú szótag), a spondeusé pedig: – – (két hosszú szótag)."
+    },
+    {
+        "id":  58,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Milyen lírai műfajba tartozik Arany János Családi kör című verse?",
+        "options":  [
+                        "Történelmi ballada",
+                        "Életkép",
+                        "Elbeszélő költemény",
+                        "Óda"
+                    ],
+        "correct":  1,
+        "explanation":  "A Családi kör a mindennapi falusi élet meghitt esti pillanatát ábrázoló, keretes szerkezetű életkép."
+    },
+    {
+        "id":  59,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Hogyan nevezzük az „abab” és az „abba” rímképletet?",
+        "options":  [
+                        "Páros rím (abab) és bokorrím (abba)",
+                        "Bokorrím (abab) és félrím (abba)",
+                        "Keresztrím (abab) és ölelkező rím (abba)",
+                        "Félrím (abab) és páros rím (abba)"
+                    ],
+        "correct":  2,
+        "explanation":  "aaaa = bokorrím, aabb = páros rím, abab = keresztrím, abba = ölelkező rím, abcb = félrím."
+    },
+    {
+        "id":  60,
+        "subject":  "Irodalom",
+        "icon":  "📖",
+        "grade":  "5. osztály",
+        "q":  "Melyik fogalom jelöli a főhős sorsában gyökeres változást hozó döntő eseményt?",
+        "options":  [
+                        "Keretes szerkezet",
+                        "Beszélő név",
+                        "Sormetszet",
+                        "Fordulópont"
+                    ],
+        "correct":  3,
+        "explanation":  "A fordulópont olyan sorsdöntő esemény a mű cselekményében, amely gyökeres változást hoz a főhős életében."
+    }
+]
