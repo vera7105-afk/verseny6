@@ -1,302 +1,302 @@
 [
     {
-        "id":  169,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi az MCDLVI római szám arab számjegyekkel?",
-        "options":  [
-                        "1456",
-                        "1465",
-                        "1546",
-                        "1656"
-                    ],
-        "correct":  0,
-        "explanation":  "M = 1000, CD = 400, L = 50, VI = 6. Összesen: 1456."
+        "id": 169,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Melyik arab szám az MCDLVI?",
+        "options": [
+            "1465",
+            "1546",
+            "1656",
+            "1456"
+        ],
+        "correct": 3,
+        "explanation": "M = 1000, CD = 400, L = 50, VI = 6. Összesen: 1456."
     },
     {
-        "id":  170,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi a 78 452 számban a 8-as számjegy alaki, helyi és valódi értéke?",
-        "options":  [
-                        "Alaki: 8000, helyi: 8, valódi: 1000",
-                        "Alaki: 8, helyi: 1000 (ezres), valódi: 8000",
-                        "Mindhárom értéke 8",
-                        "Alaki: 8, helyi: 10 000, valódi: 80 000"
-                    ],
-        "correct":  1,
-        "explanation":  "A 78 452-ben a 8-as alaki értéke 8, helyi értéke ezres (1000), valódi értéke pedig 8000."
+        "id": 170,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mennyi a 8-as valódi értéke a 78 452 számban?",
+        "options": [
+            "8000",
+            "80 000",
+            "800",
+            "8"
+        ],
+        "correct": 0,
+        "explanation": "A 8-as számjegy az ezresek helyén áll, így valódi értéke 8000."
     },
     {
-        "id":  171,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi a 36 485 százasokra, illetve ezresekre kerekített értéke?",
-        "options":  [
-                        "Százasokra: 36 500; Ezresekre: 37 000",
-                        "Százasokra: 36 400; Ezresekre: 37 000",
-                        "Százasokra: 36 500; Ezresekre: 36 000",
-                        "Százasokra: 36 000; Ezresekre: 36 500"
-                    ],
-        "correct":  2,
-        "explanation":  "Százasokra kerekítve: 36 500; ezresekre kerekítve: 36 000."
+        "id": 171,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mennyi a 36 485 százasokra kerekítve?",
+        "options": [
+            "36 400",
+            "36 500",
+            "36 000",
+            "37 000"
+        ],
+        "correct": 1,
+        "explanation": "A tízesek helyén 8 áll, ezért a százasok felfelé kerekednek: 36 500."
     },
     {
-        "id":  172,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi a műveletsor eredménye: 60 – (12 + 8) : 4 + 3 · 5?",
-        "options":  [
-                        "50",
-                        "20",
-                        "35",
-                        "70"
-                    ],
-        "correct":  3,
-        "explanation":  "12 + 8 = 20; 20 : 4 = 5; 3 · 5 = 15. Végül: 60 – 5 + 15 = 70."
+        "id": 172,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mennyi az eredmény: 50 – 20 : 4?",
+        "options": [
+            "7,5",
+            "40",
+            "45",
+            "35"
+        ],
+        "correct": 2,
+        "explanation": "Műveleti sorrend: előbb az osztás (20 : 4 = 5), majd 50 – 5 = 45."
     },
     {
-        "id":  173,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Ha az osztandó 149 és az osztó 12, mennyi a hányados és a maradék?",
-        "options":  [
-                        "Hányados: 12, maradék: 5",
-                        "Hányados: 13, maradék: 3",
-                        "Hányados: 11, maradék: 17",
-                        "Hányados: 12, maradék: 0"
-                    ],
-        "correct":  0,
-        "explanation":  "12 · 12 = 144, és 149 – 144 = 5, tehát a hányados 12, a maradék 5."
+        "id": 173,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mennyi a maradék az 53 : 5 osztásnál?",
+        "options": [
+            "2",
+            "5",
+            "0",
+            "3"
+        ],
+        "correct": 3,
+        "explanation": "53-ban az 5 megvan 10-szer (10 · 5 = 50), a maradék pedig 3."
     },
     {
-        "id":  174,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Melyik szám osztható egyszerre 2-vel, 3-mal, 5-tel és 9-cel is?",
-        "options":  [
-                        "240",
-                        "450",
-                        "305",
-                        "135"
-                    ],
-        "correct":  1,
-        "explanation":  "A 450 végződése 0 (osztható 2-vel és 5-tel), számjegyeinek összege pedig 9 (osztható 3-mal és 9-cel)."
+        "id": 174,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Melyik szám osztható 9-cel?",
+        "options": [
+            "450",
+            "240",
+            "305",
+            "134"
+        ],
+        "correct": 0,
+        "explanation": "450 számjegyeinek összege 4 + 5 + 0 = 9, ami osztható 9-cel."
     },
     {
-        "id":  175,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Reggel –4 °C volt, délig 11 °C-ot melegedett. Hány fok lett délben, és mennyi a –4 abszolút értéke?",
-        "options":  [
-                        "+7 °C; abszolút értéke: –4",
-                        "–15 °C; abszolút értéke: 0",
-                        "+7 °C; abszolút értéke: 4",
-                        "+15 °C; abszolút értéke: 4"
-                    ],
-        "correct":  2,
-        "explanation":  "–4 + 11 = +7 °C. A –4 abszolút értéke (a 0-tól való távolsága) 4."
+        "id": 175,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mennyi a –7 abszolút értéke?",
+        "options": [
+            "–7",
+            "7",
+            "0",
+            "14"
+        ],
+        "correct": 1,
+        "explanation": "Az abszolút érték a nullától mért távolság, ami sosem negatív: |-7| = 7."
     },
     {
-        "id":  176,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi egy 24 fős osztály tanulóinak a 3/4 része?",
-        "options":  [
-                        "32 tanuló",
-                        "6 tanuló",
-                        "16 tanuló",
-                        "18 tanuló"
-                    ],
-        "correct":  3,
-        "explanation":  "24 : 4 = 6, és 6 · 3 = 18 tanuló."
+        "id": 176,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mennyi 24-nek a 3/4 része?",
+        "options": [
+            "6",
+            "16",
+            "18",
+            "32"
+        ],
+        "correct": 2,
+        "explanation": "24-et elosztjuk 4-gyel (az 6), majd megszorozzuk 3-mal: 6 · 3 = 18."
     },
     {
-        "id":  177,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi a 17/5 vegyes számmal, és a 15/20 egyszerűsített alakja?",
-        "options":  [
-                        "3 egész 2/5; illetve 3/4",
-                        "3 egész 1/5; illetve 3/5",
-                        "4 egész 2/5; illetve 1/4",
-                        "2 egész 7/5; illetve 5/10"
-                    ],
-        "correct":  0,
-        "explanation":  "17/5 = 3 egész 2/5; a 15/20-at 5-tel egyszerűsítve 3/4-et kapunk."
+        "id": 177,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Egyszerűsítve mennyi a 15/20 tört?",
+        "options": [
+            "3/5",
+            "1/4",
+            "2/3",
+            "3/4"
+        ],
+        "correct": 3,
+        "explanation": "Mindkét tagot elosztjuk 5-tel: 15 : 5 = 3, 20 : 5 = 4, azaz 3/4."
     },
     {
-        "id":  178,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi a törtművelet eredménye: 5/8 + 1/4 – 3/8?",
-        "options":  [
-                        "7/8",
-                        "4/8 = 1/2",
-                        "3/12",
-                        "1/8"
-                    ],
-        "correct":  1,
-        "explanation":  "1/4 = 2/8, így 5/8 + 2/8 – 3/8 = 4/8 = 1/2."
+        "id": 178,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mennyi az eredmény: 3/8 + 2/8?",
+        "options": [
+            "5/8",
+            "5/16",
+            "1/8",
+            "6/8"
+        ],
+        "correct": 0,
+        "explanation": "Azonos nevezőjű törteknél a számlálókat összeadjuk: 3 + 2 = 5, így 5/8."
     },
     {
-        "id":  179,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi a 12,4 + 3,75 és a 0,68 · 100 eredménye?",
-        "options":  [
-                        "16,15 és 0,0068",
-                        "15,79 és 6,8",
-                        "16,15 és 68",
-                        "4,99 és 680"
-                    ],
-        "correct":  2,
-        "explanation":  "12,40 + 3,75 = 16,15; és 0,68 · 100 = 68."
+        "id": 179,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mennyi a szorzás eredménye: 0,68 · 100?",
+        "options": [
+            "6,8",
+            "68",
+            "680",
+            "0,068"
+        ],
+        "correct": 1,
+        "explanation": "100-zal szorozva a tizedesvessző két hellyel jobbra lép: 68."
     },
     {
-        "id":  180,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Melyik mértékegység-átváltás HIBÁTLAN?",
-        "options":  [
-                        "3,5 t = 350 kg; 4 l = 400 dl",
-                        "2,5 km = 250 m; 3 óra = 300 perc",
-                        "1 m² = 10 dm²; 1 nap = 12 óra",
-                        "2,5 km = 2500 m; 3,5 t = 3500 kg; 4 l = 40 dl"
-                    ],
-        "correct":  3,
-        "explanation":  "2,5 km = 2500 m, 3,5 t = 3500 kg, 4 l = 40 dl, 2 óra 15 perc = 135 perc."
+        "id": 180,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Hány deciliter 5 liter?",
+        "options": [
+            "5 dl",
+            "500 dl",
+            "50 dl",
+            "0,5 dl"
+        ],
+        "correct": 2,
+        "explanation": "1 liter = 10 deciliter, tehát 5 liter = 50 deciliter."
     },
     {
-        "id":  181,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mi a szögek neve sorrendben: 1) 0°–90°, 2) 90°, 3) 90°–180°, 4) 180°?",
-        "options":  [
-                        "hegyesszög, derékszög, tompaszög, egyenesszög",
-                        "derékszög, hegyesszög, tompaszög, homorúszög",
-                        "hegyesszög, egyenesszög, derékszög, teljesszög",
-                        "tompaszög, egyenesszög, hegyesszög, derékszög"
-                    ],
-        "correct":  0,
-        "explanation":  "0°–90°: hegyesszög; 90°: derékszög; 90°–180°: tompaszög; 180°: egyenesszög."
+        "id": 181,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Milyen szög a pontosan 90°-os szög?",
+        "options": [
+            "Hegyesszög",
+            "Tompaszög",
+            "Egyenesszög",
+            "Derékszög"
+        ],
+        "correct": 3,
+        "explanation": "A 90°-os szög neve derékszög."
     },
     {
-        "id":  182,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Hány végpontja van az egyenesnek, a félegyenesnek és a szakasznak?",
-        "options":  [
-                        "Egyenes: 1, félegyenes: 2, szakasz: 0",
-                        "Egyenes: 0, félegyenes: 1, szakasz: 2",
-                        "Mindháromnak 2 végpontja van",
-                        "Egyenes: 2, félegyenes: 1, szakasz: 0"
-                    ],
-        "correct":  1,
-        "explanation":  "Az egyenes mindkét irányban végtelen (0 végpont), a félegyenesnek 1 kezdőpontja van, a szakasznak 2 végpontja van."
+        "id": 182,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Hány végpontja van egy szakasznak?",
+        "options": [
+            "2",
+            "1",
+            "0",
+            "Végtelen"
+        ],
+        "correct": 0,
+        "explanation": "A szakasz mindkét végén lezárt egyenes darab, tehát 2 végpontja van."
     },
     {
-        "id":  183,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mennyi az a = 9 cm és b = 6 cm oldalú téglalap kerülete és területe?",
-        "options":  [
-                        "K = 36 cm; T = 48 cm²",
-                        "K = 54 cm; T = 30 cm²",
-                        "K = 30 cm; T = 54 cm²",
-                        "K = 15 cm; T = 54 cm²"
-                    ],
-        "correct":  2,
-        "explanation":  "K = 2 · (9 + 6) = 30 cm; T = 9 · 6 = 54 cm²."
+        "id": 183,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mekkora a 9 cm és 6 cm oldalú téglalap területe?",
+        "options": [
+            "30 cm²",
+            "54 cm²",
+            "45 cm²",
+            "36 cm²"
+        ],
+        "correct": 1,
+        "explanation": "A téglalap területe az oldalak szorzata: T = 9 · 6 = 54 cm²."
     },
     {
-        "id":  184,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Egy négyzet kerülete 36 cm. Mekkora az oldala és a területe?",
-        "options":  [
-                        "Oldala: 6 cm; Területe: 36 cm²",
-                        "Oldala: 9 cm; Területe: 18 cm²",
-                        "Oldala: 18 cm; Területe: 324 cm²",
-                        "Oldala: 9 cm; Területe: 81 cm²"
-                    ],
-        "correct":  3,
-        "explanation":  "Oldala: 36 : 4 = 9 cm; területe: 9 · 9 = 81 cm²."
+        "id": 184,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Egy négyzet kerülete 36 cm. Mekkora az oldala?",
+        "options": [
+            "6 cm",
+            "18 cm",
+            "9 cm",
+            "12 cm"
+        ],
+        "correct": 2,
+        "explanation": "A négyzet kerülete K = 4 · a, így oldala: 36 : 4 = 9 cm."
     },
     {
-        "id":  185,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Hány lapja, éle és csúcsa van egy kockának?",
-        "options":  [
-                        "6 lap, 12 él, 8 csúcs",
-                        "6 lap, 8 él, 12 csúcs",
-                        "8 lap, 12 él, 6 csúcs",
-                        "4 lap, 8 él, 4 csúcs"
-                    ],
-        "correct":  0,
-        "explanation":  "Minden kockának és téglatestnek 6 lapja, 12 éle és 8 csúcsa van."
+        "id": 185,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Hány lapja van egy kockának?",
+        "options": [
+            "8",
+            "12",
+            "4",
+            "6"
+        ],
+        "correct": 3,
+        "explanation": "A kockát 6 egybevágó négyzetlap határolja."
     },
     {
-        "id":  186,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Mekkora egy a = 5 cm élű kocka felszíne (A) és térfogata (V)?",
-        "options":  [
-                        "A = 25 cm²; V = 60 cm³",
-                        "A = 150 cm²; V = 125 cm³",
-                        "A = 125 cm²; V = 150 cm³",
-                        "A = 100 cm²; V = 125 cm³"
-                    ],
-        "correct":  1,
-        "explanation":  "A = 6 · 5 · 5 = 150 cm²; V = 5 · 5 · 5 = 125 cm³."
+        "id": 186,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Mekkora az 5 cm élű kocka térfogata?",
+        "options": [
+            "125 cm³",
+            "150 cm³",
+            "25 cm³",
+            "50 cm³"
+        ],
+        "correct": 0,
+        "explanation": "A kocka térfogata: V = a · a · a = 5 · 5 · 5 = 125 cm³."
     },
     {
-        "id":  187,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Melyik a számsorozat következő két tagja: 3, 7, 15, 31, ...?",
-        "options":  [
-                        "62, 124",
-                        "35, 39",
-                        "63, 127",
-                        "47, 63"
-                    ],
-        "correct":  2,
-        "explanation":  "Minden tag az előző kétszeresénél 1-gyel nagyobb (+4, +8, +16, +32, +64): 63, 127."
+        "id": 187,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Melyik szám következik: 3, 7, 15, 31, ...?",
+        "options": [
+            "62",
+            "63",
+            "47",
+            "35"
+        ],
+        "correct": 1,
+        "explanation": "A lépések duplázódnak (+4, +8, +16, +32): 31 + 32 = 63."
     },
     {
-        "id":  188,
-        "subject":  "Matematika",
-        "icon":  "📐",
-        "grade":  "5. osztály",
-        "q":  "Szabályos dobókockával dobva milyen esemény: 1) 7-nél kisebb, 2) páros, 3) 8-as?",
-        "options":  [
-                        "1) lehetséges, 2) lehetetlen, 3) biztos",
-                        "1) lehetetlen, 2) biztos, 3) lehetséges",
-                        "Mindhárom biztos esemény",
-                        "1) biztos, 2) lehetséges, 3) lehetetlen"
-                    ],
-        "correct":  3,
-        "explanation":  "7-nél kisebb szám: biztos; páros szám: lehetséges (de nem biztos); 8-as dobás: lehetetlen."
+        "id": 188,
+        "subject": "Matematika",
+        "icon": "📐",
+        "grade": "5. osztály",
+        "q": "Dobókockával 8-ast dobni milyen esemény?",
+        "options": [
+            "Biztos",
+            "Lehetséges",
+            "Lehetetlen",
+            "Véletlen"
+        ],
+        "correct": 2,
+        "explanation": "A kockán csak 1-től 6-ig vannak számok, ezért 8-ast dobni lehetetlen esemény."
     }
 ]

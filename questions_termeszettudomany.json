@@ -1,362 +1,362 @@
 [
     {
-        "id":  145,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mi a neve: 1) szilárdból folyékony, 2) folyékonyból légnemű (felszínen), 3) légneműből folyékony?",
-        "options":  [
-                        "1) olvadás, 2) párolgás, 3) lecsapódás",
-                        "1) fagyás, 2) lecsapódás, 3) olvadás",
-                        "1) oldódás, 2) fagyás, 3) párolgás",
-                        "1) forrás, 2) olvadás, 3) fagyás"
-                    ],
-        "correct":  0,
-        "explanation":  "Szilárdból folyékony = olvadás; folyékonyból légnemű a felszínen = párolgás; légneműből folyékony = lecsapódás."
+        "id": 145,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Hogyan nevezzük a jég elolvadását folyadékká?",
+        "options": [
+            "Fagyás",
+            "Párolgás",
+            "Lecsapódás",
+            "Olvadás"
+        ],
+        "correct": 3,
+        "explanation": "Melegítés hatására a szilárd anyag (pl. jég) megolvad, és folyadékká alakul."
     },
     {
-        "id":  146,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mi történik a víz térfogatával, amikor 0 °C-on megfagy?",
-        "options":  [
-                        "Egyáltalán nem változik",
-                        "Megnő (kitágul), ezért a jég úszik a vízen",
-                        "Összehúzódik, ezért a jég lesüllyed",
-                        "Azonnal elpárolog"
-                    ],
-        "correct":  1,
-        "explanation":  "A víz térfogata fagyáskor megnő, ezért a jég úszik a víz tetején, a sziklák repedéseiben pedig aprózza a kőzeteket."
+        "id": 146,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Mi történik a víz térfogatával megfagyáskor?",
+        "options": [
+            "Megnő (kitágul)",
+            "Csökken",
+            "Változatlan marad",
+            "Eltűnik"
+        ],
+        "correct": 0,
+        "explanation": "A jég sűrűsége kisebb a víznél, mert fagyáskor a víz kitágul: ezért úszik a jéghegy."
     },
     {
-        "id":  147,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mi a különbség az olvadás és az oldódás között?",
-        "options":  [
-                        "Az oldódás csak 100 °C felett történik",
-                        "Olvadáskor az anyag gázzá válik",
-                        "Olvadás: hő hatására; Oldódás: oldószerben",
-                        "A két szó pontosan ugyanazt jelenti"
-                    ],
-        "correct":  2,
-        "explanation":  "Az olvadás hő hatására történő halmazállapot-változás, az oldódáshoz viszont oldószer (pl. víz) és oldandó anyag (pl. cukor) szükséges."
+        "id": 147,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Minek a hatására olvad meg a szilárd jég?",
+        "options": [
+            "Hűtés",
+            "Hő (melegítés)",
+            "Fény",
+            "Nyomás"
+        ],
+        "correct": 1,
+        "explanation": "Az olvadás hő hatására végbemenő halmazállapot-változás."
     },
     {
-        "id":  148,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mi a humusz a talajban?",
-        "options":  [
-                        "Gyárakban előállított műtrágya",
-                        "Apró kavicsok és homokszemek rétege",
-                        "A talajban élő giliszták összessége",
-                        "Bomló maradványokból keletkező szerves anyag"
-                    ],
-        "correct":  3,
-        "explanation":  "A humusz az elhalt növényi és állati maradványokból keletkező sötét színű szerves anyag, amely a talaj termőképességét adja."
+        "id": 148,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Mi a talajban lévő humusz?",
+        "options": [
+            "Kavicsréteg",
+            "Műtrágya",
+            "Lebomlott szerves anyag",
+            "Giliszták tömege"
+        ],
+        "correct": 2,
+        "explanation": "A humusz az elpusztult növényi és állati részek lebomlásából képződő termékeny réteg."
     },
     {
-        "id":  149,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Milyen gázok alkotják a levegőt?",
-        "options":  [
-                        "78% nitrogén, 21% oxigén, 1% egyéb gáz",
-                        "80% vízgőz és 20% szén-dioxid",
-                        "50% szén-dioxid és 50% hidrogén",
-                        "100% tiszta oxigén"
-                    ],
-        "correct":  0,
-        "explanation":  "A levegő 78% nitrogénből, 21% oxigénből és 1% egyéb gázból áll; a légzéshez és az égéshez az oxigén szükséges."
+        "id": 149,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Melyik gáz alkotja a levegő legnagyobb részét (78%)?",
+        "options": [
+            "Oxigén",
+            "Szén-dioxid",
+            "Vízgőz",
+            "Nitrogén"
+        ],
+        "correct": 3,
+        "explanation": "A levegő 78%-a nitrogénből, 21%-a oxigénből és 1%-a egyéb gázokból áll."
     },
     {
-        "id":  150,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Milyen mozgást végez a napraforgó, amikor a Nap felé fordul?",
-        "options":  [
-                        "Keringő mozgást",
-                        "Helyzetváltoztató mozgást (egy helyben maradva)",
-                        "Helyváltoztató mozgást",
-                        "Vándorló mozgást"
-                    ],
-        "correct":  1,
-        "explanation":  "A növények a gyökerükkel rögzítettek, így egy helyben maradva helyzetváltoztató mozgást végeznek."
+        "id": 150,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Milyen mozgást végez a forgó napraforgó?",
+        "options": [
+            "Helyzetváltoztató",
+            "Helyváltoztató",
+            "Keringő",
+            "Vándorló"
+        ],
+        "correct": 0,
+        "explanation": "A növény gyökere a talajban rögzített, így csupán a helyzetét változtatja a virágfej."
     },
     {
-        "id":  151,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Hogyan számítjuk ki a napi hőingást?",
-        "options":  [
-                        "A legmagasabb és legalacsonyabb értéket szorozzuk",
-                        "A reggeli és esti értéket összeadjuk",
-                        "A legmagasabb és legalacsonyabb hőmérséklet különbsége",
-                        "A mért hőmérsékletek átlagát vesszük"
-                    ],
-        "correct":  2,
-        "explanation":  "A napi hőingás a legmagasabb és a legalacsonyabb hőmérséklet különbsége; a középhőmérséklet pedig a mérések átlaga."
+        "id": 151,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Hogyan számoljuk ki a napi hőingást?",
+        "options": [
+            "Napi csúcsérték",
+            "Maximum és minimum különbsége",
+            "Mérések átlaga",
+            "Reggeli és esti összeg"
+        ],
+        "correct": 1,
+        "explanation": "A nap folyamán mért legmagasabb és legalacsonyabb hőmérséklet különbsége a hőingás."
     },
     {
-        "id":  152,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mit mutat az éghajlati diagramon a piros görbe és a kék oszlop?",
-        "options":  [
-                        "Piros: szélsebesség; Kék: légnyomás",
-                        "Mindkettő a fagyos napokat mutatja",
-                        "Piros: napsütés; Kék: folyók mélysége",
-                        "Piros: középhőmérséklet (°C); Kék: csapadék (mm)"
-                    ],
-        "correct":  3,
-        "explanation":  "Az éghajlati diagramon a piros görbe a havi középhőmérsékletet (°C), a kék oszlopok a havi csapadékot (mm) ábrázolják."
+        "id": 152,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Mit mutat a kék oszlop az éghajlati diagramon?",
+        "options": [
+            "Hőmérsékletet",
+            "Szélsebességet",
+            "Csapadékot (mm)",
+            "Páratartalmat"
+        ],
+        "correct": 2,
+        "explanation": "A diagram kék oszlopai a havonta lehullott csapadék milliméterét mutatják."
     },
     {
-        "id":  153,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Hogyan hatnak egymásra a mágneses pólusok?",
-        "options":  [
-                        "Az azonosak taszítják, a különbözőek vonzzák egymást",
-                        "A széliránytól függ a vonzásuk",
-                        "Az azonosak vonzzák, a különbözőek taszítják egymást",
-                        "Csak a műanyagot és a fát vonzzák"
-                    ],
-        "correct":  0,
-        "explanation":  "Az azonos pólusok (É–É, D–D) taszítják, a különböző pólusok (É–D) vonzzák egymást."
+        "id": 153,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Hogyan hatnak egymásra a mágnes azonos pólusai?",
+        "options": [
+            "Vonzzák egymást",
+            "Semlegesítik egymást",
+            "Nem hatnak",
+            "Taszítják egymást"
+        ],
+        "correct": 3,
+        "explanation": "Az azonos mágneses pólusok (észak-észak, dél-dél) taszítják egymást."
     },
     {
-        "id":  154,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Melyek a zöld növények alapvető élettelen életfeltételei?",
-        "options":  [
-                        "Sötétség és erős szél",
-                        "Fény, hő, víz, levegő és talaj (tápanyagok)",
-                        "Mágneses tér és hanghullámok",
-                        "Cukros víz és homok"
-                    ],
-        "correct":  1,
-        "explanation":  "A növények életéhez öt élettelen környezeti feltétel szükséges: fény, megfelelő hőmérséklet, levegő, víz és talaj."
+        "id": 154,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Melyik alapvető feltétel a zöld növények életéhez?",
+        "options": [
+            "Fény, víz, levegő",
+            "Sötétség és hideg",
+            "Erős szél",
+            "Csak a homok"
+        ],
+        "correct": 0,
+        "explanation": "A növényeknek a növekedéshez fényre, megfelelő hőre, vízre és szén-dioxidra van szükségük."
     },
     {
-        "id":  155,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mely csapadékfajták keletkeznek közvetlenül a lehűlő földfelszínen?",
-        "options":  [
-                        "Köd és szivárvány",
-                        "Eső, zápor, felhőszakadás",
-                        "Harmat, dér, zúzmara",
-                        "Hó, havas eső, jégeső"
-                    ],
-        "correct":  2,
-        "explanation":  "A felhőkből hullik az eső, hó, jégeső; közvetlenül a felszínen csapódik ki a harmat, a dér és a zúzmara."
+        "id": 155,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Melyik csapadék keletkezik közvetlenül a talajon?",
+        "options": [
+            "Eső",
+            "Harmat",
+            "Hó",
+            "Jégeső"
+        ],
+        "correct": 1,
+        "explanation": "A harmat, a dér és a zúzmara közvetlenül a felszínen lecsapódó talajmenti csapadék."
     },
     {
-        "id":  156,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mi okozza a napszakok, illetve az évszakok váltakozását?",
-        "options":  [
-                        "A felhők és a szelek mozgása",
-                        "A Nap kering a Föld körül",
-                        "A Hold keringése a Föld körül",
-                        "Napszakok: Föld forgása; Évszakok: Föld keringése"
-                    ],
-        "correct":  3,
-        "explanation":  "A Föld 24 órás tengely körüli forgása a napszakokat, a 365 és negyed napos Nap körüli keringése (ferde tengellyel) az évszakokat okozza."
+        "id": 156,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Mi okozza a nappalok és éjszakák váltakozását?",
+        "options": [
+            "A Nap mozgása",
+            "A Hold keringése",
+            "A Föld forgása",
+            "A felhők mozgása"
+        ],
+        "correct": 2,
+        "explanation": "A Föld 24 óra alatt egyszer megfordul a saját tengelye körül, felváltva a nappalt és éjt."
     },
     {
-        "id":  157,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Melyek a fővilágtájak, és merre van észak a térképen?",
-        "options":  [
-                        "Észak, Kelet, Dél, Nyugat; a térkép felső szélén",
-                        "Bal és Jobb; a térkép közepén",
-                        "ÉK, DK, DNy, ÉNy; a térkép alján",
-                        "Észak, Dél; a térkép jobb oldalán"
-                    ],
-        "correct":  0,
-        "explanation":  "A fővilágtájak: É, K, D, Ny (mellékvilágtájak: ÉK, DK, DNy, ÉNy); a térképen észak felfelé van."
+        "id": 157,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Merre mutat az északi irány a térképen?",
+        "options": [
+            "Lefelé",
+            "Jobbra",
+            "Balra",
+            "Felfelé"
+        ],
+        "correct": 3,
+        "explanation": "A szabványos földrajzi térképek tájolásakor a felső szél mutat észak felé."
     },
     {
-        "id":  158,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mit jelöl a domborzati térképen a zöld és a barna szín?",
-        "options":  [
-                        "Az országok politikai határait",
-                        "Zöld: síkság (0–200 m); Barna: dombság és hegység",
-                        "Zöld: sivatag; Barna: óceán",
-                        "Zöld: erdő; Barna: szántóföld"
-                    ],
-        "correct":  1,
-        "explanation":  "Kék: vizek; zöld: alföld (0–200 m); világosbarna: dombság (200–500 m); sötétbarna: közép- és magashegység (500 m felett)."
+        "id": 158,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Milyen domborzatot jelöl a zöld szín a térképen?",
+        "options": [
+            "Síkságot",
+            "Középhegységet",
+            "Magashegységet",
+            "Tengert"
+        ],
+        "correct": 0,
+        "explanation": "A zöld szín a 0 és 200 méter közötti alföldeket, síkságokat jelöli."
     },
     {
-        "id":  159,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mit jelent a térképen az 1 : 100 000 méretarány?",
-        "options":  [
-                        "A térkép 100 000 éves",
-                        "A térkép 100 000-szer nagyobb a valóságnál",
-                        "1 cm a térképen a valóságban 100 000 cm (1 km)",
-                        "Csak 100 000 főnél nagyobb városokat mutat"
-                    ],
-        "correct":  2,
-        "explanation":  "1 : 100 000 méretaránynál a térképen mért 1 cm a valóságban 100 000 cm = 1000 m = 1 km."
+        "id": 159,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Mit jelent az 1 : 100 000 méretarány a térképen?",
+        "options": [
+            "1 cm = 100 km",
+            "1 cm = 1 km",
+            "1 cm = 10 m",
+            "100 000 éves a térkép"
+        ],
+        "correct": 1,
+        "explanation": "1 cm a papíron a valóságban 100 000 cm = 1000 méter = 1 kilométer."
     },
     {
-        "id":  160,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Melyik földrészen és tájegységben fekszik Magyarország?",
-        "options":  [
-                        "Észak-Amerikában",
-                        "Dél-Európában, az Alpokban",
-                        "Nyugat-Ázsiában",
-                        "Közép-Európában, a Kárpát-medencében"
-                    ],
-        "correct":  3,
-        "explanation":  "Magyarország Európa középső részén (Közép-Európában), a Kárpát-medencében helyezkedik el."
+        "id": 160,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Melyik medencében fekszik hazánk, Magyarország?",
+        "options": [
+            "Balkán-medence",
+            "Alpok",
+            "Kárpát-medence",
+            "Skandinávia"
+        ],
+        "correct": 2,
+        "explanation": "Magyarország a hegyek által ölelt Kárpát-medence központi részén terül el."
     },
     {
-        "id":  161,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Hogyan állapítjuk meg egy folyó jobb és bal partját?",
-        "options":  [
-                        "A folyásirányba (a torkolat felé) nézve",
-                        "A széliránynak háttal állva",
-                        "A forrással szemben állva",
-                        "A térképen mindig a nyugati part a bal part"
-                    ],
-        "correct":  0,
-        "explanation":  "A folyó folyásirányába (a torkolat felé) nézve a jobb kezünk felé esik a jobb part, bal kezünk felé a bal part."
+        "id": 161,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Hogyan állapítjuk meg egy folyó jobb és bal partját?",
+        "options": [
+            "A forrás felé nézve",
+            "Észak felé állva",
+            "Szélirányba fordulva",
+            "Folyásirányba nézve"
+        ],
+        "correct": 3,
+        "explanation": "Mindig a víz sodrásának, folyásának irányába tekintve határozzuk meg a partokat."
     },
     {
-        "id":  162,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Melyek a virágos növények fajfenntartó (szaporító) szervei?",
-        "options":  [
-                        "Csak a gyökérzet és a fatörzs",
-                        "A virág és a termés (benne a maggal)",
-                        "Csak a lomblevelek",
-                        "A gyökér, a szár és a levél"
-                    ],
-        "correct":  1,
-        "explanation":  "A gyökér, a szár és a levél az egyed életét biztosító önfenntartó szervek; a virág és a termés (maggal) a fajfenntartó szervek."
+        "id": 162,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Melyik a virágos növény legfőbb szaporítószerve?",
+        "options": [
+            "A virág és a termés",
+            "A gyökérzet",
+            "A fatörzs",
+            "A lomblevél"
+        ],
+        "correct": 0,
+        "explanation": "A virág a megporzást, a termés pedig a benne rejlő mag védelmét és terjesztését szolgálja."
     },
     {
-        "id":  163,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mi a különbség a fa és a cserje (bokor) fásszára között?",
-        "options":  [
-                        "A cserjék minden ősszel elpusztulnak",
-                        "A fák szára zöld és lágyszárú",
-                        "A fának törzse van, a cserje tőből elágazik",
-                        "A cserjének vastag fatörzse van"
-                    ],
-        "correct":  2,
-        "explanation":  "A fáknak egyetlen fő fatörzsük és koronájuk van, míg a cserjék közvetlenül a talaj felett (tőből) több ágra ágaznak."
+        "id": 163,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Miben különbözik a cserje a fától?",
+        "options": [
+            "Nincs lombja",
+            "Tőből ágazik el",
+            "Lágyszárú növény",
+            "Minden ősszel elszárad"
+        ],
+        "correct": 1,
+        "explanation": "A cserjének nincs kiemelkedő központi törzse, közvetlenül a talaj felett elágazik."
     },
     {
-        "id":  164,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "A virág melyik részéből fejlődik ki a termés a megporzás után?",
-        "options":  [
-                        "A csészelevelekből",
-                        "A porzószálakból",
-                        "A sziromlevelekből",
-                        "A termő alsó részéből (a magházból)"
-                    ],
-        "correct":  3,
-        "explanation":  "A megporzás és megtermékenyítés után a sziromlevelek lehullanak, a termő magházából pedig kifejlődik a termés."
+        "id": 164,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "A virág melyik részéből alakul ki a termés?",
+        "options": [
+            "Szirmokból",
+            "Porzókból",
+            "A termőből (magházból)",
+            "Csészelevelekből"
+        ],
+        "correct": 2,
+        "explanation": "Megporzás után a termő magháza megnő, és abból fejlődik ki a termés."
     },
     {
-        "id":  165,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Mi jellemzi a gerinces állatokat a gerinctelenekkel szemben?",
-        "options":  [
-                        "Belső csontvázuk és gerincoszlopuk van",
-                        "A gerincteleneknek nincs fejük",
-                        "Minden vízi állat gerinctelen",
-                        "Külső kitinpáncél védi a testüket"
-                    ],
-        "correct":  0,
-        "explanation":  "A gerinceseknek (halak, kétéltűek, hüllők, madarak, emlősök) belső csontos vázuk van, a gerincteleneknek (pl. rovarok) nincs."
+        "id": 165,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Mi a gerinces állatok legfontosabb közös vonása?",
+        "options": [
+            "Külső kitinpáncél",
+            "Nincs fejük",
+            "Csak vízben élnek",
+            "Belső gerincoszlop"
+        ],
+        "correct": 3,
+        "explanation": "Testük belső szilárd támaszát a csontokból vagy porcokból álló gerincoszlop alkotja."
     },
     {
-        "id":  166,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Melyek a rovarok fő testtájai, és hány lábuk van?",
-        "options":  [
-                        "2 testtáj; 5 pár (10 db) láb",
-                        "Fej, tor, potroh; 3 pár (6 db) ízelt láb",
-                        "4 testtáj; 4 pár (8 db) láb",
-                        "Fej, nyak, törzs; 2 pár (4 db) láb"
-                    ],
-        "correct":  1,
-        "explanation":  "A rovarok testét kitinpáncél védi, 3 testtájuk (fej, tor, potroh) és 3 pár (6 db) ízelt lábuk van."
+        "id": 166,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Hány pár járólába van a kifejlett rovaroknak?",
+        "options": [
+            "3 pár (6 láb)",
+            "4 pár (8 láb)",
+            "5 pár (10 láb)",
+            "2 pár (4 láb)"
+        ],
+        "correct": 0,
+        "explanation": "Minden kifejlett rovarnak 3 pár, azaz 6 darab ízelt járólába van a torán."
     },
     {
-        "id":  167,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Hogyan csoportosítjuk az emlősöket táplálkozásuk alapján?",
-        "options":  [
-                        "Minden emlős növényevő",
-                        "Csak ragadozókra és magevőkre",
-                        "Növényevőkre, ragadozókra és mindenevőkre",
-                        "Csővel táplálkozókra"
-                    ],
-        "correct":  2,
-        "explanation":  "Az emlősök lehetnek növényevők (szarvasmarha, nyúl), ragadozók (macska, róka) vagy mindenevők (sertés, medve)."
+        "id": 167,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Milyen táplálkozású a vaddisznó és a medve?",
+        "options": [
+            "Növényevő",
+            "Mindenevő",
+            "Ragadozó",
+            "Rovarevő"
+        ],
+        "correct": 1,
+        "explanation": "Növényi részeket, gombákat és állati táplálékot is fogyasztanak, tehát mindenevők."
     },
     {
-        "id":  168,
-        "subject":  "Természettudomány",
-        "icon":  "🌿",
-        "grade":  "5. osztály",
-        "q":  "Milyen sorrendben követik egymást a tápláléklánc tagjai?",
-        "options":  [
-                        "Lebontó → Ragadozó → Növény",
-                        "Csúcsragadozó → Növényevő → Növény",
-                        "Ragadozó → Lebontó → Termelő",
-                        "Termelő (növény) → Növényevő → Ragadozó"
-                    ],
-        "correct":  3,
-        "explanation":  "A tápláléklánc mindig a termelővel (zöld növénnyel) kezdődik, amelyet az elsődleges fogyasztó (növényevő), majd a ragadozó követ."
+        "id": 168,
+        "subject": "Természettudomány",
+        "icon": "🌿",
+        "grade": "5. osztály",
+        "q": "Kik állnak a tápláléklánc legelső szintjén?",
+        "options": [
+            "Növényevők",
+            "Csúcsragadozók",
+            "Termelők (növények)",
+            "Lebontók"
+        ],
+        "correct": 2,
+        "explanation": "A zöld növények a napfény segítségével szerves anyagot állítanak elő: ők a termelők."
     }
 ]
